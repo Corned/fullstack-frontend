@@ -1,5 +1,22 @@
 {
-	"communities": [
-
+	"communities": [ 
+		"announcements",
+		"art",
+		"ask",
+		"askscience",
+		"aww",
+		"blog",
+		"books",
+		"creepy",
+		"dataisbeautiful",
+		"documentaries",
+		"gadgets",
+		"gaming",
+		"getmotivated",
+		"gifs",
+		"history",
+		"internetisbeautiful",
+		"movies",
+		"music"
 	]
 }

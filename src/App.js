@@ -20,25 +20,7 @@ class App extends React.Component {
 					<CommunityNavigation/>	
 				</div>
 				<div id="content">
-					<Communities>
-						<p className="select-community">AskReddit</p>
-						<p className="select-community">WorldNews</p>
-						<p className="select-community">Videos</p>
-						<p className="select-community">Funny</p>
-						<p className="select-community">TodayILearned</p>
-						<p className="select-community">Pics</p>
-						<p className="select-community">Gaming</p>
-						<p className="select-community">Movies</p>
-						<p className="select-community">News</p>
-						<p className="select-community">GIFs</p>
-						<p className="select-community">Movies</p>
-						<p className="select-community">MildlyInteresting</p>
-						<p className="select-community">Aww</p>
-						<p className="select-community">WTF</p>
-						<p className="select-community">Showerthoughts</p>
-						<p className="select-community">Technology</p>
-						<p className="select-community">me_irl</p>
-					</Communities>
+					<Communities/>
 					<div className="frame" id="posts">
 						<p className="post">hello world</p>
 						<p className="post">hello world</p>
