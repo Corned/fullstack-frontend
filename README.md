@@ -1,3 +1,5 @@
-# Cordial tai jotain
+# Cordial
 
-Reddit tyylinen sivusto missä voi jakaa omaa contentia.
+Reddit-tyylinen sivusto
+
+Backend: https://github.com/Corned/fullstack-backend
