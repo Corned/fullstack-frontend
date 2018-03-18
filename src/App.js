@@ -6,7 +6,7 @@ import CommunityNavigation from "./components/CommunityNavigation"
 
 import { communityInit } from "./reducers/community"
 
-import "./css/index.css"
+import "./index.css"
 
 class App extends React.Component {
 	componentWillMount() {
@@ -22,20 +22,6 @@ class App extends React.Component {
 				<div id="content">
 					<Communities/>
 					<div className="frame" id="posts">
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
 						<p className="post">hello world</p>
 						<p className="post">hello world</p>
 						<p className="post">hello world</p>
