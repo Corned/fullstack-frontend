@@ -1,13 +1,18 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import Post from "./components/Post"
 import Communities from "./components/Communities"
 import CommunityNavigation from "./components/CommunityNavigation"
+
+import { communityInit } from "./reducers/community"
 
 import "./css/index.css"
 
 class App extends React.Component {
+	componentWillMount() {
+		this.props.communityInit()
+	}
+
 	render() {
 		return (
 			<div>
@@ -63,4 +68,6 @@ class App extends React.Component {
 	}
 }
 
-export default connect(null, null)(App)
+const mapDispatchToProps = { communityInit }
+
+export default connect(null, mapDispatchToProps)(App)

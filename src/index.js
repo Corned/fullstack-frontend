@@ -5,12 +5,15 @@ import { Provider } from "react-redux"
 import App from "./App"
 import store from "./store"
 
+import { communityInit } from "./reducers/community"
+
 const render = () => {
 	ReactDOM.render(
-		<Provider store={store}>
+		<Provider store={store} communityInit={communityInit}>
 			<App/>
 		</Provider>, 
-		document.getElementById("root"))
+		document.getElementById("root")
+	)
 }
 
 render()
