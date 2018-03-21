@@ -19,7 +19,7 @@ const Post = ({ post }) => {
 	if (deltaTime < 1) {
 		postAdded = "less than an hour ago"
 	} else if (deltaTime < 24) {
-		postAdded = `${deltaTime} hour${deltaTime === 1 ? "" : "s"} ago`
+		postAdded = `${deltaTime === 1 ? "an" : deltaTime} hour${deltaTime === 1 ? "" : "s"} ago`
 	} else {
 		postAdded = `${(deltaTime % 24)} day${(deltaTime % 24 === 1 ? "" : "s")} ago`
 	}
