@@ -62,11 +62,9 @@ Link {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	align-items: stretch;
-	width: 150px;
+	width: 200px;
 	margin: 0px;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding: 0.7em;
     position: -webkit-sticky; /* Safari */
 	position: sticky;
 	top: 36px;
@@ -74,7 +72,6 @@ Link {
 
 .select-community {
 	padding: 3px;
-	margin-left: 5px;
 	margin-bottom: 3px;
 	font-family: monospace;
 	font-size: x-small;
@@ -107,12 +104,40 @@ Link {
 	margin-bottom: 3px;
 }
 
-.post {
-	padding: 5px;
-	margin-bottom: 50px;
+#posts {
+	padding: 1em;
 }
 
+.post {
+	padding-bottom: 1em;
+	display: flex;
+	flex-direction: row;
+}
 
+.post:last-child {
+	padding-bottom: 0px;
+}
+
+.post .thumbnail {
+	max-height: 6em;
+	margin-right: 1em;
+	border: rgba(0, 0, 0, 0.25) solid 1px;
+}
+
+.post .post-info * {
+	margin-bottom: 0.225em;
+}
+
+.post .post-info .post-title {
+	font-size: 2em;
+	color: black;
+}
+
+.post .post-info .post-source {
+	font-size: 0.5em;
+	margin-left: 0.5em;
+	color: gray;
+}
 
 
 
@@ -141,3 +166,24 @@ Link {
 	font-weight: 600;
 }
 
+/* LOGIN FORM */
+#login-form {
+	margin-bottom: 1em;
+}
+
+#login-form input {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0.4em;
+	margin: 0;
+	margin-bottom: 0.25em;
+	border: rgba(0, 0, 0, 0.25) solid 1px;
+}
+
+#login-form button {
+	margin-left: auto;
+}
+
+#login-form input:last-child {
+	margin: 0;
+}

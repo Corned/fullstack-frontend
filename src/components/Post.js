@@ -1,13 +1,35 @@
 import React from "react"
 
-const Post = ({ title }) => {
+const Post = ({ post }) => {
+	if (post.date === undefined) {
+		post.date = new Date()
+	} else if (typeof post.date === "string") {
+		post.date = new Date(post.date)
+	}
+
+	if (post.date === null) {
+		return null
+	}
+
+	const currentTime = new Date().getTime() / (1000 * 60 * 60)
+	const postTime = post.date.getTime() / (1000 * 60 * 60)
+	const deltaTime = Math.floor(currentTime - postTime)
+	
+	let postAdded
+	if (deltaTime < 1) {
+		postAdded = "less than an hour ago"
+	} else if (deltaTime < 24) {
+		postAdded = `${deltaTime} hour${deltaTime === 1 ? "" : "s"} ago`
+	} else {
+		postAdded = `${(deltaTime % 24)} day${(deltaTime % 24 === 1 ? "" : "s")} ago`
+	}
+
 	return (
 		<div className="post">
-			<div className="voting"></div>
-			<img className="thumbnail" alt="lol" src="https://i.imgur.com/BC6S0sn.png"/>
+			<img className="thumbnail" alt="lol" src="https://i.imgur.com/a7TZ0Yo.png"/>
 			<div className="post-info">
-				<p className="post-title">{title}<span className="post-source">(imgur.com)</span></p>
-				<p className="post-added">posted 4 hours ago by <span className="poster">Corned</span></p>
+				<p className="post-title">{post.title}<span className="post-source">(imgur.com)</span></p>
+				<p className="post-added">submitted {postAdded} by <span className="poster">Anon</span></p>
 				<p className="post-other"><span className="comments">74 comments</span> <span className="share">share</span> <span className="save">save</span></p>
 			</div>
 		</div>

@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 
 import Communities from "./components/Communities"
 import CommunityNavigation from "./components/CommunityNavigation"
+import Post from "./components/Post"
 
 import { communityInit } from "./reducers/community"
 import { postInit } from "./reducers/post"
@@ -24,9 +25,16 @@ class App extends React.Component {
 				<div id="content">
 					<Communities/>
 					<div className="frame" id="posts">
-						{this.props.posts.map((post) => <p key={post.id} className="post">{post.title}</p>)}
+						{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 					</div>
 					<div className="frame" id="sidebar">
+						<form id="login-form">
+							<input type="text" name="username" placeholder="username"/>
+							<input type="password" name="password" placeholder="password"/>
+							<button type="submit">Log in!</button>
+						</form>
+						<button id="submit-link">Submit Link</button>
+						<button id="submit-text">Submit Text</button>
 					</div>
 				</div>
 
