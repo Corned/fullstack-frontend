@@ -30,7 +30,7 @@ const Post = ({ post }) => {
 			<div className="post-info">
 				<p className="post-title">{post.title}<span className="post-source light-text">(imgur.com)</span></p>
 				<p className="post-added"><span className="light-text">submitted</span> {postAdded} <span className="light-text">by</span> <span className="poster">Anon</span></p>
-				<p className="post-other"><span className="comments">74 comments</span> <span className="share">share</span> <span className="save">save</span></p>
+				<p className="post-other"><span className="comments">{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</span> <span className="share">share</span> <span className="save">save</span></p>
 			</div>
 		</div>
 	)
