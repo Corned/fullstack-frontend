@@ -12,7 +12,7 @@ import "./index.css"
 
 class App extends React.Component {
 	componentWillMount() {
-		this.props.communityInit()
+		//this.props.communityInit()
 		this.props.postInit()
 	}
 

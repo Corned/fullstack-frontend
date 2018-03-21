@@ -14,7 +14,6 @@ const reducer = (store = [], action) => {
 export const postInit = () => {
 	return async (dispatch) => {
 		const posts = await postService.getAll()
-		console.log(posts)
 		dispatch({
 			type: "INIT",
 			data: posts
