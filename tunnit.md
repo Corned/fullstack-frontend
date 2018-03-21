@@ -5,3 +5,4 @@
 | 16.3.2018     | 4h 		| HTML, CSS siistimistä, alkuperäisempi tyyli 	 |
 | 18.3.2018     | 3h        | Dataa haetaan nyt palvelimelta (json-server), navigoinnin alkeet, backend konffaus |
 | 20.3.2018     | 1h        | Backendin tekemistä, Post model, posts controller, .rest pyyntö |
+| 21.3.2018     | 1h        | Backend hyväksyy POST /api/posts

@@ -2,9 +2,11 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 
 import communityReducer from "./reducers/community"
+import postReducer from "./reducers/post"
 
 const reducer = combineReducers({
-	communities: communityReducer
+	communities: communityReducer,
+	posts: postReducer
 })
 
 const store = createStore(

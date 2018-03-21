@@ -13,7 +13,7 @@ const Communities = (props) => {
 			<p className="select-community" onClick={navigate("/")}>Popular</p>
 			<p className="select-community" onClick={navigate("/c/all")}>All</p>
 			<p className="select-community" onClick={navigate("/c/random")}>Random</p>
-			{ props.communities.length === 0 ? null 
+			{ props.communities.length >= 0 ? null 
 				: 
 				<div id="my-communities">
 					<div className="select-community-divider"/>			

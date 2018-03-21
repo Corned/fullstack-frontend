@@ -5,12 +5,14 @@ import Communities from "./components/Communities"
 import CommunityNavigation from "./components/CommunityNavigation"
 
 import { communityInit } from "./reducers/community"
+import { postInit } from "./reducers/post"
 
 import "./index.css"
 
 class App extends React.Component {
 	componentWillMount() {
 		this.props.communityInit()
+		this.props.postInit()
 	}
 
 	render() {
@@ -22,9 +24,7 @@ class App extends React.Component {
 				<div id="content">
 					<Communities/>
 					<div className="frame" id="posts">
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
-						<p className="post">hello world</p>
+						{this.props.posts.map((post) => <p key={post.id} className="post">{post.title}</p>)}
 					</div>
 					<div className="frame" id="sidebar">
 					</div>
@@ -36,6 +36,7 @@ class App extends React.Component {
 	}
 }
 
-const mapDispatchToProps = { communityInit }
+const mapStateToProps = (state) => {return { "posts": state.posts }}
+const mapDispatchToProps = { communityInit, postInit }
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
