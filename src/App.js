@@ -19,12 +19,10 @@ class App extends React.Component {
 	render() {
 		return (
 			<div>
-				<div id="header">
-					<CommunityNavigation/>	
-				</div>
+				<CommunityNavigation/>	
 				<div id="content">
 					<Communities/>
-					<div className="frame" id="posts">
+					<div id="posts">
 						{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 					</div>
 					<div className="frame" id="sidebar">

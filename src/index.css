@@ -6,7 +6,7 @@
 
 body {
 	margin: 0px;
-	margin-bottom: 100px;
+	margin-bottom: 30em;
 	background-color: rgb(223, 223, 223);
 	font: normal x-small verdana, arial, helvetica, sans-serif;
 }
@@ -21,36 +21,36 @@ Link {
 }
 
 .frame {
-	border: rgba(0, 0, 0, 0.25) solid 1px;
+	/* border: rgba(0, 0, 0, 0.25) solid 1px; */
 	background-color: white;
 }
 
 #header {
-	z-index: 5;
-    position: -webkit-sticky; /* Safari */
-	position: sticky;
-	top: 0px;
+	margin: 1em;
+	padding: 0;
+}
+
+#header img {
+	width: 100%;
+	height: 100%;
+	max-height: 200px;
 }
 
 #content {
 	display: flex;
 	flex-direction: row;
 	margin: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 #content #posts {
 	flex-grow: 2;
-	margin-left: 10px;
-	margin-right: 10px;
-}
-
-#content {
-	height: 100%;
-	max-width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
-	padding-left: 10px;
-	padding-right: 10px;
+	margin-right: 1em;
+	margin-left: 1em;
 }
 
 #content * {
@@ -62,12 +62,14 @@ Link {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	width: 200px;
+	width: auto;
+	max-width: 200px;
 	margin: 0px;
 	padding: 0.7em;
     position: -webkit-sticky; /* Safari */
 	position: sticky;
-	top: 36px;
+	top: 1em;
+	box-shadow: 0px 1px 3px -0.9px rgba(0, 0, 0, 0.9);
 }
 
 .select-community {
@@ -105,23 +107,27 @@ Link {
 }
 
 #posts {
-	padding: 1em;
+	box-shadow: 0px 1px 3px -0.9px rgba(0, 0, 0, 0.9);
 }
 
 .post {
-	padding-bottom: 1em;
+	padding: 1em;
+	margin-bottom: -1px;
 	display: flex;
 	flex-direction: row;
+	border-bottom: rgba(0, 0, 0, 0.25) solid 2px;
 }
 
 .post:last-child {
-	padding-bottom: 0px;
+	margin-bottom: 0;
+	border-bottom: none;
 }
 
 .post .thumbnail {
 	max-height: 6em;
 	margin-right: 1em;
 	border: rgba(0, 0, 0, 0.25) solid 1px;
+	border-radius: 0.5em;
 }
 
 .post .post-info * {
@@ -129,7 +135,7 @@ Link {
 }
 
 .post .post-info .post-title {
-	font-size: 2em;
+	font-size: 1.5em;
 	color: black;
 }
 
@@ -140,9 +146,6 @@ Link {
 }
 
 
-
-
-
 /* COMMUNITY NAVIGATION */
 /* Div containing Hot, New, Rising, Controversial, Top, Gilded and Wiki */
 #community-navigation {
@@ -151,7 +154,8 @@ Link {
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
-	top: 0px;
+	margin-bottom: 1em;
+	box-shadow: 0px 1px 3px -0.9px rgba(0, 0, 0, 0.9);
 }
 
 .community-navigation-button {

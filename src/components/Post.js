@@ -25,7 +25,7 @@ const Post = ({ post }) => {
 	}
 
 	return (
-		<div className="post">
+		<div className="post frame">
 			<img className="thumbnail" alt="lol" src="https://i.imgur.com/a7TZ0Yo.png"/>
 			<div className="post-info">
 				<p className="post-title">{post.title}<span className="post-source">(imgur.com)</span></p>
