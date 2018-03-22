@@ -9,7 +9,7 @@ const Communities = (props) => {
 	}
 
 	return (
-		<div className="frame" id="communities">
+		<div className="frame drop-shadow" id="communities">
 			<p className="select-community" onClick={navigate("/")}>Popular</p>
 			<p className="select-community" onClick={navigate("/c/all")}>All</p>
 			<p className="select-community" onClick={navigate("/c/random")}>Random</p>

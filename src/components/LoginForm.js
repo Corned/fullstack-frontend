@@ -21,17 +21,17 @@ class LoginForm extends React.Component {
 				password: this.state.password
 			})
 
-			console.log("hello???")
 			this.props.login(user)
-			console.log("LOGGED IN!", user)
+			this.setState({
+				username: "",
+				password: ""
+			})
 		} catch (exception) {
+			this.setState({
+				password: ""
+			})
 			console.log(exception)
 		}
-	}
-
-	logout = async (event) => {
-		event.preventDefault()
-		this.props.logout()
 	}
 
 	textFieldHandler = (event) => {
@@ -46,18 +46,17 @@ class LoginForm extends React.Component {
 						type="text" 
 						name="username" 
 						placeholder="username"
+						autoComplete="off"
 						onChange={this.textFieldHandler}
 					/>
 					<input 
 						type="password" 
 						name="password" 
 						placeholder="password"
+						autoComplete="off"
 						onChange={this.textFieldHandler}
 					/>
 					<button type="submit">Log in!</button>
-				</form>
-				<form id="login-form" onSubmit={this.logout}>
-					<button type="submit">Logout</button>
 				</form>
 			</div>
 		)

@@ -24,21 +24,50 @@ class App extends React.Component {
 		}
 	}
 
+	logout = (event) => {
+		event.preventDefault()
+		this.props.logout()
+	}
+
+	isLoggedIn = () => {
+		return this.props.loggedUser !== null
+	}
+
 	render() {
 		return (
 			<div>
 				<CommunityNavigation/>	
 				<div id="content">
 					<Communities/>
-					<div id="posts">
+					<div className="drop-shadow" id="posts">
 						{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 					</div>
-					<div className="frame" id="sidebar">
-						<LoginForm/>
-						{this.props.loggedUser === null ? "Not logged in.." : `Logged in as ${this.props.loggedUser.user.username}`}
-						<button id="submit-link">Submit Link</button>
-						<button id="submit-text">Submit Text</button>
-					</div>
+
+
+					{this.isLoggedIn() ?
+						<div id="sidebar">
+							<div id="user-information" className="frame drop-shadow">
+								<p className="sidebar-title">{this.props.loggedUser.user.username}</p>
+								<form onSubmit={this.logout}>
+									<button type="submit">Logout</button>
+								</form>
+							</div>
+							<div id="submit-selector" className="frame drop-shadow">
+								<button id="submit-link">Submit Link</button>
+								<button id="submit-text">Submit Text</button>
+								<button id="create-community">Create a Community</button>
+							</div>
+						</div>
+						:
+						<div id="sidebar">
+							<div className="frame drop-shadow">
+								<LoginForm/>
+							</div>
+						</div>
+					}
+
+
+
 				</div>
 
 

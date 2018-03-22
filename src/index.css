@@ -5,7 +5,7 @@
 }
 
 body {
-	margin: 0px;
+	margin: 1em;
 	margin-bottom: 30em;
 	background-color: rgb(223, 223, 223);
 	font: normal x-small verdana, arial, helvetica, sans-serif;
@@ -16,8 +16,10 @@ p {
 	padding: 0;
 }
 
-Link {
-	text-decoration: none;
+.sidebar-title {
+	text-align: center;
+	margin-bottom: 0.5em;
+	font-size: 1.5em;
 }
 
 .light-text {
@@ -27,28 +29,19 @@ Link {
 .frame {
 	/* border: rgba(0, 0, 0, 0.25) solid 1px; */
 	background-color: white;
+	padding: 1em;
 }
 
-#header {
-	margin: 1em;
-	padding: 0;
-}
-
-#header img {
-	width: 100%;
-	height: 100%;
-	max-height: 200px;
+.drop-shadow {
+	box-shadow: 0px 1px 3px -0.9px rgba(0, 0, 0, 0.9);
 }
 
 #content {
 	display: flex;
 	flex-direction: row;
-	margin: 10px;
 	margin-left: auto;
 	margin-right: auto;
 	height: 100%;
-	padding-left: 10px;
-	padding-right: 10px;
 }
 
 #content #posts {
@@ -68,13 +61,38 @@ Link {
 	flex-wrap: nowrap;
 	width: auto;
 	max-width: 200px;
-	margin: 0px;
-	padding: 0.7em;
     position: -webkit-sticky; /* Safari */
 	position: sticky;
 	top: 1em;
-	box-shadow: 0px 1px 3px -0.9px rgba(0, 0, 0, 0.9);
 }
+
+#content #sidebar {
+	min-width: 200px;
+	padding: 0;
+}
+
+#content #sidebar .frame {
+	margin-bottom: 1em;
+}
+
+#content #sidebar .frame:last-child {
+	margin-bottom: 0;
+}
+
+#content #sidebar #submit-selector, #content #sidebar #user-information {
+	display: flex;
+	flex-direction: column;
+}
+
+#content #sidebar #submit-selector *, #content #sidebar #user-information * {
+	margin-bottom: 1em;
+}
+
+#content #sidebar #submit-selector *:last-child, #content #sidebar #user-information *:last-child {
+	margin-bottom: 0;
+}
+
+
 
 .select-community {
 	padding: 3px;
@@ -88,7 +106,6 @@ Link {
 .select-community:hover {
 	cursor: pointer;
 }
-
 
 .select-community:first-child {
 	margin-top: 0px;
@@ -110,12 +127,7 @@ Link {
 	margin-bottom: 3px;
 }
 
-#posts {
-	box-shadow: 0px 1px 3px -0.9px rgba(0, 0, 0, 0.9);
-}
-
 .post {
-	padding: 1em;
 	margin-bottom: -1px;
 	display: flex;
 	flex-direction: row;
@@ -143,8 +155,8 @@ Link {
 	color: black;
 }
 
-.post .post-info .post-source {
-	font-size: 0.5em;
+.post .post-info .small-text {
+	font-size: 0.6em;
 	margin-left: 0.5em;
 	color: gray;
 }
@@ -159,7 +171,6 @@ Link {
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin-bottom: 1em;
-	box-shadow: 0px 1px 3px -0.9px rgba(0, 0, 0, 0.9);
 }
 
 .community-navigation-button {
@@ -176,7 +187,6 @@ Link {
 
 /* LOGIN FORM */
 #login-form {
-	margin-bottom: 1em;
 }
 
 #login-form input {
