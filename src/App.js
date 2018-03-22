@@ -4,9 +4,11 @@ import { connect } from "react-redux"
 import Communities from "./components/Communities"
 import CommunityNavigation from "./components/CommunityNavigation"
 import Post from "./components/Post"
+import LoginForm from "./components/LoginForm"
 
 import { communityInit } from "./reducers/community"
 import { postInit } from "./reducers/post"
+import { login, logout } from "./reducers/loggedUser"
 
 import "./index.css"
 
@@ -14,6 +16,12 @@ class App extends React.Component {
 	componentWillMount() {
 		//this.props.communityInit()
 		this.props.postInit()
+
+		const loggedUserJSON = window.localStorage.getItem("loggedUser")
+		if (loggedUserJSON) {
+			const user = JSON.parse(loggedUserJSON)
+			this.props.login(user)
+		}
 	}
 
 	render() {
@@ -26,11 +34,8 @@ class App extends React.Component {
 						{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 					</div>
 					<div className="frame" id="sidebar">
-						<form id="login-form">
-							<input type="text" name="username" placeholder="username"/>
-							<input type="password" name="password" placeholder="password"/>
-							<button type="submit">Log in!</button>
-						</form>
+						<LoginForm/>
+						{this.props.loggedUser === null ? "Not logged in.." : `Logged in as ${this.props.loggedUser.user.username}`}
 						<button id="submit-link">Submit Link</button>
 						<button id="submit-text">Submit Text</button>
 					</div>
@@ -42,7 +47,13 @@ class App extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {return { "posts": state.posts }}
-const mapDispatchToProps = { communityInit, postInit }
+const mapStateToProps = (state) => {
+	return { 
+		"posts": state.posts,
+		"loggedUser": state.loggedUser
+	}
+}
+
+const mapDispatchToProps = { communityInit, postInit, login, logout }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
