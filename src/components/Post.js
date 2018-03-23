@@ -7,15 +7,16 @@ const Post = ({ post }) => {
 
 	const currentTime = new Date().getTime() / (1000 * 60 * 60)
 	const postTime = post.date.getTime() / (1000 * 60 * 60)
-	const deltaTime = Math.floor(currentTime - postTime)
+	const deltaTimeHours = Math.floor(currentTime - postTime)
+	const deltaTimeDays = Math.floor(deltaTimeHours / 24)
 	
 	let postAdded
-	if (deltaTime < 1) {
+	if (deltaTimeHours < 1) {
 		postAdded = "less than an hour ago"
-	} else if (deltaTime < 24) {
-		postAdded = `${deltaTime === 1 ? "an" : deltaTime} hour${deltaTime === 1 ? "" : "s"} ago`
+	} else if (deltaTimeHours < 24) {
+		postAdded = `${deltaTimeHours === 1 ? "an" : deltaTimeHours} hour${deltaTimeHours === 1 ? "" : "s"} ago`
 	} else {
-		postAdded = `${(deltaTime % 24)} day${(deltaTime % 24 === 1 ? "" : "s")} ago`
+		postAdded = `${deltaTimeDays === 1 ? "a" : deltaTimeDays} day${(deltaTimeDays === 1 ? "" : "s")} ago`
 	}
 
 	return (
