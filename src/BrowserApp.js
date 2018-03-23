@@ -43,7 +43,6 @@ class App extends React.Component {
 						{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 					</div>
 
-
 					{this.isLoggedIn() ?
 						<div id="sidebar">
 							<div id="user-information" className="frame drop-shadow">
@@ -65,12 +64,7 @@ class App extends React.Component {
 							</div>
 						</div>
 					}
-
-
-
 				</div>
-
-
 			</div>
 		)
 	}
