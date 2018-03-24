@@ -5,7 +5,8 @@
 
 body {
   background-color: #dfdfdf;
-  font: normal x-small verdana, arial, helvetica, sans-serif; }
+  font: normal x-small verdana, arial, helvetica, sans-serif;
+  height: 100%; }
   body::-webkit-scrollbar {
     display: none; }
 
@@ -21,6 +22,31 @@ button {
   padding: 1em; }
   button:hover {
     background: rgba(0, 0, 0, 0.1); }
+
+/*    Footer    */
+#footer {
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: -7em;
+  padding: 1em;
+  height: 7em;
+  position: relative;
+  z-index: 10; }
+  #footer .image {
+    flex-shrink: 0; }
+    #footer .image a img {
+      cursor: pointer;
+      display: block;
+      height: 100%;
+      object-fit: scale-down;
+      opacity: 0.2;
+      padding: 1em;
+      transition: opacity 0.5s; }
+      #footer .image a img:hover {
+        opacity: 1;
+        transition: opacity 0.5s; }
 
 /*    No select    */
 .no-select {

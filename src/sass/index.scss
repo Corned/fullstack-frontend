@@ -10,6 +10,7 @@ $global-padding-padding: 1em;
 body {
 	background-color: $primary-color;
 	font: normal x-small verdana, arial, helvetica, sans-serif;
+	height: 100%;
 
 	&::-webkit-scrollbar { 
 		display: none; 
@@ -30,6 +31,39 @@ button {
 
 	&:hover {
 		background: rgba(0, 0, 0, 0.1);
+	}
+}
+
+/*    Footer    */
+#footer {
+	background-color: white;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-top: -7em;
+	padding: 1em;
+    height: 7em;
+    position: relative;
+    z-index: 10;
+
+	.image {
+		flex-shrink: 0;
+		a {		
+			img {
+				cursor: pointer;
+				display: block;
+				height: 100%;
+				object-fit: scale-down;
+				opacity: 0.2;
+				padding: 1em;
+				transition: opacity 0.5s;
+
+				&:hover {
+					opacity: 1;
+					transition: opacity 0.5s;
+				}
+			}
+		}
 	}
 }
 
