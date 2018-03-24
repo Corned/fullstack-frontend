@@ -43,7 +43,7 @@ class App extends React.Component {
 			<div>
 				<div id="banner" className="image-shadow">
 					<img className="no-select" src="https://i.imgur.com/cuF3Tp7.jpg" alt="banner"/>
-					<div id="banner-text" className="no-select">Cordial-Meta</div>
+					<div id="banner-text" className="no-select">Popular</div>
 				</div>
 				<Router>
 					<div id="content">
@@ -59,6 +59,11 @@ class App extends React.Component {
 
 							{/* Rightmost */}
 							<div className="content-child" id="sidebar">
+								<div id="search-box" className="frame drop-shadow">
+									<form>
+										<input placeholder="Search!" type="text"/>
+									</form>
+								</div>
 								<DisplayContent display={this.isLoggedIn()}>
 									<div id="user-information" className="frame drop-shadow">
 										<form onSubmit={this.logout}>
