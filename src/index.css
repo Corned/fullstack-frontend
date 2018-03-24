@@ -16,6 +16,24 @@ p {
 	padding: 0;
 }
 
+#header {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	margin-bottom: 1em;
+	overflow: hidden;
+	box-shadow: inset 0px 2px 10px 1px black !important;
+	max-height: 40em;
+}
+
+#header img {
+	display: block;
+	height: 100%;    
+	z-index: -2;
+	object-fit: cover;
+	object-position: 50% 50%;
+}
+
 .sidebar-title {
 	text-align: center;
 	margin-bottom: 0.5em;
