@@ -8,3 +8,4 @@
 | 21.3.2018     | 5.5h      | Backend hyväksyy POST /api/posts, frontend hakee postit backendistä, postit listataan etusivulla, posteilla on päivämäärä ja se näytetään "hours ago" formaatissa https://i.imgur.com/6Pt26KK.png, post näyttää kaiken datan mitä pystyy, post, community ja user luonti ja näiden populointi, ensimmäinen testi, kirjautumislomake |
 | 22.3.2018     | 4h        | Kirjautuminen sisään ja ulos graaffisen käyttöliittymän kautta, tyyliä muutettu, sivu näyttää kirjautumislomakkeen vain kun käyttäjä ei ole kirjautunut sisään. Sisäisesti testattu "default communities" |
 | 23.3.2018     | 1.5h      | Postien "added n days ago" virhe korjattu, mobiilille ja selaimelle eri näkymät |
+| 24.3.2018     | 4h        | Enimmäkseen BrowserApp.js ja CSS refaktorointia. Sass otettiin käyttöön ja luin miten CSS kannattaa kirjoittaa. Sivulla nyt myös hakukenttä ja footer jossa linkki tähän github repoon |
