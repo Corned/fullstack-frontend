@@ -19,10 +19,10 @@ p {
 
 button {
 	background: rgba(0, 0, 0, 0.05);
-    padding: $global-padding-padding;
-    font: inherit;
-	cursor: pointer;
 	border: 1px solid rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+    font: inherit;
+    padding: $global-padding-padding;
 
 	&:hover {
 		background: rgba(0, 0, 0, 0.1);
@@ -31,19 +31,19 @@ button {
 
 /*    No select    */
 .no-select {
+	cursor: default;
 	user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	-webkit-user-select: none;
-	cursor: default;
 }
 
 /*    Banner containing image for community and user    */
 #banner {
 	align-content: center;
 	box-shadow: inset 0 2px 10px 10px black;
-	display: flex;
 	display: -webkit-flex;
+	display: flex;
 	flex-direction: column;
 	max-height: 40em;
 	overflow: hidden;
@@ -55,23 +55,22 @@ button {
 	img {
 		display: block;
 		height: 100%;    
-		z-index: -15;
 		object-fit: cover;
 		object-position: 50% 50%;
+		z-index: -15;
 	}
 
 	#banner-text {
-		font-size: 10em;
-		position: relative;
 		color: white;
-		text-shadow: black 0 2px 5px;
-		z-index: 5;
-		white-space: nowrap;
-	
-		position: absolute;
-		top: 50%;
+		font-size: 10em;
 		left: 50%;
+		position: absolute;
+		position: relative;
+		text-shadow: black 0 2px 5px;
+		top: 50%;
 		transform: translate(-50%, -50%);
+		white-space: nowrap;
+		z-index: 5;
 	}
 }
 
@@ -81,9 +80,9 @@ button {
 }
 
 .sidebar-title {
-	text-align: center;
-	margin-bottom: 0.5em;
 	font-size: 1.5em;
+	margin-bottom: 0.5em;
+	text-align: center;
 }
 
 .light-text {
@@ -95,16 +94,16 @@ button {
 }
 
 #content {
-	display: flex;
+	background-color: $primary-color;
+	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 1);
 	display: -webkit-flex;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	padding: $global-padding-padding;
-	padding-bottom: 10em;
 	height: 100%;
-	background-color: $primary-color;
+	padding-bottom: 10em;
+	padding: $global-padding-padding;
 	z-index: 10;
-	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 1);
 	
 	.content-child:first-child {
 		width: 100%;
@@ -112,8 +111,8 @@ button {
 
 	#posts {
 		flex-grow: 2;
-		margin-right: $global-padding-padding;
 		margin-left: $global-padding-padding;
+		margin-right: $global-padding-padding;
 	}
 
 	* {
@@ -124,15 +123,15 @@ button {
 /* Community sidebar */
 #content {
 	#communities, #sidebar {
-		display: flex;
 		display: -webkit-flex;
+		display: flex;
 		flex-direction: column;
 		flex-wrap: nowrap;
-		width: auto;
 		max-width: 200px;
 		position: -webkit-sticky;
 		position: sticky;
 		top: $global-padding-padding;
+		width: auto;
 	} 
 	
 	#sidebar {
@@ -148,8 +147,8 @@ button {
 		}
 
 		#submit-selector, #user-information {
-			display: flex;
 			display: -webkit-flex;
+			display: flex;
 			flex-direction: column;
 
 			* {
@@ -164,10 +163,10 @@ button {
 }
 
 .select-community {
-	padding: 3px;
-	margin-bottom: 3px;
 	font-family: monospace;
 	font-size: x-small;
+	margin-bottom: 3px;
+	padding: 3px;
 	text-transform: uppercase;
 	width: 0%;
 
@@ -185,46 +184,46 @@ button {
 }
 
 .select-community-divider {
+	background-color: transparent;
+	border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
+	border: transparent;
 	display: block;
 	height: 1px;
-	width: 100%;
-	background-color: transparent;
-	border: transparent;
-	border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
-	padding: 0;
-	margin: 0;
 	margin-bottom: 3px;
+	margin: 0;
+	padding: 0;
+	width: 100%;
 }
 
 .post {
-	margin-bottom: -1px;
-	display: flex;
-	display: -webkit-flex;
-	flex-direction: row;
 	border-bottom: rgba(0, 0, 0, 0.25) solid 2px;
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: -1px;
 
 	&:last-child {
-		margin-bottom: 0;
 		border-bottom: none;
+		margin-bottom: 0;
 	}
 	
 	.thumbnail {
-		max-height: 6em;
-		margin-right: $global-padding-padding;
-		border: rgba(0, 0, 0, 0.25) solid 1px;
 		border-radius: 0.5em;
+		border: rgba(0, 0, 0, 0.25) solid 1px;
+		margin-right: $global-padding-padding;
+		max-height: 6em;
 	}
 	
 	.post-info {
 		.post-title {
-			font-size: 1.5em;
 			color: black;
+			font-size: 1.5em;
 		}
 
 		.small-text {
+			color: gray;
 			font-size: 0.6em;
 			margin-left: 0.5em;
-			color: gray;
 		}
 		
 		* {
@@ -233,23 +232,22 @@ button {
 	}
 }
 
-/* COMMUNITY NAVIGATION */
-/* Div containing Hot, New, Rising, Controversial, Top, Gilded and Wiki */
+/*   Community Navigation (Hot, New, Rising, Controversial, Top, Gilded, Wiki)   */
 #community-navigation {
-	flex-grow: 100;
-	display: flex;
 	display: -webkit-flex;
+	display: flex;
 	flex-direction: row;
+	flex-grow: 100;
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin-bottom: $global-padding-padding;
 
 	.button {
 		font-size: 12px;
-		text-transform: uppercase;
 		margin-left: 3px;
 		margin-right: 3px;
 		padding: 5px 10px;
+		text-transform: uppercase;
 	}
 
 	.selected-button {
@@ -260,12 +258,12 @@ button {
 /* LOGIN FORM */
 #login-form {
 	input {
-		box-sizing: border-box;
-		width: 100%;
-		padding: 0.4em;
-		margin: 0;
-		margin-bottom: 0.25em;
 		border: rgba(0, 0, 0, 0.25) solid 1px;
+		box-sizing: border-box;
+		margin-bottom: 0.25em;
+		margin: 0;
+		padding: 0.4em;
+		width: 100%;
 		
 		&:last-child {
 			margin: 0;
