@@ -1,8 +1,8 @@
 import React from "react"
-import loginService from "../services/login"
+import loginService from "../../services/login"
 import { connect } from "react-redux"
 
-import { login, logout } from "../reducers/loggedUser"
+import { login, logout } from "../../reducers/loggedUser"
 
 class LoginForm extends React.Component {
 	constructor(props) {

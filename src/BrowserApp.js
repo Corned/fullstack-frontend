@@ -4,10 +4,11 @@ import { connect } from "react-redux"
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 // components
+import DisplayContent from "./components/DisplayContent"
 import Communities from "./components/Communities"
 import CommunityNavigation from "./components/CommunityNavigation"
 import Post from "./components/Post"
-import LoginForm from "./components/LoginForm"
+import LoginForm from "./components/sidebar/LoginForm"
 
 // reducers
 import { communityInit } from "./reducers/community"
@@ -39,44 +40,48 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<Router>
-				<div>
-					<div id="header">
-						<img src="https://i.imgur.com/SXuHOGK.png"/>
-					</div>
-
-					<Route path="(/|/c)" render={() => <CommunityNavigation/>}/>
-
-					<div id="content">
-						<Communities/>
-						<div className="drop-shadow" id="posts">
-							{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
-						</div>
-
-						{this.isLoggedIn() ?
-							<div id="sidebar">
-								<div id="user-information" className="frame drop-shadow">
-									<p className="sidebar-title">{this.props.loggedUser.user.username}</p>
-									<form onSubmit={this.logout}>
-										<button type="submit">Logout</button>
-									</form>
-								</div>
-								<div id="submit-selector" className="frame drop-shadow">
-									<button id="submit-link">Submit Link</button>
-									<button id="submit-text">Submit Text</button>
-									<button id="create-community">Create a Community</button>
-								</div>
-							</div>
-							:
-							<div id="sidebar">
-								<div className="frame drop-shadow">
-									<LoginForm/>
-								</div>
-							</div>
-						}
-					</div>
+			<div>
+				<div id="banner" className="image-shadow">
+					<img className="no-select" src="https://i.imgur.com/cuF3Tp7.jpg" alt="banner"/>
+					<div id="banner-text" className="no-select">Cordial-Meta</div>
 				</div>
-			</Router>
+				<Router>
+					<div id="content">
+							<Route path="(/|/c)" render={() => <CommunityNavigation/>}/>
+							
+							{/* Leftmost */}
+							<Communities/>
+
+							{/* Middle */}
+							<div className="content-child drop-shadow" id="posts">
+								{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
+							</div>
+
+							{/* Rightmost */}
+							<div className="content-child" id="sidebar">
+								<DisplayContent display={this.isLoggedIn()}>
+									<div id="user-information" className="frame drop-shadow">
+										<form onSubmit={this.logout}>
+											<button type="submit">Logout</button>
+										</form>
+									</div>
+									<div id="submit-selector" className="frame drop-shadow">
+										<button id="submit-link">Submit Link</button>
+										<button id="submit-text">Submit Text</button>
+										<button id="create-community">Create a Community</button>
+									</div>
+								</DisplayContent>
+
+								<DisplayContent display={!this.isLoggedIn()}>
+									<div className="frame drop-shadow">
+										<LoginForm/>
+									</div>
+								</DisplayContent>
+							</div>
+
+						</div>
+				</Router>
+			</div>
 		)
 	}
 }
