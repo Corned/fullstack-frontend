@@ -17,9 +17,9 @@ class Communities extends React.Component {
 	render() {
 		return (
 			<div className="frame drop-shadow" id="communities">
-				<p className="select-community" onClick={this.navigateTo("/")}>Popular</p>
-				<p className="select-community" onClick={this.navigateTo("/c/all")}>All</p>
-				<p className="select-community" onClick={this.navigateTo("/random")}>Random</p>
+				<p className="select-community" onClick={this.navigateTo("/")}>All</p>
+				{/* <p className="select-community" onClick={this.navigateTo("/c/all")}>All</p> */}
+				{/* <p className="select-community" onClick={this.navigateTo("/random")}>Random</p> */}
 				{ this.props.communities.length === 0 ? null 
 					: 
 					<div id="my-communities">
