@@ -4,13 +4,17 @@ import { connect } from "react-redux"
 import { logout } from "../../reducers/loggedUser"
 
 const UserInformation = (props) => {
-	console.log(props.loggedUser)
+	if (props.loggedUser === null) {
+		return null
+	}
+
+	const logout = () => {
+		props.logout()
+	}
 
 	return (
 		<div id="user-information" className="frame drop-shadow">
-			<form>
-				<button type="submit">Logout</button>
-			</form>
+			<button type="submit" onClick={logout}>Logout</button>
 		</div>
 	)
 }

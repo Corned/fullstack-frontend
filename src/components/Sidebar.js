@@ -5,15 +5,13 @@ import Search from "./sidebar/Search"
 import CommunityInformation from "./sidebar/CommunityInformation"
 import UserInformation from "./sidebar/UserInformation"
 
-import Login from "./Login"
+import LoginForm from "./LoginForm"
 
 const Sidebar = () => {
 	return (
 		<div id="sidebar">
 			<Search/>
-			<div className="frame drop-shadow">
-				<Login/>
-			</div>
+			<LoginForm/>
 			<UserInformation/>
 			<SubmitButtons/>
 			<CommunityInformation/>

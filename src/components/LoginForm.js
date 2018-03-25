@@ -39,8 +39,12 @@ class LoginForm extends React.Component {
 	}
 
 	render() {
+		if (this.props.loggedUser) {
+			return null
+		}
+		
 		return (
-			<form id="login-form" onSubmit={this.login}>
+			<form id="login-form" className="frame drop-shadow" onSubmit={this.login}>
 				<input 
 					type="text" 
 					name="username" 
