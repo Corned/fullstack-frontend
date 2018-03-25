@@ -1,23 +1,33 @@
 import postService from "../services/post"
 
 const initialState = {
-	community: null,
+	from: null,
 	sortBy: "date",
-	posts: []
+	data: []
 }
 
-const reducer = (state = [], action) => {
+const reducer = (state = initialState, action) => {
 	switch(action.type) {
-	case "INIT_POSTS":
-		return action.data
-	case "NEW_POST":
-		return [ ...state, action.data ]
-	default:
-		return state
+		case "INIT_POSTS":
+			return {
+				from: state.from,
+				sortBy: state.sortBy,
+				data: action.data
+			}
+
+		case "NEW_POST":
+			return {
+				from: state.from,
+				sortBy: state.sortBy,
+				data: [ ...state.data, action.data ]
+			}
+
+		default:
+			return state
 	}
 }
 
-export const postInit = () => {
+export const getAllPosts = () => {
 	return async (dispatch) => {
 		const posts = await postService.getAll()
 		posts.sort((a, b) => {
@@ -28,12 +38,13 @@ export const postInit = () => {
 		
 		dispatch({
 			type: "INIT_POSTS",
+			from: null,
 			data: posts
 		})
 	}
 }
 
-export const postsFromCommunity = (communityName) => {
+export const getAllPostsFromCommunity = (communityName) => {
 	return async (dispatch) => {
 		const posts = await postService.getAllFromCommunity(communityName)
 		posts.sort((a, b) => {
@@ -44,6 +55,7 @@ export const postsFromCommunity = (communityName) => {
 
 		dispatch({
 			type: "INIT_POSTS",
+			from: communityName,
 			data: posts
 		})
 	}

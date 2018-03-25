@@ -12,10 +12,4 @@ const getAllFromCommunity = async (community) => {
 	return response.data
 }
 
-const create = async () => {
-
-	// const response = await axios.post(baseUrl, newCommunity)
-	return "lol"
-}
-
-export default { getAll, create, getAllFromCommunity }
+export default { getAll, getAllFromCommunity }

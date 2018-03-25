@@ -16,21 +16,21 @@ import UserInformation from "./components/sidebar/UserInformation"
 import CommunityInformation from "./components/sidebar/CommunityInformation"
 
 // reducers
-import { communityInit } from "./reducers/community"
-import { postInit, postsFromCommunity } from "./reducers/post"
+import { getAllCommunities } from "./reducers/community"
+import { getAllPosts, getAllPostsFromCommunity } from "./reducers/post"
 import { login, logout } from "./reducers/loggedUser"
 
 import "./index.css"
 
 class App extends React.Component {
 	componentWillMount() {
-		this.props.communityInit()
+		this.props.getAllCommunities()
 
 		const pathname = this.props.history.location.pathname
 		if (pathname === "/") {
-			this.props.postInit()
+			this.props.getAllPosts()
 		} else if (/c\/.*$/g.test(pathname)) {
-			this.props.postsFromCommunity(pathname)
+			this.props.getAllPostsFromCommunity(pathname.substring(3))
 		}
 
 		const loggedUserJSON = window.localStorage.getItem("loggedUser")
@@ -54,7 +54,7 @@ class App extends React.Component {
 			<div>
 				<div id="banner" className="image-shadow">
 					<img className="no-select" src="https://i.imgur.com/cuF3Tp7.jpg" alt="banner"/>
-					<div id="banner-text" className="no-select">Popular</div>
+					<div id="banner-text" className="no-select">{this.props.posts.from === null ? "All" : this.props.posts.from}</div>
 				</div>
 
 				<Router>
@@ -68,7 +68,7 @@ class App extends React.Component {
 						<Route path="(/|/c)" render={() => {
 							return (
 								<div className="content-child fill drop-shadow" id="posts">
-									{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
+									{this.props.posts.data.map((post) => <Post key={post.id} post={post}/>)}
 								</div>
 							)
 						}}/>
@@ -120,6 +120,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { communityInit, postInit, postsFromCommunity, login, logout }
+const mapDispatchToProps = { getAllCommunities, getAllPosts, getAllPostsFromCommunity, login, logout }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App))

@@ -2,15 +2,26 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
-import { postsFromCommunity } from "../reducers/post"
+import { getAllPosts, getAllPostsFromCommunity } from "../reducers/post"
 
 class Communities extends React.Component {
-	navigateTo = (to) => {
+	navigateTo = (destination, isCommunity) => {
 		return () => {
-			if (this.props.history.location.pathname !== to) {
-				this.props.history.push(to)
-				this.props.postsFromCommunity(to)
+			let toPush
+
+			if (isCommunity) {
+				toPush = `/c/${destination}`
+				this.props.getAllPostsFromCommunity(destination)
+			} else if (destination === "/") {
+				toPush = "/"
+				this.props.getAllPosts()
 			}
+
+			if (this.props.history.location.pathname === toPush) {
+				return;
+			}
+
+			this.props.history.push(toPush)
 		}
 	}
 
@@ -29,7 +40,7 @@ class Communities extends React.Component {
 								<p 
 									key={index} 
 									className="select-community"
-									onClick={this.navigateTo(`/c/${community.name}`)}
+									onClick={this.navigateTo(`${community.name}`, true)}
 								>{community.name}</p>
 							)}
 						</div>
@@ -47,7 +58,7 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { postsFromCommunity }
+const mapDispatchToProps = { getAllPosts, getAllPostsFromCommunity }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Communities))
 

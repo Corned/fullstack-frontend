@@ -11,7 +11,7 @@ const reducer = (state = [], action) => {
 	}
 }
 
-export const communityInit = () => {
+export const getAllCommunities = () => {
 	return async (dispatch) => {
 		const communities = await communityService.getAll()
 		dispatch({
