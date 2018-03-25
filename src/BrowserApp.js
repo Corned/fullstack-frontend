@@ -8,7 +8,11 @@ import DisplayContent from "./components/DisplayContent"
 import Communities from "./components/Communities"
 import CommunityNavigation from "./components/CommunityNavigation"
 import Post from "./components/Post"
-import LoginForm from "./components/sidebar/LoginForm"
+
+import Search from "./components/sidebar/Search"
+import Login from "./components/sidebar/Login"
+import UserInformation from "./components/sidebar/UserInformation"
+import CommunityInformation from "./components/sidebar/CommunityInformation"
 
 // reducers
 import { communityInit } from "./reducers/community"
@@ -45,46 +49,34 @@ class App extends React.Component {
 					<img className="no-select" src="https://i.imgur.com/cuF3Tp7.jpg" alt="banner"/>
 					<div id="banner-text" className="no-select">Popular</div>
 				</div>
+
 				<Router>
 					<div id="content">
-							<Route path="(/|/c)" render={() => <CommunityNavigation/>}/>
-							
-							{/* Leftmost */}
-							<Communities/>
+						<Route path="(/|/c)" render={() => <CommunityNavigation/>}/>
+						
+						{/* Leftmost */}
+						<Communities/>
 
-							{/* Middle */}
-							<div className="content-child drop-shadow" id="posts">
-								{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
-							</div>
-
-							{/* Rightmost */}
-							<div className="content-child" id="sidebar">
-								<div id="search-box" className="frame drop-shadow">
-									<form>
-										<input placeholder="Search!" type="text"/>
-									</form>
-								</div>
-								<DisplayContent display={this.isLoggedIn()}>
-									<div id="user-information" className="frame drop-shadow">
-										<form onSubmit={this.logout}>
-											<button type="submit">Logout</button>
-										</form>
-									</div>
-									<div id="submit-selector" className="frame drop-shadow">
-										<button id="submit-link">Submit Link</button>
-										<button id="submit-text">Submit Text</button>
-										<button id="create-community">Create a Community</button>
-									</div>
-								</DisplayContent>
-
-								<DisplayContent display={!this.isLoggedIn()}>
-									<div className="frame drop-shadow">
-										<LoginForm/>
-									</div>
-								</DisplayContent>
-							</div>
-
+						{/* Middle */}
+						<div className="content-child drop-shadow" id="posts">
+							{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 						</div>
+
+						{/* Rightmost */}
+						<div className="content-child" id="sidebar">
+							<Search/>
+							<DisplayContent display={this.isLoggedIn()}>
+								<UserInformation/>
+								<CommunityInformation/>
+
+							</DisplayContent>
+
+							<DisplayContent display={!this.isLoggedIn()}>
+								<Login/>
+							</DisplayContent>
+						</div>
+
+					</div>
 				</Router>
 
 				<div id="footer" className="drop-shadow">

@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
 
 	render() {
 		return (
-			<div>
+			<div className="frame drop-shadow">
 				<form id="login-form" onSubmit={this.login}>
 					<input 
 						type="text" 

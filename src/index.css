@@ -96,6 +96,11 @@ input {
 .frame {
   background-color: white;
   padding: 1em; }
+  .frame .divider {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.25); }
+    .frame .divider:empty {
+      min-height: 1px; }
 
 .sidebar-title {
   font-size: 1.5em;
