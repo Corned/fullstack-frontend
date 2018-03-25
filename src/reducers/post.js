@@ -2,9 +2,9 @@ import postService from "../services/post"
 
 const reducer = (store = [], action) => {
 	switch(action.type) {
-	case "INIT":
+	case "INIT_POSTS":
 		return action.data
-	case "NEW":
+	case "NEW_POST":
 		return [ ...store, action.data ]
 	default:
 		return store
@@ -15,7 +15,7 @@ export const postInit = () => {
 	return async (dispatch) => {
 		const posts = await postService.getAll()
 		dispatch({
-			type: "INIT",
+			type: "INIT_POSTS",
 			data: posts
 		})
 	}

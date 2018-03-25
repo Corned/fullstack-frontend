@@ -1,36 +1,41 @@
 import React from "react"
 import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 
-const Communities = (props) => {
-	let navigate = (destination) => {
+class Communities extends React.Component {
+	navigateTo = (to) => {
 		return () => {
-			console.log(destination)
+			if (this.props.history.location.pathname !== to) {
+				this.props.history.push(to)
+			}
 		}
 	}
 
-	return (
-		<div className="frame drop-shadow" id="communities">
-			<p className="select-community" onClick={navigate("/")}>Popular</p>
-			<p className="select-community" onClick={navigate("/c/all")}>All</p>
-			<p className="select-community" onClick={navigate("/c/random")}>Random</p>
-			{ props.communities.length >= 0 ? null 
-				: 
-				<div id="my-communities">
-					<div className="select-community-divider"/>			
-					<div>
-						{props.communities.map((community, index) =>
-							<p 
-								key={index} 
-								className="select-community"
-								onClick={navigate(`/c/${community}`)}
-							>{community}</p>
-						)}
+	render() {
+		return (
+			<div className="frame drop-shadow" id="communities">
+				<p className="select-community" onClick={this.navigateTo("/")}>Popular</p>
+				<p className="select-community" onClick={this.navigateTo("/c/all")}>All</p>
+				<p className="select-community" onClick={this.navigateTo("/random")}>Random</p>
+				{ this.props.communities.length === 0 ? null 
+					: 
+					<div id="my-communities">
+						<div className="divider"/>			
+						<div>
+							{this.props.communities.map((community, index) =>
+								<p 
+									key={index} 
+									className="select-community"
+									onClick={this.navigateTo(`/c/${community.name}`)}
+								>{community.name}</p>
+							)}
+						</div>
 					</div>
-				</div>
 
-			}
-		</div>
-	)
+				}
+			</div>
+		)
+	}
 }
 
 const mapStateToProps = (state) => {
@@ -39,4 +44,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, null)(Communities)
+export default connect(mapStateToProps, null)(withRouter(Communities))
