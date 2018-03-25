@@ -1,7 +1,7 @@
 // npm modules
 import React from "react"
 import { connect } from "react-redux"
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom'
 
 // components
 import DisplayContent from "./components/DisplayContent"
@@ -17,7 +17,7 @@ import CommunityInformation from "./components/sidebar/CommunityInformation"
 
 // reducers
 import { communityInit } from "./reducers/community"
-import { postInit } from "./reducers/post"
+import { postInit, postsFromCommunity } from "./reducers/post"
 import { login, logout } from "./reducers/loggedUser"
 
 import "./index.css"
@@ -25,7 +25,13 @@ import "./index.css"
 class App extends React.Component {
 	componentWillMount() {
 		this.props.communityInit()
-		this.props.postInit()
+
+		const pathname = this.props.history.location.pathname
+		if (pathname === "/") {
+			this.props.postInit()
+		} else if (/c\/.*$/g.test(pathname)) {
+			this.props.postsFromCommunity(pathname)
+		}
 
 		const loggedUserJSON = window.localStorage.getItem("loggedUser")
 		if (loggedUserJSON) {
@@ -114,6 +120,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { communityInit, postInit, login, logout }
+const mapDispatchToProps = { communityInit, postInit, postsFromCommunity, login, logout }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App))

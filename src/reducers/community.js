@@ -21,7 +21,7 @@ export const communityInit = () => {
 	}
 } 
 
-export const communityNew = (name, user) => {
+/* export const communityNew = (name, user) => {
 	return async (dispatch) => {
 		const newCommunity = await communityService.create(name, user)
 		dispatch({
@@ -29,6 +29,6 @@ export const communityNew = (name, user) => {
 			data: newCommunity
 		})
 	}
-}
+} */
 
 export default reducer

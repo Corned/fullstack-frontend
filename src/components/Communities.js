@@ -2,11 +2,14 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
+import { postsFromCommunity } from "../reducers/post"
+
 class Communities extends React.Component {
 	navigateTo = (to) => {
 		return () => {
 			if (this.props.history.location.pathname !== to) {
 				this.props.history.push(to)
+				this.props.postsFromCommunity(to)
 			}
 		}
 	}
@@ -44,4 +47,7 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, null)(withRouter(Communities))
+const mapDispatchToProps = { postsFromCommunity }
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Communities))
+

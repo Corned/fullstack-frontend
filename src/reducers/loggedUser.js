@@ -1,5 +1,3 @@
-import postService from "../services/post"
-
 const reducer = (store = null, action) => {
 	switch(action.type) {
 	case "LOGIN":

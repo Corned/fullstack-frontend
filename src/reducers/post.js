@@ -19,6 +19,16 @@ export const postInit = () => {
 			data: posts
 		})
 	}
-} 
+}
+
+export const postsFromCommunity = (communityName) => {
+	return async (dispatch) => {
+		const posts = await postService.getAllFromCommunity(communityName)
+		dispatch({
+			type: "INIT_POSTS",
+			data: posts
+		})
+	}
+}
 
 export default reducer
