@@ -217,7 +217,6 @@ input {
   display: -webkit-flex;
   display: flex;
   flex-direction: row;
-  flex-grow: 100;
   flex-wrap: nowrap;
   justify-content: center;
   margin-bottom: 1em; }
