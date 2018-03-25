@@ -12,7 +12,7 @@ class SubmitButtons extends React.Component {
 	
 	render() {
 		return (
-			<div id="submit-selector" className="frame drop-shadow">
+			<div id="submit-buttons" className="frame drop-shadow">
 				<button id="submit-link" onClick={this.navigateTo("/submit/link")}>Submit Link</button>
 				<button id="submit-text" onClick={this.navigateTo("/submit/text")}>Submit Text</button>
 				<button id="create-community" onClick={this.navigateTo("/submit/community")}>Create a Community</button>

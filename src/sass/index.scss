@@ -1,6 +1,7 @@
 $primary-color: rgb(223, 223, 223);
 $border-color: rgba(0, 0, 0, 0.25);
 $global-padding-padding: 1em;
+$mobile-width-limit: 800px;
 
 * {
 	padding: 0;
@@ -11,30 +12,27 @@ $global-padding-padding: 1em;
 body {
 	background-color: $primary-color;
 	font: normal x-small verdana, arial, helvetica, sans-serif;
-	height: 100%;
+	height: 1000em;
 
-	&::-webkit-scrollbar { 
+	/* &::-webkit-scrollbar { 
 		display: none; 
-	}
-}
-
-p {
-	margin: 0;
-	padding: 0;
+	} */
 }
 
 button {
-	background: rgba(0, 0, 0, 0.05);
+	background-color: rgba(0, 0, 0, 0.05);
 	border: 1px solid $border-color;
 	cursor: pointer;
 	display: block;
 	padding: 0 auto;
     font: inherit;
 	padding: $global-padding-padding;
+	transition: background-color 0.2s;
+	transition: box-shadow 0.2s;
 
 	&:hover {
-		background: rgba(0, 0, 0, 0.1);
-	}
+		box-shadow: 0 1px 5px -1px black;
+	}	
 }	
 
 input {
@@ -43,42 +41,14 @@ input {
 	margin: 0;
 	padding: 0.4em;
 	width: 100%;
-}
+	transition: box-shadow 0.5s;
 
-/*    Footer    */
-#footer {
-	background-color: white;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	margin-top: -7em;
-	padding: 1em;
-    height: 7em;
-    position: relative;
-    z-index: 10;
-
-	.image {
-		flex-shrink: 0;
-		a {		
-			img {
-				cursor: pointer;
-				display: block;
-				height: 100%;
-				object-fit: scale-down;
-				opacity: 0.2;
-				padding: 1em;
-				transition: opacity 0.5s;
-
-				&:hover {
-					opacity: 1;
-					transition: opacity 0.5s;
-				}
-			}
-		}
+	&:focus {
+		box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.5);
+		outline: none;
 	}
 }
 
-/*    No select    */
 .no-select {
 	cursor: default;
 	user-select: none;
@@ -87,7 +57,21 @@ input {
 	-webkit-user-select: none;
 }
 
-/*    Banner containing image for community and user    */
+.frame {
+	background-color: white;
+	padding: $global-padding-padding;
+	box-shadow: 0 1px 3px -0.9px rgba(0, 0, 0, 0.9);
+
+	.divider {
+		display: block;
+		background-color: $border-color;
+
+		&:empty {
+			min-height: 1px;
+		}
+	}
+}
+
 #banner {
 	align-content: center;
 	display: flex;
@@ -95,15 +79,27 @@ input {
 	flex-direction: column;
 	max-height: 40em;
 	overflow: hidden;
-	position: sticky;
+	position: relative;
 	top: 0;
 	width: 100%;
-	z-index: -10; 
+	box-shadow: inset 0 0 5px 1px black;
+
+	@media all and (max-width: $mobile-width-limit) {
+		display: none;
+	}
+
+	.inset-image-shadow {
+		display: block;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		box-shadow: inset 0px 0px 10px 0 #000000;
+	}
 
 	img {
 		display: block;
 		height: 100%;
-		z-index: -15;
+		z-index: -1;
 		object-fit: cover;
 		object-position: 50% 50%;
 	}
@@ -119,184 +115,21 @@ input {
 		transform: translate(-50%, -50%);
 		white-space: nowrap;
 		z-index: 5;
+
+		transition: top 1s;
 	}
 }
 
-.frame {
-	background-color: white;
-	padding: $global-padding-padding;
-
-	.divider {
-		display: block;
-		background-color: $border-color;
-
-		&:empty {
-			min-height: 1px;
-		}
-	}
-}
-
-.sidebar-title {
-	font-size: 1.5em;
-	margin-bottom: 0.5em;
-	text-align: center;
-}
-
-.light-text {
-	color: rgba(0, 0, 0, 0.75);
-}
-
-.drop-shadow {
-	box-shadow: 0 1px 3px -0.9px rgba(0, 0, 0, 0.9);
-}
-
-#content {
-	background-color: $primary-color;
-	box-shadow: 0 0 10px -1px rgba(0, 0, 0, 1);
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	height: 100%;
-	padding: $global-padding-padding;
-	padding-bottom: 10em;
-	z-index: 10;
-	
-	.content-child:first-child {
-		width: 100%;
-	}
-
-	.fill {
-		margin-left: $global-padding-padding;
-		margin-right: $global-padding-padding;
-		flex-grow: 2;
-	}
-
-	* {
-		height: 0%;
-	}
-}
-
-/* Community sidebar */
-#content {
-	#communities, #sidebar {
-		display: -webkit-flex;
-		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;
-		max-width: 200px;
-		position: -webkit-sticky;
-		position: sticky;
-		top: $global-padding-padding;
-		width: auto;
-	} 
-	
-	#sidebar {
-		min-width: 200px;
-		padding: 0; 
-		
-		.frame {
-			margin-bottom: $global-padding-padding;
-
-			:last-child {
-				margin-bottom: 0;
-			}
-		}
-
-		#submit-selector, #user-information {
-			display: -webkit-flex;
-			display: flex;
-			flex-direction: column;
-
-			* {
-				margin-bottom: 10px;
-
-				&:last-child {
-					margin-bottom: 0;
-				}
-			}
-		}
-	}
-}
-
-.select-community {
-	font-family: monospace;
-	font-size: x-small;
-	margin-bottom: 3px;
-	padding: 3px;
-	text-transform: uppercase;
-	width: 0%;
-
-	&:hover {
-		cursor: pointer;
-	}
-	
-	&:first-child {
-		margin-top: 0;
-	}
-	
-	&:last-child {
-		margin-bottom: 0;
-	}
-}
-
-.select-community-divider {
-	background-color: transparent;
-	border-bottom: rgba(0, 0, 0, 0.25) solid 1px;
-	border: transparent;
-	display: block;
-	height: 1px;
-	margin-bottom: 3px;
-	margin: 0;
-	padding: 0;
-	width: 100%;
-}
-
-.post {
-	border-bottom: rgba(0, 0, 0, 0.25) solid 2px;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: row;
-	margin-bottom: -1px;
-
-	&:last-child {
-		border-bottom: none;
-		margin-bottom: 0;
-	}
-	
-	.thumbnail {
-		border-radius: 0.5em;
-		border: rgba(0, 0, 0, 0.25) solid 1px;
-		margin-right: $global-padding-padding;
-		max-height: 6em;
-	}
-	
-	.post-info {
-		.post-title {
-			color: black;
-			font-size: 1.5em;
-		}
-
-		.small-text {
-			color: gray;
-			font-size: 0.6em;
-			margin-left: 0.5em;
-		}
-		
-		* {
-			margin-bottom: 0.225em;
-		}
-	}
-}
-
-/*   Community Navigation (Hot, New, Rising, Controversial, Top, Gilded, Wiki)   */
 #community-navigation {
-	display: -webkit-flex;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin-bottom: $global-padding-padding;
+
+	@media all and (max-width: $mobile-width-limit) {
+		display: none;
+	}
 
 	.button {
 		font-size: 12px;
@@ -304,6 +137,12 @@ input {
 		margin-right: 3px;
 		padding: 5px 10px;
 		text-transform: uppercase;
+		transition: color 0.2s;
+		cursor: pointer;
+
+		&:hover {
+			color: goldenrod;
+		}
 	}
 
 	.selected-button {
@@ -311,13 +150,166 @@ input {
 	}
 }
 
-/*    Login Form    */
-#login-form {
-	* {
-		margin-bottom: 0.4em;
+#container {
+	padding: $global-padding-padding $global-padding-padding;
+}
 
+#flex-items {
+	display: flex;
+	flex-direction: row;
+
+	& > * {
+		height: 0%;
+		margin-bottom: $global-padding-padding;
+	}
+
+	@media not all and (max-width: $mobile-width-limit) {
+		& > *:first-child {
+			margin-right: $global-padding-padding;
+		}
+	
+		& > *:last-child {
+			margin-left: $global-padding-padding;
+		}
+	}
+
+	@media all and (max-width: $mobile-width-limit) {
+		flex-direction: column;
+
+		& > * {
+			margin: 0;
+			margin-bottom: $global-padding-padding;
+		}
+	}
+}
+
+#community-list {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	min-width: 200px;
+	width: 200px;
+	position: -webkit-sticky;
+	position: sticky;
+	top: $global-padding-padding;
+
+	@media all and (max-width: $mobile-width-limit) {
+		display: none;
+	}
+
+	.select-community {
+		font-size: x-small;
+		margin-bottom: 3px;
+		padding: 3px;
+		text-transform: uppercase;
+		transition: color 0.2s;
+	
+		&:hover {
+			cursor: pointer;
+			color: goldenrod;
+		}
+		
+		&:first-child {
+			margin-top: 0;
+		}
+		
 		&:last-child {
 			margin-bottom: 0;
+		}
+	}
+
+	.select-community-selected {
+		font-weight: 900;
+	}
+
+	#my-communities {
+		overflow: auto;
+
+		.community-divider {
+			background-color: $border-color;
+			display: block;
+			height: 1px;
+			width: 100%;
+			margin-bottom: 0.3em;
+		}
+	}
+}
+
+#sidebar {
+	position: sticky;
+	top: $global-padding-padding;
+	max-width: 20em;
+
+	& > * {
+		margin-bottom: $global-padding-padding;
+	}
+
+	@media all and (max-width: $mobile-width-limit) {
+		display: none;
+	}
+
+	
+	#login-form {
+		& > * {
+			margin-bottom: 0.3em;
+			width: 100%;
+		}
+
+		& > *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	#submit-buttons {
+		& > * {
+			margin-bottom: 0.3em;
+			width: 100%;
+		}
+
+		& > *:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+#post-list {
+	flex-grow: 2;
+
+	& > .post {
+		border-bottom: rgba(0, 0, 0, 0.25) solid 2px;
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: row;
+		margin-bottom: -1px;
+	
+		&:last-child {
+			border-bottom: none;
+			margin-bottom: 0;
+		}
+		
+		.thumbnail {
+			border-radius: 0.5em;
+			border: rgba(0, 0, 0, 0.25) solid 1px;
+			margin-right: $global-padding-padding;
+			max-height: 6em;
+		}
+		
+		.post-info {
+			.post-title {
+				color: black;
+				font-size: 1.5em;
+			}
+	
+			.small-text {
+				color: gray;
+				font-size: 0.6em;
+				margin-left: 0.5em;
+			}
+			
+			* {
+				margin-bottom: 0.225em;
+			}
 		}
 	}
 }

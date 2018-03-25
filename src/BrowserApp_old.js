@@ -30,6 +30,7 @@ class App extends React.Component {
 		if (pathname === "/") {
 			this.props.getAllPosts()
 		} else if (/c\/.*$/g.test(pathname)) {
+			// /c/<CommunityName>
 			this.props.getAllPostsFromCommunity(pathname.substring(3))
 		}
 
@@ -86,8 +87,8 @@ class App extends React.Component {
 							<Search/>
 
 							<DisplayContent display={this.isLoggedIn()}>
-								<SubmitButtons/>
 								<UserInformation/>
+								<SubmitButtons/>
 								<CommunityInformation/>
 							</DisplayContent>
 
@@ -101,13 +102,14 @@ class App extends React.Component {
 					</div>
 				</Router>
 
+				{/*
 				<div id="footer" className="drop-shadow">
 					<div className="image">
-						<a target="_blank" href="https://github.com/Corned/fullstack-frontend">
-							<img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png"/>
+						<a target="_blank" rel="noopener noreferrer" href="https://github.com/Corned/fullstack-frontend">
+							<img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" alt="github"/>
 						</a>
 					</div>
-				</div>
+				</div> */}
 			</div>
 		)
 	}

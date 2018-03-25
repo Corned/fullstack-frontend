@@ -9,3 +9,4 @@
 | 22.3.2018     | 4h        | Kirjautuminen sisään ja ulos graaffisen käyttöliittymän kautta, tyyliä muutettu, sivu näyttää kirjautumislomakkeen vain kun käyttäjä ei ole kirjautunut sisään. Sisäisesti testattu "default communities" |
 | 23.3.2018     | 1.5h      | Postien "added n days ago" virhe korjattu, mobiilille ja selaimelle eri näkymät |
 | 24.3.2018     | 4h        | Enimmäkseen BrowserApp.js ja CSS refaktorointia. Sass otettiin käyttöön ja luin miten CSS kannattaa kirjoittaa. Sivulla nyt myös hakukenttä ja footer jossa linkki tähän github repoon |
+| 24.3.2018     | 7h      | Toiminnallisuutta komponentteihin, communitien näyttäminen sivulla, voi navigoida communityjen välillä, paranneltu reducers/post reduceria, css overhaul + parempi mobile view |

@@ -1,7 +1,7 @@
 import React from "react"
-import loginService from "../services/login"
 import { connect } from "react-redux"
 
+import loginService from "../services/login"
 import { login, logout } from "../reducers/loggedUser"
 
 class LoginForm extends React.Component {
@@ -45,6 +45,7 @@ class LoginForm extends React.Component {
 					type="text" 
 					name="username" 
 					placeholder="username"
+					value={this.state.username}
 					autoComplete="off"
 					onChange={this.textFieldHandler}
 				/>
@@ -52,6 +53,7 @@ class LoginForm extends React.Component {
 					type="password" 
 					name="password" 
 					placeholder="password"
+					value={this.state.password}
 					autoComplete="off"
 					onChange={this.textFieldHandler}
 				/>

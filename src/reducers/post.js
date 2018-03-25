@@ -2,7 +2,7 @@ import postService from "../services/post"
 
 const initialState = {
 	from: null,
-	sortBy: "date",
+	sortBy: "new",
 	data: []
 }
 

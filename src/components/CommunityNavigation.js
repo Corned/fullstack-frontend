@@ -2,7 +2,7 @@ import React from "react"
 
 const CommunityNavigation = () => {
 	return (
-		<div className="content-child frame drop-shadow" id="community-navigation">
+		<div id="community-navigation" className="frame drop-shadow">
 			<p className="button">Hot</p>
 			<p className="button selected-button">New</p>
 			{/* <p className="button">Rising</p> */ }

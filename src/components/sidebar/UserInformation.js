@@ -1,13 +1,27 @@
 import React from "react"
+import { connect } from "react-redux"
 
-const Search = () => {
+import { logout } from "../../reducers/loggedUser"
+
+const UserInformation = (props) => {
+	console.log(props.loggedUser)
+
 	return (
 		<div id="user-information" className="frame drop-shadow">
-			<form onSubmit={this.logout}>
+			<form>
 				<button type="submit">Logout</button>
 			</form>
 		</div>
 	)
 }
 
-export default Search
+
+const mapStateToProps = (state) => {
+	return {
+		"loggedUser": state.loggedUser
+	}
+}
+
+const mapDispatchToProps = { logout }
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserInformation)

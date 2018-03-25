@@ -27,22 +27,31 @@ class Communities extends React.Component {
 
 	render() {
 		return (
-			<div className="frame drop-shadow" id="communities">
-				<p className="select-community" onClick={this.navigateTo("/")}>All</p>
-				{/* <p className="select-community" onClick={this.navigateTo("/c/all")}>All</p> */}
-				{/* <p className="select-community" onClick={this.navigateTo("/random")}>Random</p> */}
+			<div id="community-list" className="frame drop-shadow">
+				<p 
+					className={
+						this.props.posts.from === null 
+						? "select-community select-community-selected" 
+						: "select-community"} 
+					onClick={this.navigateTo("/")}
+				>All</p>
+
 				{ this.props.communities.length === 0 ? null 
-					: 
-					<div id="my-communities">
-						<div className="divider"/>			
-						<div>
-							{this.props.communities.map((community, index) =>
-								<p 
-									key={index} 
-									className="select-community"
-									onClick={this.navigateTo(`${community.name}`, true)}
-								>{community.name}</p>
-							)}
+					:
+					<div>
+						<div id="my-communities">		
+							<div>
+								{this.props.communities.map((community, index) =>
+									<p 
+										key={index} 
+										className={
+											this.props.posts.from === community.name 
+											? "select-community select-community-selected" 
+											: "select-community"}
+										onClick={this.navigateTo(`${community.name}`, true)}
+									>{community.name}</p>
+								)}
+							</div>
 						</div>
 					</div>
 
@@ -54,7 +63,8 @@ class Communities extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		"communities": state.communities
+		"communities": state.communities,
+		"posts": state.posts
 	}
 }
 
