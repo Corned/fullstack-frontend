@@ -8,7 +8,7 @@ const getAll = async () => {
 }
 
 const getAllFromCommunity = async (community) => {
-	const response = await axios.get(`${baseUrl}${community}`)
+	const response = await axios.get(`${baseUrl}/c/${community}`)
 	return response.data
 }
 
