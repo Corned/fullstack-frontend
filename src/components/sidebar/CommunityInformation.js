@@ -2,12 +2,11 @@ import React from "react"
 
 const Search = () => {
 	return (
-		<div id="submit-selector" className="frame drop-shadow">
-			<button id="submit-link">Submit Link</button>
-			<button id="submit-text">Submit Text</button>
-			<button id="create-community">Create a Community</button>
+		<div id="" className="frame drop-shadow">
 
-			{/* <div className="divider"/> */}
+			c/[CommunityName]
+			<div className="divider"/>
+			650,000 members
 
 		</div>
 	)

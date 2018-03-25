@@ -27,8 +27,10 @@ button {
 	background: rgba(0, 0, 0, 0.05);
 	border: 1px solid $border-color;
 	cursor: pointer;
+	display: block;
+	padding: 0 auto;
     font: inherit;
-    padding: $global-padding-padding;
+	padding: $global-padding-padding;
 
 	&:hover {
 		background: rgba(0, 0, 0, 0.1);
@@ -164,10 +166,10 @@ input {
 		width: 100%;
 	}
 
-	#posts {
-		flex-grow: 2;
+	.fill {
 		margin-left: $global-padding-padding;
 		margin-right: $global-padding-padding;
+		flex-grow: 2;
 	}
 
 	* {

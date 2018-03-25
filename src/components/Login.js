@@ -1,8 +1,8 @@
 import React from "react"
-import loginService from "../../services/login"
+import loginService from "../services/login"
 import { connect } from "react-redux"
 
-import { login, logout } from "../../reducers/loggedUser"
+import { login, logout } from "../reducers/loggedUser"
 
 class LoginForm extends React.Component {
 	constructor(props) {
@@ -40,25 +40,23 @@ class LoginForm extends React.Component {
 
 	render() {
 		return (
-			<div className="frame drop-shadow">
-				<form id="login-form" onSubmit={this.login}>
-					<input 
-						type="text" 
-						name="username" 
-						placeholder="username"
-						autoComplete="off"
-						onChange={this.textFieldHandler}
-					/>
-					<input 
-						type="password" 
-						name="password" 
-						placeholder="password"
-						autoComplete="off"
-						onChange={this.textFieldHandler}
-					/>
-					<button type="submit">Log in!</button>
-				</form>
-			</div>
+			<form id="login-form" onSubmit={this.login}>
+				<input 
+					type="text" 
+					name="username" 
+					placeholder="username"
+					autoComplete="off"
+					onChange={this.textFieldHandler}
+				/>
+				<input 
+					type="password" 
+					name="password" 
+					placeholder="password"
+					autoComplete="off"
+					onChange={this.textFieldHandler}
+				/>
+				<button type="submit">Log in!</button>
+			</form>
 		)
 	}
 }

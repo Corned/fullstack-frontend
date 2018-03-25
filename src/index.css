@@ -18,6 +18,8 @@ button {
   background: rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.25);
   cursor: pointer;
+  display: block;
+  padding: 0 auto;
   font: inherit;
   padding: 1em; }
   button:hover {
@@ -126,10 +128,10 @@ input {
   z-index: 10; }
   #content .content-child:first-child {
     width: 100%; }
-  #content #posts {
-    flex-grow: 2;
+  #content .fill {
     margin-left: 1em;
-    margin-right: 1em; }
+    margin-right: 1em;
+    flex-grow: 2; }
   #content * {
     height: 0%; }
 

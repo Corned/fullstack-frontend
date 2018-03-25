@@ -8,9 +8,10 @@ import DisplayContent from "./components/DisplayContent"
 import Communities from "./components/Communities"
 import CommunityNavigation from "./components/CommunityNavigation"
 import Post from "./components/Post"
+import Login from "./components/Login"
 
 import Search from "./components/sidebar/Search"
-import Login from "./components/sidebar/Login"
+import SubmitButtons from "./components/sidebar/SubmitButtons"
 import UserInformation from "./components/sidebar/UserInformation"
 import CommunityInformation from "./components/sidebar/CommunityInformation"
 
@@ -58,21 +59,36 @@ class App extends React.Component {
 						<Communities/>
 
 						{/* Middle */}
-						<div className="content-child drop-shadow" id="posts">
-							{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
-						</div>
+						<Route path="(/|/c)" render={() => {
+							return (
+								<div className="content-child fill drop-shadow" id="posts">
+									{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
+								</div>
+							)
+						}}/>
+
+						<Route path="/submit" render={() => {
+							return (
+								<div className="frame content-child fill drop-shadow">
+									hello world!
+								</div>
+							)
+						}}/>
 
 						{/* Rightmost */}
 						<div className="content-child" id="sidebar">
 							<Search/>
+
 							<DisplayContent display={this.isLoggedIn()}>
+								<SubmitButtons/>
 								<UserInformation/>
 								<CommunityInformation/>
-
 							</DisplayContent>
 
 							<DisplayContent display={!this.isLoggedIn()}>
-								<Login/>
+								<div className="frame drop-shadow">
+									<Login/>
+								</div>
 							</DisplayContent>
 						</div>
 
