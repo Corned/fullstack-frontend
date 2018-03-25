@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case "INIT_POSTS":
 			return {
-				from: state.from,
+				from: action.from,
 				sortBy: state.sortBy,
 				data: action.data
 			}
