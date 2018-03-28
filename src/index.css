@@ -202,6 +202,25 @@ input {
     #post-list > .post:last-child {
       border-bottom: none;
       margin-bottom: 0; }
+    #post-list > .post .voting {
+      display: flex;
+      flex-direction: column;
+      max-width: 5em;
+      margin-right: 1em; }
+      #post-list > .post .voting > * {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto; }
+      #post-list > .post .voting > button, #post-list > .post .voting > button:active {
+        border-radius: 1em;
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        font-weight: 900; }
+      #post-list > .post .voting > .upvote-button:hover {
+        color: orangered; }
+      #post-list > .post .voting > .downvote-button:hover {
+        color: blue; }
     #post-list > .post .thumbnail {
       border-radius: 0.5em;
       border: rgba(0, 0, 0, 0.25) solid 1px;

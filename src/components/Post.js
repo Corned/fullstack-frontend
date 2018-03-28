@@ -21,6 +21,11 @@ const Post = ({ post }) => {
 
 	return (
 		<div className="post frame">
+			<div className="voting">
+				<button className="upvote-button">^</button>
+				<p className="votes">347</p>
+				<button className="downvote-button">v</button>
+			</div>
 			<img className="thumbnail" alt="lol" src="https://i.imgur.com/a7TZ0Yo.png"/>
 			<div className="post-info">
 				<p className="post-title">{post.title}<span className="small-text light-text">(imgur.com)</span></p>

@@ -287,6 +287,35 @@ input {
 			border-bottom: none;
 			margin-bottom: 0;
 		}
+
+		.voting {
+			display: flex;
+			flex-direction: column;
+			max-width: 5em;
+			margin-right: $global-padding-padding;
+
+			& > * {
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			& > button, & > button:active {
+				border-radius: 1em;
+				border: none;
+				box-shadow: none;
+				background-color: transparent;
+				font-weight: 900;
+			}
+
+			& > .upvote-button:hover {
+				color: orangered;
+			}
+
+			& > .downvote-button:hover {
+				color: blue;
+			}
+		}
 		
 		.thumbnail {
 			border-radius: 0.5em;
