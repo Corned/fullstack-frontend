@@ -11,3 +11,4 @@
 | 24.3.2018     | 4h        | Enimmäkseen BrowserApp.js ja CSS refaktorointia. Sass otettiin käyttöön ja luin miten CSS kannattaa kirjoittaa. Sivulla nyt myös hakukenttä ja footer jossa linkki tähän github repoon |
 | 25.3.2018     | 7h        | Toiminnallisuutta komponentteihin, communitien näyttäminen sivulla, voi navigoida communityjen välillä, paranneltu reducers/post reduceria, css overhaul + parempi mobile view, korjattu pitkään rikki ollut uloskirjautuminen |
 | 28.3.2018     | 4h        | Backendiä enimmäkseen, postien ja communityjen luonti vaatii authorization tokenin. Yksittäisten postien, communityjen ja userien haku mahdollista, testejä paljon, eksistentiaalinen kriisi frontendin kanssa, ei ole vielä commitoitu |
+| 30.3.2018     | 3h        | Backend testejä |
