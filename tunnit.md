@@ -13,3 +13,4 @@
 | 28.3.2018     | 4h        | Backendiä enimmäkseen, postien ja communityjen luonti vaatii authorization tokenin. Yksittäisten postien, communityjen ja userien haku mahdollista, testejä paljon, eksistentiaalinen kriisi frontendin kanssa, ei ole vielä commitoitu |
 | 30.3.2018     | 3h        | Backend testejä |
 | 31.3.2018     | 5h        | Lisää backend testejä, mongoose version error kesti pitkään |
+| 1.4.2018      | 2.5h      | Testikattavuus ~87.5%, comment model |

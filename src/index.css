@@ -96,7 +96,8 @@ input {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+  padding: 0.5em; }
   @media all and (max-width: 800px) {
     #community-navigation {
       display: none; } }
@@ -124,7 +125,7 @@ input {
     margin-bottom: 1em; }
   @media not all and (max-width: 800px) {
     #flex-items > *:first-child {
-      margin-right: 1em; }
+      flex-grow: 2; }
     #flex-items > *:last-child {
       margin-left: 1em; } }
   @media all and (max-width: 800px) {
@@ -172,9 +173,10 @@ input {
       margin-bottom: 0.3em; }
 
 #sidebar {
+  position: -webkit-sticky;
   position: sticky;
   top: 1em;
-  max-width: 20em; }
+  width: 20em; }
   #sidebar > * {
     margin-bottom: 1em; }
   @media all and (max-width: 800px) {

@@ -1,7 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { logout } from "../../reducers/loggedUser"
+import { logout } from "../../reducers/loggedUserReducer"
 
 const UserInformation = (props) => {
 	if (props.loggedUser === null) {

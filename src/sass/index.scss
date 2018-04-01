@@ -126,6 +126,7 @@ input {
 	flex-wrap: nowrap;
 	justify-content: center;
 	margin-bottom: $global-padding-padding;
+	padding: 0.5em;
 
 	@media all and (max-width: $mobile-width-limit) {
 		display: none;
@@ -165,7 +166,7 @@ input {
 
 	@media not all and (max-width: $mobile-width-limit) {
 		& > *:first-child {
-			margin-right: $global-padding-padding;
+			flex-grow: 2;
 		}
 	
 		& > *:last-child {
@@ -237,9 +238,10 @@ input {
 }
 
 #sidebar {
+	position: -webkit-sticky;
 	position: sticky;
 	top: $global-padding-padding;
-	max-width: 20em;
+	width: 20em;
 
 	& > * {
 		margin-bottom: $global-padding-padding;

@@ -1,4 +1,4 @@
-import communityService from "../services/community"
+import communityService from "../services/communityService"
 
 const reducer = (state = [], action) => {
 	switch(action.type) {
@@ -20,15 +20,5 @@ export const getAllCommunities = () => {
 		})
 	}
 } 
-
-/* export const communityNew = (name, user) => {
-	return async (dispatch) => {
-		const newCommunity = await communityService.create(name, user)
-		dispatch({
-			type: "NEW_COMMUNITY",
-			data: newCommunity
-		})
-	}
-} */
 
 export default reducer

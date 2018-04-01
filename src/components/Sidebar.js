@@ -10,11 +10,10 @@ import LoginForm from "./LoginForm"
 const Sidebar = () => {
 	return (
 		<div id="sidebar">
-			<Search/>
+			{/* <Search/> */ }
 			<LoginForm/>
 			<UserInformation/>
 			<SubmitButtons/>
-			<CommunityInformation/>
 		</div>
 	)
 }
