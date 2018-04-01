@@ -10,10 +10,13 @@ import LoginForm from "./LoginForm"
 const Sidebar = () => {
 	return (
 		<div id="sidebar">
-			{/* <Search/> */ }
-			<LoginForm/>
-			<UserInformation/>
-			<SubmitButtons/>
+			<div id="community-information" className="frame">
+				<h1>Cordial-Meta</h1>
+				<p className="light-text">745,367 members</p>
+
+				<button id="submit-text-post">Submit Your Thoughts</button>
+				<button id="submit-link-post">Share a Link</button>
+			</div>
 		</div>
 	)
 }

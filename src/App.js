@@ -1,11 +1,13 @@
 // npm modules
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, withRouter, Route, Link } from 'react-router-dom'
 
 // components
 import Community from "./components/Community"
+import Topbar from "./components/Topbar"
 import Sidebar from "./components/Sidebar"
+
 
 // reducers
 import { login, logout } from "./reducers/loggedUserReducer"
@@ -18,7 +20,6 @@ class App extends React.Component {
 	}
 
 	componentWillMount() {
-
 		const loggedUserJSON = window.localStorage.getItem("loggedUser")
 		if (loggedUserJSON) {
 			const user = JSON.parse(loggedUserJSON)
@@ -32,9 +33,11 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<div id="container">
-					<div id="flex-items">
+			<Router>
+				<div>
+					<Topbar/>
+
+					<div id="container">
 						<Route exact path="/" render={() => 
 							<Community community={"frontpage"}/>
 						}/>
@@ -42,12 +45,9 @@ class App extends React.Component {
 						<Route path="/c/:community" render={({match}) => 
 							<Community community={match.params.community}/>
 						}/>
-
-						<Sidebar/>
 					</div>
 				</div>
-
-			</div>
+			</Router>
 		)
 	}
 }
@@ -61,4 +61,4 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = { login, logout }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App))
+export default connect(mapStateToProps, mapDispatchToProps)(App)
