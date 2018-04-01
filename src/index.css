@@ -61,6 +61,7 @@ input {
   color: gray; }
 
 #topbar {
+  color: white;
   display: block;
   height: 4em;
   width: 100%;
@@ -107,6 +108,13 @@ input {
     #sidebar > #community-information > button:hover {
       background-color: #d32437;
       transition: background-color 0.2s; }
+  #sidebar > #community-rules > h1 {
+    margin-bottom: 0.5em; }
+  #sidebar > #community-rules > p {
+    font-size: 1.20em;
+    margin-bottom: 0.8em; }
+    #sidebar > #community-rules > p:last-child {
+      margin-bottom: 0; }
 
 #community-navigation {
   display: flex;
@@ -152,7 +160,7 @@ input {
         color: orangered; }
       #post-list > .post > .voting > .downvote-button:hover {
         color: blue; }
-    #post-list > .post .thumbnail {
+    #post-list > .post .thumbnail > img {
       border-radius: 0.5em;
       border: rgba(0, 0, 0, 0.25) solid 1px;
       margin-right: 1em;
@@ -168,20 +176,26 @@ input {
       margin-bottom: 0.225em; }
 
 .dropdownmenu {
-  width: auto;
   z-index: 100;
-  background-color: inherit; }
+  color: inherit;
+  background-color: inherit;
+  position: relative; }
+  .dropdownmenu > * {
+    width: 100%; }
   .dropdownmenu > .toggle {
+    color: inherit;
     background-color: inherit;
     border-radius: 0;
-    width: inherit; }
+    width: 100%; }
     .dropdownmenu > .toggle:focus {
       outline: 0; }
-    .dropdownmenu > .toggle.open {
+    .dropdownmenu > .toggle.opened {
+      color: black;
       background-color: white;
       border-top-left-radius: 8px;
       border-top-right-radius: 8px; }
   .dropdownmenu > .content {
+    color: black;
     margin-top: 0em;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -189,5 +203,3 @@ input {
     max-height: 200px; }
     .dropdownmenu > .content > * {
       padding: 0.5em; }
-  .dropdownmenu > .opened {
-    color: black; }

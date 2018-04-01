@@ -97,6 +97,7 @@ input {
 }
 
 #topbar {
+	color: white;
 	display: block;
 	height: $topbar-height;
 	width: 100%;
@@ -167,6 +168,19 @@ input {
 			}
 		}
 	}
+
+	& > #community-rules > h1 {
+		margin-bottom: 0.5em;
+	}
+
+	& > #community-rules > p {
+		font-size: 1.20em;
+		margin-bottom: 0.8em;
+
+		&:last-child {
+			margin-bottom: 0;	
+		}
+	}
 }
 
 #community-navigation {
@@ -232,7 +246,7 @@ input {
 			}
 		}
 		
-		.thumbnail {
+		.thumbnail > img {
 			border-radius: 0.5em;
 			border: rgba(0, 0, 0, 0.25) solid 1px;
 			margin-right: $global-padding;
@@ -259,20 +273,27 @@ input {
 }
 
 .dropdownmenu {
-	width: auto;
 	z-index: 100;
+	color: inherit;
 	background-color: inherit;
+	position: relative;
+
+	& > * {
+		width: 100%;
+	}
 
 	& > .toggle {
+		color: inherit;
 		background-color: inherit;
 		border-radius: 0;
-		width: inherit;
+		width: 100%;
 
 		&:focus {
 			outline: 0;
 		}
 
-		&.open {
+		&.opened {
+			color: black;
 			background-color: white;
 			border-top-left-radius: $border-radius;
 			border-top-right-radius: $border-radius;
@@ -280,6 +301,7 @@ input {
 	}
 
 	& > .content {
+		color: black;
 		margin-top: 0em;
 		border-top-left-radius: 0;
 		border-top-right-radius: 0;
@@ -289,9 +311,5 @@ input {
 		& > * {
 			padding: 0.5em;
 		}
-	}
-
-	& > .opened {
-		color: black;
 	}
 }

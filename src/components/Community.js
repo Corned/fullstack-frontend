@@ -11,9 +11,9 @@ import { getAllPosts, getAllPostsFromCommunity } from "../reducers/postReducer"
 
 class Community extends React.Component {
 	componentWillMount() {
+		console.log(this.props.community)
 		this.props.getAllPosts()
 	}
-
 
 	render() {
 		return (

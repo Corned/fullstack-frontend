@@ -26,7 +26,9 @@ const Post = ({ post }) => {
 				<p className="votes">347</p>
 				<button className="downvote-button">v</button>
 			</div> */}
-			<img className="thumbnail" alt="lol" src="https://i.imgur.com/a7TZ0Yo.png"/>
+			<div className="thumbnail">
+				<img alt="post-thumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
+			</div>
 			<div className="post-info">
 				<p className="post-title">{post.title}<span className="small-text light-text">(imgur.com)</span></p>
 				<p className="post-added"><span className="light-text">submitted</span> {postAdded} <span className="light-text">by</span> <span className="poster">{post.user.username}</span></p>

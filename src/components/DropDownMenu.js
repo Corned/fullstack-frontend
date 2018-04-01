@@ -24,7 +24,7 @@ class DropDownMenu extends React.Component {
 
 		return (
 			<div className="dropdownmenu" onMouseLeave={this.toggle}>
-				<button className="toggle opened no-select frame open">{this.props.text}</button>
+				<button className="toggle opened no-select frame">{this.props.text}</button>
 				<div className="content frame">
 					{this.props.children}
 				</div>

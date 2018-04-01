@@ -1,7 +1,7 @@
 // npm modules
 import React from "react"
 import { connect } from "react-redux"
-import { BrowserRouter as Router, withRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, withRouter, Route, Link, Redirect } from 'react-router-dom'
 
 // components
 import Community from "./components/Community"
@@ -42,8 +42,12 @@ class App extends React.Component {
 							<Community community={"frontpage"}/>
 						}/>
 
-						<Route path="/c/:community" render={({match}) => 
-							<Community community={match.params.community}/>
+						<Route exact path="/c/:community/" render={({match}) => 
+							<Redirect to={`/c/${match.params.community}/hot`}/>
+						}/>
+
+						<Route path="/c/:community/:sort" render={({match}) => 
+							<Community community={match.params.community} sort={match.params.sort}/>
 						}/>
 					</div>
 				</div>
