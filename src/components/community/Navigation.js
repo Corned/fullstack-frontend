@@ -1,5 +1,7 @@
 import React from "react"
 
+import DropDownMenu from "../DropDownMenu"
+
 const Navigation = () => {
 	return (
 		<div id="community-navigation" className="frame drop-shadow">

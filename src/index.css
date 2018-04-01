@@ -66,15 +66,12 @@ input {
   width: 100%;
   background-color: #e87581; }
   #topbar > #topbar-container {
+    height: 100%;
     display: flex;
     flex-direction: row;
     width: 120em;
     margin-left: auto;
-    margin-right: auto;
-    padding-left: 1em;
-    padding-right: 1em; }
-    #topbar > #topbar-container > * {
-      height: 100%; }
+    margin-right: auto; }
 
 #container {
   padding: 1em 1em;
@@ -172,25 +169,25 @@ input {
 
 .dropdownmenu {
   width: auto;
-  padding-left: 1em;
-  padding-right: 1em;
-  z-index: 100; }
+  z-index: 100;
+  background-color: inherit; }
+  .dropdownmenu > .toggle {
+    background-color: inherit;
+    border-radius: 0;
+    width: inherit; }
+    .dropdownmenu > .toggle:focus {
+      outline: 0; }
+    .dropdownmenu > .toggle.open {
+      background-color: white;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px; }
   .dropdownmenu > .content {
     margin-top: 0em;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     overflow: auto;
-    max-height: 200px;
-    transition: height 0.2s; }
+    max-height: 200px; }
     .dropdownmenu > .content > * {
       padding: 0.5em; }
-  .dropdownmenu > .noshow {
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-    display: none; }
   .dropdownmenu > .opened {
     color: black; }
-  .dropdownmenu > .toggle {
-    border-radius: 0;
-    width: inherit; }
