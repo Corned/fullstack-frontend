@@ -110,6 +110,8 @@ input {
 		width: $site-width;
 		margin-left: auto;
 		margin-right: auto;
+		padding-left: $global-padding;
+		padding-right: $global-padding;
 	}
 }
 

@@ -51,7 +51,7 @@ class App extends React.Component {
 						}/>
 
 						<Route exact path="/c/:community/:sort" render={({match}) => 
-							<Community community={match.params.community} sort={match.params.sort}/>
+							<Community communityName={match.params.community} sort={match.params.sort}/>
 						}/>
 					</div>
 				</div>

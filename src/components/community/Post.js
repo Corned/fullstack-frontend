@@ -1,6 +1,9 @@
 import React from "react"
 
 const Post = ({ post }) => {
+
+	console.log(post)
+
 	if (typeof post.date === "string") {
 		post.date = new Date(post.date)
 	}

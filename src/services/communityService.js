@@ -10,6 +10,11 @@ const getAll = async () => {
 	return response.data
 }
 
+const getByName = async (name) => {
+	const response = await axios.get(`${baseUrl}/${name}`)
+	return response.data
+}
+
 const create = async (name) => {
 	const config = {
 		headers: { "Authorization": token }
@@ -19,4 +24,4 @@ const create = async (name) => {
 	return response.data
 }
 
-export default { setToken, getAll, create }
+export default { setToken, getAll, getByName, create }

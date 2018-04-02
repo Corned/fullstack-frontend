@@ -14,3 +14,4 @@
 | 30.3.2018     | 3h        | Backend testejä |
 | 31.3.2018     | 5h        | Lisää backend testejä, mongoose version error kesti pitkään |
 | 1.4.2018      | 5.5h      | Testikattavuus ~87.5%, comment model, jälleen kerran uusi lookki, topbar, dropdownmenu, css ja dropdownmenu omaan komponenttiin, community navigation |
+| 2.4.2018      | 3h        | Frontendin perusasioiden säätämistä. Navigointia mietitty, reducereita muokattu. Nyt reducereita käytetään "oikein". Backendiin communityn postien hakeminen |

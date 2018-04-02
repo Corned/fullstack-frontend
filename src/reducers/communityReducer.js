@@ -1,22 +1,21 @@
 import communityService from "../services/communityService"
 
+
 const reducer = (state = [], action) => {
 	switch(action.type) {
-	case "INIT_COMMUNITY":
+	case "COMMUNITY_BY_NAME":
 		return action.data
-	case "NEW_COMMUNITY":
-		return [ ...state, action.data ]
 	default:
 		return state
 	}
 }
 
-export const getAllCommunities = () => {
+export const getCommunityByName = (name) => {
 	return async (dispatch) => {
-		const communities = await communityService.getAll()
+		const community = await communityService.getByName(name)
 		dispatch({
-			type: "INIT_COMMUNITY",
-			data: communities
+			type: "COMMUNITY_BY_NAME",
+			data: community
 		})
 	}
 } 
