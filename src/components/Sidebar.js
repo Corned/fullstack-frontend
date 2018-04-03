@@ -17,8 +17,8 @@ class Sidebar extends React.Component {
 					<h1>{this.props.community.name}</h1>
 					<p className="light-text">745,367 members</p>
 
-					<button id="submit-text-post">Submit Your Thoughts</button>
-					<button id="submit-link-post">Share a Link</button>
+					<button id="submit-text-post" onClick={this.props.setView("submit-text")}>Submit Your Thoughts</button>
+					<button id="submit-link-post" onClick={this.props.setView("submit-link")}>Share a Link</button>
 				</div>
 				<div id="community-rules" className="frame">
 					<h1>Rules</h1>

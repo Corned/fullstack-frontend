@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter } from 'react-router-dom'
+import { withRouter, Route } from 'react-router-dom'
 
 import { getCommunityByName } from "../reducers/communityReducer"
 import { getAllPostsByCommunity } from "../reducers/postReducer"
@@ -15,8 +15,7 @@ class Community extends React.Component {
 		super(props)
 
 		this.state = {
-			view: "hot",
-			submitType: false
+			view: "hot"
 		}
 	}
 
@@ -37,9 +36,9 @@ class Community extends React.Component {
 			if (this.props.community === undefined) {
 				return
 			}
-			
+
 			this.setState({ view })
-			this.props.history.push(`/c/${this.props.community.name}/${this.state.view}`)
+			this.props.history.push(`/c/${this.props.community.name}/${view}`)
 		}
 	}
 
@@ -52,8 +51,28 @@ class Community extends React.Component {
 			<div id="community">
 				<Navigation community={this.props.community} view={this.state.view} setView={this.setView}/>
 				<div id="community-content">	
-					<PostList/>					
-					<Sidebar/>
+					<Route exact path="/c/:community/wiki" render={() => 
+						<p>wiki :D</p>
+					}/>
+
+					<Route exact path="/c/:community/submit-text" render={() => 
+						<p>TEXT</p>
+					}/>
+
+					<Route exact path="/c/:community/submit-link" render={() => 
+						<p>LINK</p>
+					}/>
+
+					{
+						!(this.state.view === "wiki" || this.state.view === "submit-text" || this.state.view === "submit-link") 
+						?<Route exact path="/c/:community/:sort" render={() => 
+							<PostList/>	
+						}/>
+						: null
+					}
+					
+
+					<Sidebar setView={this.setView}/>
 				</div>
 			</div>
 		)

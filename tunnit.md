@@ -15,3 +15,4 @@
 | 31.3.2018     | 5h        | Lisää backend testejä, mongoose version error kesti pitkään |
 | 1.4.2018      | 5.5h      | Testikattavuus ~87.5%, comment model, jälleen kerran uusi lookki, topbar, dropdownmenu, css ja dropdownmenu omaan komponenttiin, community navigation |
 | 2.4.2018      | 3h        | Frontendin perusasioiden säätämistä. Navigointia mietitty, reducereita muokattu. Nyt reducereita käytetään "oikein". Backendiin communityn postien hakeminen |
+| 3.4.2018      | 4h        | PostList näyttää viestin jos Posteja ei ole. Footer on palautettu ennalleen. Communityn sisäinen navigaatio toimii niinkuin pitäisi, eli siis Hot, New etc ja Submit napit |

@@ -46,16 +46,8 @@ class App extends React.Component {
 							<Redirect to={`/c/${match.params.community}/hot`}/>
 						}/>
 
-						<Route exact path="/c/:community/submit/" render={({match}) => 
-							<Redirect to={`/c/${match.params.community}/text`}/>
-						}/>
-
-						<Route exact path="/c/:community/submit/:type" render={({match}) => 
-							<p>submit</p>
-						}/>
-
-						<Route exact path="/c/:community/:sort" render={({match}) => 
-							<Community communityName={match.params.community} sort={match.params.sort}/>
+						<Route path="/c/:community/:view" render={({match}) => 
+							<Community communityName={match.params.community} view={match.params.view}/>
 						}/>
 					</div>
 				</div>
