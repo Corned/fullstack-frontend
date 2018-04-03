@@ -1,7 +1,7 @@
 import communityService from "../services/communityService"
 
 
-const reducer = (state = [], action) => {
+const reducer = (state = null, action) => {
 	switch(action.type) {
 	case "COMMUNITY_BY_NAME":
 		return action.data
