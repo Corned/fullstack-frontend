@@ -139,7 +139,8 @@ input {
     font-weight: 600; }
 
 #post-list {
-  flex-grow: 2; }
+  flex-grow: 2;
+  height: 0%; }
   #post-list > .post {
     display: -webkit-flex;
     display: flex;

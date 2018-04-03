@@ -38,6 +38,10 @@ class App extends React.Component {
 					<Topbar/>
 
 					<div id="container">
+						<Route exact path="/c/" render={({match}) => 
+							<Redirect to={`/`}/>
+						}/>
+
 						<Route exact path="/c/:community/" render={({match}) => 
 							<Redirect to={`/c/${match.params.community}/hot`}/>
 						}/>

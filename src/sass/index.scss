@@ -214,6 +214,7 @@ input {
 
 #post-list {
 	flex-grow: 2;
+	height: 0%;
 
 	& > .post {
 		display: -webkit-flex;
