@@ -9,7 +9,6 @@ h1, h2, h3, h4, h5 {
 body {
   background-color: #eeeeee;
   font: normal x-small verdana, arial, helvetica, sans-serif;
-  height: 1000em;
   /* &::-webkit-scrollbar { 
 		display: none; 
 	} */ }
@@ -106,10 +105,10 @@ input {
   #sidebar > #community-information > *:last-child, #sidebar > #community-information > h1 {
     margin-bottom: 0; }
   #sidebar > #community-information > button {
-    width: 100%; }
+    width: 100%;
+    transition: background-color 0.2s; }
     #sidebar > #community-information > button:hover {
-      background-color: #d32437;
-      transition: background-color 0.2s; }
+      background-color: #d32437; }
   #sidebar > #community-rules > h1 {
     margin-bottom: 0.5em; }
   #sidebar > #community-rules > p {
@@ -206,3 +205,17 @@ input {
     max-height: 200px; }
     .dropdownmenu > .content > * {
       padding: 0.5em; }
+
+#footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  #footer > .link {
+    max-height: 4em; }
+    #footer > .link > .image {
+      opacity: 0.5;
+      transition: opacity 0.5s; }
+      #footer > .link > .image:hover {
+        opacity: 1; }
+    #footer > .link > * {
+      max-height: inherit; }

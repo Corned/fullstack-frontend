@@ -1,11 +1,13 @@
+import React from "react"
 
+const Footer = () => {
+	return (
+		<footer id="footer" className="frame">
+			<a className="link" target="_blank" rel="noopener noreferrer" href="https://github.com/Corned/fullstack-frontend">
+				<img className="image" src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" alt="github"/>
+			</a>
+		</footer> 
+	)
+}
 
-				{/*
-				<footer id="footer" className="drop-shadow">
-					<div className="image">
-						<a target="_blank" rel="noopener noreferrer" href="https://github.com/Corned/fullstack-frontend">
-							<img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" alt="github"/>
-						</a>
-					</div>
-				</footer> 
-				*/}
+export default Footer

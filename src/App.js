@@ -7,7 +7,7 @@ import { BrowserRouter as Router, withRouter, Route, Link, Redirect } from 'reac
 import Community from "./components/Community"
 import Topbar from "./components/Topbar"
 import Sidebar from "./components/Sidebar"
-
+import Footer from "./components/temp/Footer"
 
 // reducers
 import { login, logout } from "./reducers/loggedUserReducer"
