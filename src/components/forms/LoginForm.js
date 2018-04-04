@@ -1,4 +1,9 @@
 import React from "react"
+import { connect } from "react-redux"
+import { withRouter } from 'react-router-dom'
+
+import { login } from "../../reducers/loggedUserReducer"
+
 
 class LoginForm extends React.Component {
 	constructor(props) {
@@ -18,6 +23,11 @@ class LoginForm extends React.Component {
 		event.preventDefault()
 
 		console.log(this.state)
+
+		this.props.login({
+			username: this.state.username,
+			password: this.state.password
+		})
 	}
 
 
@@ -53,7 +63,10 @@ class LoginForm extends React.Component {
 	}
 }
 
-export default LoginForm
+const mapDispatchToProps = { login }
+
+export default connect(null, mapDispatchToProps)(withRouter(LoginForm))
+
 
 
 

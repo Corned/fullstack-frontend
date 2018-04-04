@@ -1,3 +1,5 @@
+import loginService from "../services/loginService"
+
 const reducer = (state = null, action) => {
 	switch(action.type) {
 	case "LOGIN":
@@ -9,9 +11,11 @@ const reducer = (state = null, action) => {
 	}
 }
 
-export const login = (user) => {
-	window.localStorage.setItem("loggedUser", JSON.stringify(user))
+export const login = (credentials) => {
 	return async (dispatch) => {
+		const user = await loginService.login(credentials)
+		window.localStorage.setItem("loggedUser", JSON.stringify(user))
+
 		dispatch({
 			type: "LOGIN",
 			data: user
@@ -20,8 +24,8 @@ export const login = (user) => {
 }
 
 export const logout = () => {
-	window.localStorage.setItem("loggedUser", null)
 	return async (dispatch) => {
+		window.localStorage.setItem("loggedUser", null)
 		dispatch({
 			type: "LOGOUT",
 			data: null
