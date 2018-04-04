@@ -1,9 +1,6 @@
 import axios from "axios"
 
 const baseUrl = "/api/post"
-let token = null
-
-const setToken = (newToken) => token = `bearer ${newToken}`
 
 const getAll = async () => {
 	const response = await axios.get(baseUrl)
@@ -15,5 +12,14 @@ const getAllFromCommunity = async (community) => {
 	return response.data
 }
 
+const create = async (data, token) => {
+	const config = {
+		headers: { "authorization": `bearer ${token}`  }
+	}
 
-export default { getAll, getAllFromCommunity }
+	const response = await axios.post(baseUrl, data, config)
+	return response.data
+}
+
+
+export default { getAll, getAllFromCommunity, create }

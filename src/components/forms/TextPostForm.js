@@ -1,4 +1,8 @@
 import React from "react"
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
+
+import { createPost } from "../../reducers/postReducer"
 
 class TextForm extends React.Component {
 	constructor(props) {
@@ -17,20 +21,30 @@ class TextForm extends React.Component {
 	submit = (event) => {
 		event.preventDefault()
 
-		console.log(this.state)
+		try {
+			this.props.createPost({
+				title: this.state.title,
+				body: this.state.body,
+				type: "text",
+				community: this.props.community.name
+			}, this.props.userdata.token)
+		} catch (exception) {
+			console.log(exception, "!!!!")
+		}
 	}
 
 	render() {
 		return (
 			<div className="frame submit">
 				<h1>Textpost</h1>
-				<p>You're about to share a text-based post.</p>
+				<p className="description" style={{ fontSize: "1.2em" }}>You're about to share a text- to share a text-based post. </p>
+				<br/>
 				<form onSubmit={this.submit}>
 					<h2>Title</h2>
 					<input 
 						className=""
 						type="text" 
-						name="username" 
+						name="title" 
 						placeholder="Title"
 						value={this.state.title}
 						autoComplete="off"
@@ -55,4 +69,13 @@ class TextForm extends React.Component {
 	}
 }
 
-export default TextForm
+const mapStateToProps = (state) => {
+	return { 
+		"community": state.community,
+		"userdata": state.userdata
+	}
+}
+
+const mapDispatchToProps = { createPost }
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(TextForm))

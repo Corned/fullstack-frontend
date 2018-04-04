@@ -10,6 +10,9 @@ import LoginAndRegistration from "./components/LoginAndRegistration"
 
 import { login, logout } from "./reducers/loggedUserReducer"
 
+import postService from "./services/postService"
+import communityService from "./services/communityService"
+
 import "./index.css"
 
 class App extends React.Component {
