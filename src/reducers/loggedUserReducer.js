@@ -21,7 +21,7 @@ const reducer = (state = initialState, action) => {
 
 export const login = (user) => {
 	return async (dispatch) => {
-		window.localStorage.setItem("loggedUser", JSON.stringify(user))
+		window.localStorage.setItem("cordialUserdata", JSON.stringify(user))
 
 		dispatch({
 			type: "LOGIN",
@@ -32,7 +32,7 @@ export const login = (user) => {
 
 export const logout = () => {
 	return async (dispatch) => {
-		window.localStorage.setItem("loggedUser", null)
+		window.localStorage.setItem("cordialUserdata", null)
 		dispatch({
 			type: "LOGOUT"
 		})
