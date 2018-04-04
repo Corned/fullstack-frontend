@@ -4,12 +4,11 @@ import thunk from "redux-thunk"
 import communityReducer from "./reducers/communityReducer"
 import postReducer from "./reducers/postReducer"
 import loggedUserReducer from "./reducers/loggedUserReducer"
-import navigationReducer from "./reducers/navigationReducer"
 
 const reducer = combineReducers({
 	community: communityReducer,
 	posts: postReducer,
-	loggedUser: loggedUserReducer
+	userdata: loggedUserReducer
 })
 
 const store = createStore(

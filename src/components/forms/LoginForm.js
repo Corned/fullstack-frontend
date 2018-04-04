@@ -3,7 +3,7 @@ import { connect } from "react-redux"
 import { withRouter } from 'react-router-dom'
 
 import { login } from "../../reducers/loggedUserReducer"
-
+import loginService from "../../services/loginService"
 
 class LoginForm extends React.Component {
 	constructor(props) {
@@ -11,7 +11,8 @@ class LoginForm extends React.Component {
 
 		this.state = {
 			username: "",
-			password: ""
+			password: "",
+			error: ""
 		}
 	}
 
@@ -19,17 +20,21 @@ class LoginForm extends React.Component {
 		this.setState({ [event.target.name]: event.target.value })
 	}
 
-	submit = (event) => {
+	submit = async (event) => {
 		event.preventDefault()
 
-		console.log(this.state)
+		try {
+			const user = await loginService.login({
+				username: this.state.username,
+				password: this.state.password
+			})
 
-		this.props.login({
-			username: this.state.username,
-			password: this.state.password
-		})
+			this.props.history.push("/c/cordial")
+			this.props.login(user)
+		} catch (exception) {
+			this.setState({ error: "invalid" })
+		}
 	}
-
 
 	render() {
 		return (
@@ -37,7 +42,7 @@ class LoginForm extends React.Component {
 				<form onSubmit={this.submit} id="login" className="frame">
 					<h1>Login</h1>
 					<input 
-						className=""
+						className={this.state.error}
 						type="text" 
 						name="username" 
 						placeholder="Username"
@@ -46,7 +51,7 @@ class LoginForm extends React.Component {
 						onChange={this.textFieldHandler}
 					/>
 					<input 
-						className=""
+						className={this.state.error}
 						type="password" 
 						name="password" 
 						placeholder="Password"

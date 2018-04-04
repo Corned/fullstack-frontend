@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 
 import { withRouter, Redirect } from "react-router-dom"
 import { nullCommunity } from "../reducers/communityReducer"
+import { logout } from "../reducers/loggedUserReducer"
 
 import DropDownMenu from "./DropDownMenu"
 import LoginForm from "./LoginForm"
@@ -11,7 +12,11 @@ import LoginForm from "./LoginForm"
 const Topbar = (props) => {
 	const toLoginPage = async () => {
 		props.history.replace("/login")
-		await props.nullCommunity(null)
+		await props.nullCommunity()
+	}
+
+	const logout = () => {
+		props.logout()
 	}
 
 	return (
@@ -31,14 +36,30 @@ const Topbar = (props) => {
 				/>
 
 				<div style={{marginLeft: "auto"}}>
-					<button onClick={toLoginPage}>Login</button>
+					
+					{props.userdata.user === null && 
+						<button onClick={toLoginPage}>Login</button>
+					}
+
+					{props.userdata.user !== null && 
+						<button onClick={logout}><i>Logged in as</i> {props.userdata.user.username}</button>	
+					}
+
+
+						
+						
 				</div>
 			</div>
 		</div>
 	)
 }
 
+const mapStateToProps = (state) => {
+	return {
+		"userdata": state.userdata
+	}
+}
 
-const mapDispatchToProps = { nullCommunity }
+const mapDispatchToProps = { nullCommunity, logout }
 
-export default connect(null, mapDispatchToProps)(withRouter(Topbar))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Topbar))
