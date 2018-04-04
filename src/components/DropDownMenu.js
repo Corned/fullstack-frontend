@@ -16,14 +16,14 @@ class DropDownMenu extends React.Component {
 	render() {
 		if (this.state.open === false) {
 			return (
-				<div className="dropdownmenu" style={{ width: this.props.width }}>
+				<div className="dropdownmenu">
 					<button className="toggle no-select" onMouseOver={this.toggle}>{this.props.text}</button>
 				</div>
 			)
 		}
 
 		return (
-			<div className="dropdownmenu" style={{ width: this.props.width }} onMouseLeave={this.toggle}>
+			<div className="dropdownmenu" onMouseLeave={this.toggle}>
 				<button className="toggle opened no-select frame">{this.props.text}</button>
 				<div className="content frame">
 					{this.props.children}

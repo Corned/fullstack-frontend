@@ -1,8 +1,8 @@
 import React from "react"
 
 import { connect } from "react-redux"
-
 import { withRouter, Redirect } from "react-router-dom"
+
 import { nullCommunity } from "../reducers/communityReducer"
 import { logout } from "../reducers/loggedUserReducer"
 
@@ -10,7 +10,11 @@ import DropDownMenu from "./DropDownMenu"
 
 const Topbar = (props) => {
 	const toLoginPage = async () => {
-		props.history.replace("/login")
+		if (props.history.location.pathname === "/login") {
+			return;
+		}
+		
+		props.history.replace(`/login?redirect=${props.history.location.pathname}`)
 		await props.nullCommunity()
 	}
 
@@ -21,6 +25,8 @@ const Topbar = (props) => {
 	return (
 		<div id="topbar">
 			<div id="topbar-container">
+				<button>Cordial</button>
+
 				<DropDownMenu text={"Communities"}>
 					<p>Cordial-Meta</p>
 					<p>Cordial-Meta</p>
@@ -29,10 +35,6 @@ const Topbar = (props) => {
 					<p>Cordial-Meta</p>
 					<p>Cordial-Meta</p>
 				</DropDownMenu>
-
-				<input
-					placeholder="Search for anything!"
-				/>
 
 				<div style={{marginLeft: "auto"}}>
 					
@@ -44,9 +46,6 @@ const Topbar = (props) => {
 						<button onClick={logout}><i>Logged in as</i> {props.userdata.user.username}</button>	
 					}
 
-
-						
-						
 				</div>
 			</div>
 		</div>

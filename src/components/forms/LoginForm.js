@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { withRouter, Redirect } from 'react-router-dom'
+import queryString from "query-string"
 
 import { login } from "../../reducers/loggedUserReducer"
 import loginService from "../../services/loginService"
@@ -29,7 +30,9 @@ class LoginForm extends React.Component {
 				password: this.state.password
 			})
 
-			this.props.history.push("/c/cordial")
+			const parsed = queryString.parse(this.props.history.location.search)
+
+			this.props.history.push(parsed.redirect || "/")
 			this.props.login(user)
 		} catch (exception) {
 			this.setState({ error: "invalid" })

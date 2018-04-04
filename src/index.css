@@ -7,14 +7,14 @@ h1, h2, h3, h4, h5 {
   color: #4d4d4d; }
 
 body {
-  background-color: #eeeeee;
+  background-color: #f0f0f0;
   font: normal x-small verdana, arial, helvetica, sans-serif;
   /* &::-webkit-scrollbar { 
 		display: none; 
 	} */ }
 
 button {
-  background-color: #e87581;
+  background-color: #ec452a;
   color: white;
   border: none;
   cursor: pointer;
@@ -28,7 +28,7 @@ button {
   font-size: 1.2em;
   transition: background-color 0.2s; }
   button:hover {
-    background-color: #d32437; }
+    background-color: #d02d13; }
 
 input, textarea {
   border: rgba(0, 0, 0, 0.25) solid 1px;
@@ -67,11 +67,11 @@ input.invalid {
 #topbar {
   color: white;
   display: block;
-  height: 5em;
+  height: 10em;
   width: 100%;
-  background-color: #e87581;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em; }
+  background-color: #ec452a;
+  padding-top: 3em;
+  padding-bottom: 3em; }
   #topbar > #topbar-container {
     height: 100%;
     display: flex;

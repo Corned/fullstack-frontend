@@ -1,16 +1,13 @@
-// npm modules
 import React from "react"
 import { connect } from "react-redux"
 import { BrowserRouter as Router, withRouter, Route, Link, Redirect } from 'react-router-dom'
 
-// components
 import Community from "./components/Community"
 import Topbar from "./components/Topbar"
 import Sidebar from "./components/Sidebar"
 import Footer from "./components/temp/Footer"
 import LoginAndRegistration from "./components/LoginAndRegistration"
 
-// reducers
 import { login, logout } from "./reducers/loggedUserReducer"
 
 import "./index.css"

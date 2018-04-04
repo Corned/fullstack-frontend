@@ -2,13 +2,13 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter, Route } from 'react-router-dom'
 
-import { getCommunityByName } from "../reducers/communityReducer"
-import { getAllPostsByCommunity } from "../reducers/postReducer"
-
 import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
+
+import { getCommunityByName } from "../reducers/communityReducer"
+import { getAllPostsByCommunity } from "../reducers/postReducer"
 
 
 class Community extends React.Component {
