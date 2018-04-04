@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 
 import { login } from "../../reducers/loggedUserReducer"
 import loginService from "../../services/loginService"
@@ -37,6 +37,10 @@ class LoginForm extends React.Component {
 	}
 
 	render() {
+		if (this.props.userdata.user) {
+			return <Redirect to="/c/cordial"/>
+		}
+
 		return (
 			<div id="login-page frame">
 				<form onSubmit={this.submit} id="login" className="frame">
@@ -68,9 +72,15 @@ class LoginForm extends React.Component {
 	}
 }
 
+const mapStateToProps = (state) => {
+	return {
+		"userdata": state.userdata
+	}
+}
+
 const mapDispatchToProps = { login }
 
-export default connect(null, mapDispatchToProps)(withRouter(LoginForm))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LoginForm))
 
 
 

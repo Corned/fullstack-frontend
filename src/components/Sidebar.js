@@ -7,7 +7,6 @@ import CommunityInformation from "./sidebar/CommunityInformation"
 import UserInformation from "./sidebar/UserInformation"
 
 import DropDownMenu from "./DropDownMenu"
-import LoginForm from "./LoginForm"
 
 class Sidebar extends React.Component {
 	render() {

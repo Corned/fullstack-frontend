@@ -22,7 +22,6 @@ class App extends React.Component {
 
 	componentWillMount() {
 		const loggedUserJSON = window.localStorage.getItem("cordialUserdata")
-		console.log(loggedUserJSON, typeof loggedUserJSON)
 		// häh
 		if (loggedUserJSON !== "null") {
 			const user = JSON.parse(loggedUserJSON)

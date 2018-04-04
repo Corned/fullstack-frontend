@@ -7,7 +7,6 @@ import { nullCommunity } from "../reducers/communityReducer"
 import { logout } from "../reducers/loggedUserReducer"
 
 import DropDownMenu from "./DropDownMenu"
-import LoginForm from "./LoginForm"
 
 const Topbar = (props) => {
 	const toLoginPage = async () => {
