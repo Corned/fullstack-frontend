@@ -23,6 +23,10 @@ $mobile-width-limit: 800px;
 	box-sizing: border-box;
 }
 
+p {
+	
+}
+
 h1, h2, h3, h4, h5 {
 	color: lighten(black, 30%);
 }
@@ -49,14 +53,20 @@ button {
 	text-transform: uppercase;
 	font-weight: 900;
 	font-size: 1.2em;
+	transition: background-color 0.2s;
+	
+	&:hover {
+		background-color: darken($primary-color, 20%);
+	}
 }	
 
-input {
+input, textarea {
 	border: rgba(0, 0, 0, 0.25) solid 1px;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0.4em;
 	border-radius: $border-radius;
+	resize: none;
 
 	&:focus {
 		outline: none;
@@ -145,6 +155,11 @@ input {
 		display: flex;
 		flex-direction: row;
 
+		& > *:first-child {
+			flex-grow: 2;
+			height: 0%;
+		}
+
 		& > *:last-child {
 			margin-left: $global-padding;
 		}
@@ -173,11 +188,6 @@ input {
 
 		& > button {
 			width: 100%;
-			transition: background-color 0.2s;
-
-			&:hover {
-				background-color: darken($primary-color, 20%);
-			}
 		}
 	}
 
@@ -355,5 +365,23 @@ input {
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+}
+
+.submit > * {
+	width: 100%;
+	margin-bottom: 0.1em;
+
+	& > * {
+		width: 100%;
+		margin-bottom: $global-padding / 2;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	& > h2 {
+		margin-bottom: 0.1em;
 	}
 }

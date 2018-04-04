@@ -52,15 +52,37 @@ class Community extends React.Component {
 				<Navigation community={this.props.community} view={this.state.view} setView={this.setView}/>
 				<div id="community-content">	
 					<Route exact path="/c/:community/wiki" render={() => 
-						<p>wiki :D</p>
+						<div className="frame">
+							{this.props.community.name}'s wiki page
+						</div>
 					}/>
 
 					<Route exact path="/c/:community/submit-text" render={() => 
-						<p>TEXT</p>
+						<div className="frame submit">
+							<h1>Textpost</h1>
+							<p>You're about to share a text-based post.</p>
+							<form>
+								<h2>Title</h2>
+								<input placeholder="title"/>
+								<h2>Body</h2>
+								<textarea rows="10"></textarea>
+								<button>Submit</button>
+							</form>
+						</div>
 					}/>
 
 					<Route exact path="/c/:community/submit-link" render={() => 
-						<p>LINK</p>
+						<div className="frame submit">
+							<h1>Linkpost</h1>
+							<p>You're about to share a link.</p>
+							<form>
+							<h2>Title</h2>
+								<input placeholder="title"/>
+								<h2>Link</h2>
+								<input placeholder="url"/>
+								<button>Submit</button>
+							</form>
+						</div>
 					}/>
 
 					{

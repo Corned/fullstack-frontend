@@ -25,15 +25,19 @@ button {
   border-radius: 2px;
   text-transform: uppercase;
   font-weight: 900;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  transition: background-color 0.2s; }
+  button:hover {
+    background-color: #d32437; }
 
-input {
+input, textarea {
   border: rgba(0, 0, 0, 0.25) solid 1px;
   box-sizing: border-box;
   margin: 0;
   padding: 0.4em;
-  border-radius: 2px; }
-  input:focus {
+  border-radius: 2px;
+  resize: none; }
+  input:focus, textarea:focus {
     outline: none; }
 
 .no-select {
@@ -98,6 +102,9 @@ input {
 #community > #community-content {
   display: flex;
   flex-direction: row; }
+  #community > #community-content > *:first-child {
+    flex-grow: 2;
+    height: 0%; }
   #community > #community-content > *:last-child {
     margin-left: 1em; }
 
@@ -113,10 +120,7 @@ input {
   #sidebar > #community-information > *:last-child, #sidebar > #community-information > h1 {
     margin-bottom: 0; }
   #sidebar > #community-information > button {
-    width: 100%;
-    transition: background-color 0.2s; }
-    #sidebar > #community-information > button:hover {
-      background-color: #d32437; }
+    width: 100%; }
   #sidebar > #community-rules > h1 {
     margin-bottom: 0.5em; }
   #sidebar > #community-rules > p {
@@ -233,3 +237,14 @@ input {
     margin-bottom: 0.5em; }
     .login-form > *:last-child {
       margin-bottom: 0; }
+
+.submit > * {
+  width: 100%;
+  margin-bottom: 0.1em; }
+  .submit > * > * {
+    width: 100%;
+    margin-bottom: 0.5em; }
+    .submit > * > *:last-child {
+      margin-bottom: 0; }
+  .submit > * > h2 {
+    margin-bottom: 0.1em; }
