@@ -363,7 +363,7 @@ input.invalid {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
-	width: $site-width / 1.5;
+	width: $site-width / 2;
 	justify-content: center;
 	margin-left: auto;
 	margin-right: auto;
@@ -375,7 +375,11 @@ input.invalid {
 
 		& > * {
 			width: 100%;
-			margin-bottom: $global-padding;
+			margin-bottom: $global-padding / 2;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 }

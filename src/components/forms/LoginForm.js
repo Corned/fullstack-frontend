@@ -42,32 +42,30 @@ class LoginForm extends React.Component {
 		}
 
 		return (
-			<div id="login-page frame">
-				<form onSubmit={this.submit} id="login" className="frame">
-					<h1>Login</h1>
-					<input 
-						className={this.state.error}
-						type="text" 
-						name="username" 
-						placeholder="Username"
-						value={this.state.username}
-						autoComplete="off"
-						onChange={this.textFieldHandler}
-					/>
-					<input 
-						className={this.state.error}
-						type="password" 
-						name="password" 
-						placeholder="Password"
-						value={this.state.password}
-						autoComplete="off"
-						onChange={this.textFieldHandler}
-					/>
-					<button 
-						type="submit"
-					>Submit</button>
-				</form>
-			</div>
+			<form onSubmit={this.submit} id="login" className="frame">
+				<h1>Login</h1>
+				<input 
+					className={this.state.error}
+					type="text" 
+					name="username" 
+					placeholder="Username"
+					value={this.state.username}
+					autoComplete="off"
+					onChange={this.textFieldHandler}
+				/>
+				<input 
+					className={this.state.error}
+					type="password" 
+					name="password" 
+					placeholder="Password"
+					value={this.state.password}
+					autoComplete="off"
+					onChange={this.textFieldHandler}
+				/>
+				<button 
+					type="submit"
+				>Log in</button>
+			</form>
 		)
 	}
 }

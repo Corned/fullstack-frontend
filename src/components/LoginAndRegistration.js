@@ -6,7 +6,7 @@ import RegistrationForm from "./forms/RegistrationForm"
 
 const LoginAndRegistration = () => {
 	return (
-		<div id="login-page frame">
+		<div id="login-page">
 			<LoginForm/>
 			<RegistrationForm/>
 		</div>

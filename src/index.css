@@ -237,7 +237,7 @@ input.invalid {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 80em;
+  width: 60em;
   justify-content: center;
   margin-left: auto;
   margin-right: auto; }
@@ -247,7 +247,9 @@ input.invalid {
     flex-direction: column; }
     #login-page > form > * {
       width: 100%;
-      margin-bottom: 1em; }
+      margin-bottom: 0.5em; }
+      #login-page > form > *:last-child {
+        margin-bottom: 0; }
 
 .submit > * {
   width: 100%;
