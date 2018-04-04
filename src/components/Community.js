@@ -7,8 +7,8 @@ import { getAllPostsByCommunity } from "../reducers/postReducer"
 
 import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
-import TextForm from "./community/TextForm"
 import Sidebar from "./Sidebar"
+import TextPostForm from "./forms/TextPostForm"
 
 
 class Community extends React.Component {
@@ -59,7 +59,7 @@ class Community extends React.Component {
 					}/>
 
 					<Route exact path="/c/:community/submit-text" render={() => 
-						<TextForm/>
+						<TextPostForm/>
 					}/>
 
 					<Route exact path="/c/:community/submit-link" render={() => 
