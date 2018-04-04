@@ -1,9 +1,19 @@
 import React from "react"
 
+import { connect } from "react-redux"
+
+import { withRouter, Redirect } from "react-router-dom"
+import { nullCommunity } from "../reducers/communityReducer"
+
 import DropDownMenu from "./DropDownMenu"
 import LoginForm from "./LoginForm"
 
-const Sidebar = () => {
+const Topbar = (props) => {
+	const toLoginPage = async () => {
+		props.history.replace("/login")
+		await props.nullCommunity(null)
+	}
+
 	return (
 		<div id="topbar">
 			<div id="topbar-container">
@@ -21,11 +31,14 @@ const Sidebar = () => {
 				/>
 
 				<div style={{marginLeft: "auto"}}>
-					<button onClick>Login</button>
+					<button onClick={toLoginPage}>Login</button>
 				</div>
 			</div>
 		</div>
 	)
 }
 
-export default Sidebar
+
+const mapDispatchToProps = { nullCommunity }
+
+export default connect(null, mapDispatchToProps)(withRouter(Topbar))

@@ -7,6 +7,7 @@ import { getAllPostsByCommunity } from "../reducers/postReducer"
 
 import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
+import TextForm from "./community/TextForm"
 import Sidebar from "./Sidebar"
 
 
@@ -58,17 +59,7 @@ class Community extends React.Component {
 					}/>
 
 					<Route exact path="/c/:community/submit-text" render={() => 
-						<div className="frame submit">
-							<h1>Textpost</h1>
-							<p>You're about to share a text-based post.</p>
-							<form>
-								<h2>Title</h2>
-								<input placeholder="title"/>
-								<h2>Body</h2>
-								<textarea rows="10"></textarea>
-								<button>Submit</button>
-							</form>
-						</div>
+						<TextForm/>
 					}/>
 
 					<Route exact path="/c/:community/submit-link" render={() => 

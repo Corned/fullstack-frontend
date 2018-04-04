@@ -40,6 +40,9 @@ input, textarea {
   input:focus, textarea:focus {
     outline: none; }
 
+input.invalid {
+  border: 2px rgba(255, 0, 0, 0.5) solid; }
+
 .no-select {
   cursor: default;
   user-select: none;

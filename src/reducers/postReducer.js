@@ -31,4 +31,8 @@ export const getAllPostsByCommunity = (communityName) => {
 	}
 }
 
+export const createPost = (title, type, content) => {
+
+}
+
 export default reducer
