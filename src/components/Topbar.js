@@ -21,9 +21,7 @@ const Sidebar = () => {
 				/>
 
 				<div style={{marginLeft: "auto"}}>
-					<DropDownMenu text={"Login"}>
-						<LoginForm/>
-					</DropDownMenu>
+					<button onClick>Login</button>
 				</div>
 			</div>
 		</div>

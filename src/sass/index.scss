@@ -355,15 +355,23 @@ input, textarea {
 	}
 }
 
-.login-form {
+#login-page {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
+	width: $site-width / 1.5;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
 
-	& > * {
-		margin-bottom: $global-padding / 2;
+	& > form {
+		margin-bottom: $global-padding;
+		display: flex;
+		flex-direction: column;
 
-		&:last-child {
-			margin-bottom: 0;
+		& > * {
+			width: 100%;
+			margin-bottom: $global-padding;
 		}
 	}
 }

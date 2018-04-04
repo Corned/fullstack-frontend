@@ -230,13 +230,21 @@ input, textarea {
     #footer > .link > * {
       max-height: inherit; }
 
-.login-form {
+#login-page {
   display: flex;
-  flex-direction: column; }
-  .login-form > * {
-    margin-bottom: 0.5em; }
-    .login-form > *:last-child {
-      margin-bottom: 0; }
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 80em;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto; }
+  #login-page > form {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column; }
+    #login-page > form > * {
+      width: 100%;
+      margin-bottom: 1em; }
 
 .submit > * {
   width: 100%;

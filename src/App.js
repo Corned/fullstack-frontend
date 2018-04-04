@@ -38,6 +38,24 @@ class App extends React.Component {
 					<Topbar/>
 
 					<div id="container">
+						<Route exact path="/login" render={() =>
+							<div id="login-page frame">
+								<form id="login" className="frame">
+									<h1>Login</h1>
+									<input placeholder="username"/>
+									<input placeholder="password"/>
+									<button>login</button>
+								</form>
+								<form id="register" className="frame">
+									<h1>Register</h1>
+									<input placeholder="username"/>
+									<input placeholder="password"/>
+									<input placeholder="password"/>
+									<button>register</button>
+								</form>
+							</div>
+						}/>
+
 						<Route exact path="/c/" render={({match}) => 
 							<Redirect to={`/`}/>
 						}/>
