@@ -14,7 +14,7 @@ body {
 	} */ }
 
 button {
-  background-color: #ec452a;
+  background-color: #ee5941;
   color: white;
   border: none;
   cursor: pointer;
@@ -28,7 +28,7 @@ button {
   font-size: 1.2em;
   transition: background-color 0.2s; }
   button:hover {
-    background-color: #d02d13; }
+    background-color: #e73215; }
 
 input, textarea {
   border: rgba(0, 0, 0, 0.25) solid 1px;
@@ -69,7 +69,7 @@ input.invalid {
   display: block;
   height: 10em;
   width: 100%;
-  background-color: #ec452a;
+  background-color: #ee5941;
   padding-top: 3em;
   padding-bottom: 3em; }
   #topbar > #topbar-container {
@@ -202,6 +202,7 @@ input.invalid {
   .dropdownmenu > .toggle {
     color: inherit;
     background-color: inherit;
+    transition: background-color 0s;
     border-radius: 0;
     width: 100%; }
     .dropdownmenu > .toggle:focus {
@@ -217,7 +218,8 @@ input.invalid {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     overflow: auto;
-    max-height: 200px; }
+    max-height: 200px;
+    position: absolute; }
 
 #footer {
   display: flex;

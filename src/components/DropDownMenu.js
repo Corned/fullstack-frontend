@@ -1,20 +1,20 @@
 import React from "react"
 
 class DropDownMenu extends React.Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 
 		this.state = {
-			open: false
+			expanded: false
 		}
 	}
 
 	toggle = () => {
-		this.setState({ open: !this.state.open })
+		this.setState({ expanded: !this.state.expanded })
 	}
 
 	render() {
-		if (this.state.open === false) {
+		if (this.state.expanded === false) {
 			return (
 				<div className="dropdownmenu">
 					<button className="toggle no-select" onMouseOver={this.toggle}>{this.props.text}</button>
@@ -24,7 +24,7 @@ class DropDownMenu extends React.Component {
 
 		return (
 			<div className="dropdownmenu" onMouseLeave={this.toggle}>
-				<button className="toggle opened no-select frame">{this.props.text}</button>
+				<button className="toggle opened">{this.props.text}</button>
 				<div className="content frame">
 					{this.props.children}
 				</div>

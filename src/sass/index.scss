@@ -1,4 +1,4 @@
-$primary-color: lighten(rgba(231, 50, 21, 1), 5%);
+$primary-color: lighten(rgba(231, 50, 21, 1), 10%);
 $background-color: rgb(240, 240, 240);
 $border-color: rgba(0, 0, 0, 0.25);
 $global-padding: 1em;
@@ -302,6 +302,7 @@ input.invalid {
 	& > .toggle {
 		color: inherit;
 		background-color: inherit;
+		transition: background-color 0s;
 		border-radius: 0;
 		width: 100%;
 
@@ -324,6 +325,7 @@ input.invalid {
 		border-top-right-radius: 0;
 		overflow: auto;
 		max-height: 200px;
+		position: absolute;
 	}
 }
 

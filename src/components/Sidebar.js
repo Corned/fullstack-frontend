@@ -25,8 +25,18 @@ class Sidebar extends React.Component {
 					<p>No reaction, MRW, HIFW, or "Me IRL" posts.</p>
 					<p>No posts with their sole purpose being to communicate with another redditor.</p>
 					<p>Reposts will be removed at the moderators' discretion.</p>
-					<p>Posts which result in harassment of any individual, subreddit, or other entity may be removed at the moderators' discretion.</p>
-				</div>
+					<p>Posts which result in harassment of any individual, subreddit, or other entity may be removed at the moderators' discretion.</p>				
+					<DropDownMenu text={"Communities"}>
+						<p>Cordial-Meta</p>
+						<p>Cordial-Meta</p>
+						<p>Cordial-Meta</p>
+						<p>Cordial-Meta</p>
+						<p>Cordial-Meta</p>
+						<p>Cordial-Meta</p>
+					</DropDownMenu>
+				</div>				
+				
+
 			</div>
 		)
 	}
