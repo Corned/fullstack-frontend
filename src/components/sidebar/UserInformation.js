@@ -13,7 +13,7 @@ const UserInformation = (props) => {
 	}
 
 	return (
-		<div id="user-information" className="frame drop-shadow">
+		<div id="user-information" className="frame">
 			<button type="submit" onClick={logout}>Logout</button>
 		</div>
 	)

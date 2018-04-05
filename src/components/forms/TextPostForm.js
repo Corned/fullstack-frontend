@@ -39,7 +39,7 @@ class TextForm extends React.Component {
 		return (
 			<div className="frame submit">
 				<h1>Textpost</h1>
-				<p className="description" style={{ fontSize: "1.2em" }}>You're about to share a text- to share a text-based post. </p>
+				<p className="primary-text">You're about to share a text- to share a text-based post. </p>
 				<br/>
 				<form onSubmit={this.submit}>
 					<h2>Title</h2>

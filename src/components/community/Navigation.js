@@ -11,7 +11,7 @@ class CommunityNavigation extends React.Component {
 		const navigationLabels = [ "hot", "new", "controversial", "top", "wiki" ]
 
 		return (
-			<div id="community-navigation" className="frame drop-shadow">
+			<div id="community-navigation" className="frame">
 				{
 					navigationLabels.map((label, index) => {
 						if (label === this.props.view) {
@@ -20,7 +20,8 @@ class CommunityNavigation extends React.Component {
 
 						return <p key={index} onClick={this.props.setView(label)} className="button">{label}</p>
 					}
-				)}
+					)
+				}
 			</div>	
 		)
 	}

@@ -39,6 +39,8 @@ class ExpandedPost extends React.Component {
 			postAdded = `${deltaTimeDays === 1 ? "a" : deltaTimeDays} day${(deltaTimeDays === 1 ? "" : "s")} ago`
 		}
 
+		console.log(post.body)
+
 		return (
 			<div className="frame">
 				<div className="thumbnail">

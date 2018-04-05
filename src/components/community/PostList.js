@@ -31,7 +31,7 @@ class PostList extends React.Component {
 		}
 		
 		return (
-			<div id="post-list" className="drop-shadow fill">
+			<div id="post-list" className="fill">
 				{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 			</div>
 		)

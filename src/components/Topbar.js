@@ -24,16 +24,11 @@ const Topbar = (props) => {
 
 	return (
 		<div id="topbar">
-			<div id="topbar-container">
+			<div id="topbar-container" className="align--vertically">
 				<button>Cordial</button>
 
 				<DropDownMenu text={"Communities"}>
-					<p>Cordial-Meta</p>
-					<p>Cordial-Meta</p>
-					<p>Cordial-Meta</p>
-					<p>Cordial-Meta</p>
-					<p>Cordial-Meta</p>
-					<p>Cordial-Meta</p>
+					<p>:(</p>
 				</DropDownMenu>
 
 				<div style={{marginLeft: "auto"}}>

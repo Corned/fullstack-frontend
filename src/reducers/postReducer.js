@@ -14,7 +14,7 @@ const reducer = (state = initialState, action) => {
 			}
 		case "SET_POST":
 			return {
-				postList: [ ...state.postList, action.post ],
+				postList: state.postList,
 				post: action.post
 			}
 		default:
