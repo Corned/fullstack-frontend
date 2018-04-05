@@ -45,6 +45,11 @@ input, textarea {
   input.invalid, textarea.invalid {
     border: 2px rgba(255, 0, 0, 0.5) solid; }
 
+.clickable {
+  cursor: pointer; }
+  .clickable:hover {
+    color: goldenrod; }
+
 .apply-margin--vertical > * {
   margin-bottom: 0.5em; }
   .apply-margin--vertical > *:last-child {
@@ -187,20 +192,14 @@ input, textarea {
       color: orangered; }
     .post > .voting > .downvote-button:hover {
       color: blue; }
-  .post .thumbnail > img {
+  .post .post__thumbnail > img {
     border-radius: 0.5em;
     border: rgba(0, 0, 0, 0.25) solid 1px;
     margin-right: 1em;
     max-height: 6em; }
-  .post .post-info .post-title {
+  .post .post__info > .post__title {
     color: black;
     font-size: 1.5em; }
-  .post .post-info .small-text {
-    color: gray;
-    font-size: 0.6em;
-    margin-left: 0.5em; }
-  .post .post-info * {
-    margin-bottom: 0.225em; }
 
 .dropdownmenu {
   z-index: 100;

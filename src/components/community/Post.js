@@ -32,18 +32,11 @@ const Post = (props) => {
 
 	return (
 		<div className="post frame">
-			{/* <div className="voting">
-				<button className="upvote-button">^</button>
-				<p className="votes">347</p>
-				<button className="downvote-button">v</button>
-			</div> */}
-			<div className="thumbnail">
-				<img alt="post-thumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
+			<div className="post__thumbnail">
+				<img alt="postthumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
 			</div>
-			<div className="post-info">
-				<p onClick={toPost} className="post-title">{post.title}<span className="small-text light-text">(imgur.com)</span></p>
-				<p className="post-added"><span className="light-text">submitted</span> {postAdded} <span className="light-text">by</span> <span className="poster">{post.user.username}</span></p>
-				<p className="post-other"><span className="comments">0 Comments - c/{post.community.name}</span></p>
+			<div className="post__info">
+				<p onClick={toPost} className="post__title clickable">{post.title}</p>
 			</div>
 		</div>
 	)

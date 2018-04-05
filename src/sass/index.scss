@@ -77,6 +77,14 @@ input, textarea {
 	}
 }
 
+.clickable {
+	cursor: pointer;
+
+	&:hover {
+		color: goldenrod;
+	}
+}
+
 .apply-margin--vertical {
 	& > * {
 		margin-bottom: $frame-vertical-margin;
@@ -274,27 +282,17 @@ input, textarea {
 		}
 	}
 	
-	.thumbnail > img {
+	.post__thumbnail > img {
 		border-radius: 0.5em;
 		border: rgba(0, 0, 0, 0.25) solid 1px;
 		margin-right: 1em;
 		max-height: 6em;
 	}
 	
-	.post-info {
-		.post-title {
+	.post__info {
+		& > .post__title {
 			color: black;
 			font-size: 1.5em;
-		}
-
-		.small-text {
-			color: gray;
-			font-size: 0.6em;
-			margin-left: 0.5em;
-		}
-		
-		* {
-			margin-bottom: 0.225em;
 		}
 	}
 }
