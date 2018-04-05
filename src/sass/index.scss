@@ -7,7 +7,7 @@ $background-color: rgba(240, 240, 240, 1);
 
 // Margins and Paddings
 $frame-margin: 1em;
-$frame-vertial-margin: 0.5em;
+$frame-vertical-margin: 0.5em;
 $frame-horizontal-margin: 1em;
 $frame-padding: 1em;
 
@@ -26,6 +26,7 @@ $border-radius: 2px;
 p {
 	font-size: 12px;
 	white-space: pre-line;
+	text-align: justify;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -73,6 +74,13 @@ input, textarea {
 
 	&.invalid {
 		border: 2px rgba(255, 0, 0, 0.50) solid;
+	}
+}
+
+.apply-margin--vertical {
+	& > * {
+		margin-bottom: $frame-vertical-margin;
+		&:last-child { margin-bottom: 0 }
 	}
 }
 

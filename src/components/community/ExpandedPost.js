@@ -40,19 +40,38 @@ class ExpandedPost extends React.Component {
 		}
 
 		return (
-			<div className="single-post frame">
-				<div className="post" style={{ marginBottom: "1em" }}>
-					<div className="thumbnail">
-						<img alt="post-thumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
+			<div>
+				<div className="single-post frame">
+					<div className="post" style={{ marginBottom: "1em" }}>
+						<div className="thumbnail">
+							<img alt="post-thumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
+						</div>
+						<div className="post-info">
+							<p className="post-title">{post.title}<span className="small-text light-text">(imgur.com)</span></p>
+							<p className="post-added"><span className="light-text">submitted</span> {postAdded} <span className="light-text">by</span> <span className="poster">{post.user.username}</span></p>
+							<p className="post-other"><span className="comments">0 Comments - c/{post.community.name}</span></p>
+						</div>
 					</div>
-					<div className="post-info">
-						<p className="post-title">{post.title}<span className="small-text light-text">(imgur.com)</span></p>
-						<p className="post-added"><span className="light-text">submitted</span> {postAdded} <span className="light-text">by</span> <span className="poster">{post.user.username}</span></p>
-						<p className="post-other"><span className="comments">0 Comments - c/{post.community.name}</span></p>
-					</div>
-				</div>
 
-				<p>{post.body}</p>
+					<p>{post.body}</p>
+				</div>
+				<br/>
+				<div id="comments" className="frame apply-margin--vertical">
+					<h2>634 Comments</h2>
+					<form className="apply-margin--vertical">
+						<textarea 
+							style={{
+								width: "100%"
+							}}
+							rows="4"
+							placeholder="Your blissful thoughts"
+						></textarea>
+						<button>Save? 🤔</button>
+					</form>
+					<p className="tertiary-text">
+						comments go here thank you very much
+					</p>
+				</div>
 			</div>
 		)
 	}

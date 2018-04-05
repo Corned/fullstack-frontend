@@ -5,7 +5,8 @@
 
 p {
   font-size: 12px;
-  white-space: pre-line; }
+  white-space: pre-line;
+  text-align: justify; }
 
 h1, h2, h3, h4, h5, h6 {
   color: rgba(0, 0, 0, 0.85); }
@@ -43,6 +44,11 @@ input, textarea {
     outline: none; }
   input.invalid, textarea.invalid {
     border: 2px rgba(255, 0, 0, 0.5) solid; }
+
+.apply-margin--vertical > * {
+  margin-bottom: 0.5em; }
+  .apply-margin--vertical > *:last-child {
+    margin-bottom: 0; }
 
 .primary-text {
   color: #12181b;
