@@ -17,7 +17,7 @@ class Community extends React.Component {
 		super(props)
 
 		this.state = {
-			view: "hot"
+			view: ""
 		}
 	}
 
@@ -25,10 +25,10 @@ class Community extends React.Component {
 		this.props.getCommunityByName(this.props.communityName)
 		this.props.getAllPostsByCommunity(this.props.communityName)
 
-		const currentView = /(?:.(?!\/))+$/g.exec(this.props.history.location.pathname)
-		if (currentView.length > 0) {
+		const currentView = this.props.history.location.pathname.split("/")[3]
+		if (currentView !== null) {
 			this.setState({
-				view: currentView[0].substring(1)
+				view: currentView
 			})
 		}
 	}

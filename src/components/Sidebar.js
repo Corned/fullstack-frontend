@@ -10,10 +10,14 @@ import DropDownMenu from "./DropDownMenu"
 
 class Sidebar extends React.Component {
 	render() {
+		if (this.props.community.current === null) {
+			return null
+		}
+
 		return (
 			<div id="sidebar">
 				<div id="community-information" className="frame">
-					<h1>{this.props.community.name}</h1>
+					<h1>{this.props.community.current.name}</h1>
 					<p className="light-text">745,367 members</p>
 
 					<button id="submit-text-post" onClick={this.props.setView("submit-text")}>Submit Your Thoughts</button>

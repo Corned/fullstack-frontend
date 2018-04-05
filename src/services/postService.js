@@ -7,6 +7,11 @@ const getAll = async () => {
 	return response.data
 }
 
+const getById = async (id) => {
+	const response = await axios.get(`${baseUrl}/${id}`)
+	return response.data
+}
+
 const getAllFromCommunity = async (community) => {
 	const response = await axios.get(`${baseUrl}/c/${community}`)
 	return response.data
@@ -22,4 +27,4 @@ const create = async (data, token) => {
 }
 
 
-export default { getAll, getAllFromCommunity, create }
+export default { getAll, getAllFromCommunity, create, getById }

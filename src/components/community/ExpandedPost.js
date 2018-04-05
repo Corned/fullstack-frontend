@@ -1,15 +1,25 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter } from 'react-router-dom'
+import { withRouter } from "react-router-dom"
+
+import { getPostById } from "../../reducers/postReducer"
 
 
 class ExpandedPost extends React.Component {
 	componentWillMount() {
+		const postId = this.props.history.location.pathname.split("/")[4]
 
+		if (postId !== null) {
+			this.props.getPostById(postId)
+		}
 	}
 
 	render() {
 		const post = this.props.post
+
+		if (post === null) {
+			return null
+		}
 
 		if (typeof post.date === "string") {
 			post.date = new Date(post.date)
@@ -52,6 +62,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = {  }
+const mapDispatchToProps = { getPostById }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ExpandedPost))

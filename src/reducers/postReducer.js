@@ -22,6 +22,17 @@ const reducer = (state = initialState, action) => {
 	}
 }
 
+export const getPostById = (id) => {
+	return async (dispatch) => {
+		const post = await postService.getById(id)
+
+		dispatch({
+			type: "SET_POST",
+			post
+		})
+	}
+}
+
 export const getAllPosts = () => {
 	return async (dispatch) => {
 		const posts = await postService.getAll()
