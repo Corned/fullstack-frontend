@@ -1,10 +1,17 @@
 import communityService from "../services/communityService"
 
+const initialState = {
+	current: null,
+	list: []
+}
 
-const reducer = (state = null, action) => {
+const reducer = (state = initialState, action) => {
 	switch(action.type) {
 	case "SET_COMMUNITY":
-		return action.data
+		return {
+			current: action.data,
+			list: state.list
+		}
 	default:
 		return state
 	}

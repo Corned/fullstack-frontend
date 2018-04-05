@@ -6,6 +6,7 @@ import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
+import ExpandedPost from "./community/ExpandedPost"
 
 import { getCommunityByName } from "../reducers/communityReducer"
 import { getAllPostsByCommunity } from "../reducers/postReducer"
@@ -39,7 +40,7 @@ class Community extends React.Component {
 			}
 
 			this.setState({ view })
-			this.props.history.push(`/c/${this.props.community.name}/${view}`)
+			this.props.history.push(`/c/${this.props.community.current.name}/${view}`)
 		}
 	}
 
@@ -50,12 +51,16 @@ class Community extends React.Component {
 
 		return (
 			<div id="community">
-				<Navigation community={this.props.community} view={this.state.view} setView={this.setView}/>
+				<Navigation community={this.props.community.current} view={this.state.view} setView={this.setView}/>
 				<div id="community-content">	
 					<Route exact path="/c/:community/wiki" render={() => 
 						<div className="frame">
-							{this.props.community.name}'s wiki page
+							{this.props.community.current.name}'s wiki page
 						</div>
+					}/>
+
+					<Route exact path="/c/:community/post/:id" render={() =>
+						<ExpandedPost/>
 					}/>
 
 					<Route exact path="/c/:community/submit-text" render={() => 

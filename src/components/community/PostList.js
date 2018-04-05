@@ -21,7 +21,7 @@ class PostList extends React.Component {
 	}
 
 	render() {
-		if (this.props.community.posts === undefined) {
+		if (this.props.community === null || this.props.community.posts === undefined) {
 			this.isEmpty()
 			return (
 				<div id="post-list" className="frame">
@@ -40,7 +40,7 @@ class PostList extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.community,
+		"community": state.community.current,
 		"posts": state.posts.postList
 	}
 }

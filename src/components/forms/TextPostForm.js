@@ -18,16 +18,18 @@ class TextForm extends React.Component {
 		this.setState({ [event.target.name]: event.target.value })
 	}
 
-	submit = (event) => {
+	submit = async (event) => {
 		event.preventDefault()
 
 		try {
-			this.props.createPost({
+			await this.props.createPost({
 				title: this.state.title,
 				body: this.state.body,
 				type: "text",
-				community: this.props.community.name
+				community: this.props.community.current.name
 			}, this.props.userdata.token)
+
+			this.props.history.push(`/c/${this.props.community.current.name}/post/${this.props.posts.post._id}`)
 		} catch (exception) {
 			console.log(exception, "!!!!")
 		}
@@ -72,7 +74,8 @@ class TextForm extends React.Component {
 const mapStateToProps = (state) => {
 	return { 
 		"community": state.community,
-		"userdata": state.userdata
+		"userdata": state.userdata,
+		"posts": state.posts
 	}
 }
 
