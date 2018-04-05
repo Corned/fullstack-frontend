@@ -14,14 +14,14 @@ class Sidebar extends React.Component {
 
 		return (
 			<div id="sidebar">
-				<div id="community-information" className="frame">
+				<div id="community-information" className="frame apply-margin--vertical">
 					<h1>{this.props.community.current.name}</h1>
 					<p className="secondary-text">745,367 members</p>
 
 					<button id="submit-text-post" onClick={this.props.setView("submit-text")}>Submit Your Thoughts</button>
 					<button id="submit-link-post" onClick={this.props.setView("submit-link")}>Share a Link</button>
 				</div>
-				<div id="community-rules" className="frame">
+				<div id="community-rules" className="frame apply-margin--vertical">
 					<h1>Rules</h1>
 					<p className="primary-text">All posts must make an attempt at humor.</p>
 					<p className="primary-text">No reaction, MRW, HIFW, or "Me IRL" posts.</p>

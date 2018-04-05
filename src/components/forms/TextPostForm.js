@@ -37,11 +37,11 @@ class TextForm extends React.Component {
 
 	render() {
 		return (
-			<div className="frame submit">
+			<div className="frame submit apply-margin--vertical">
 				<h1>Textpost</h1>
 				<p className="primary-text">You're about to share a text- to share a text-based post. </p>
 				<br/>
-				<form onSubmit={this.submit}>
+				<form onSubmit={this.submit} className="apply-margin--vertical">
 					<h2>Title</h2>
 					<input 
 						className=""

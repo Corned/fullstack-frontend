@@ -195,11 +195,7 @@ input, textarea {
 	}
 
 	& > #community-information {
-		& > * {
-			margin-bottom: 0.5em;
-		}
-
-		& > *:last-child, & > h1 {
+		& > h1 {
 			margin-bottom: 0;
 		}
 
@@ -210,14 +206,6 @@ input, textarea {
 
 	& > #community-rules > h1 {
 		margin-bottom: 0.5em;
-	}
-
-	& > #community-rules > p {
-		margin-bottom: 0.8em;
-
-		&:last-child {
-			margin-bottom: 0;	
-		}
 	}
 }
 
@@ -400,7 +388,6 @@ input, textarea {
 
 .submit > * {
 	width: 100%;
-	margin-bottom: 0.1em;
 
 	& > * {
 		width: 100%;

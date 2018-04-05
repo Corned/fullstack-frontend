@@ -134,18 +134,12 @@ input, textarea {
   min-width: 30em; }
   #sidebar > * {
     margin-bottom: 1em; }
-  #sidebar > #community-information > * {
-    margin-bottom: 0.5em; }
-  #sidebar > #community-information > *:last-child, #sidebar > #community-information > h1 {
+  #sidebar > #community-information > h1 {
     margin-bottom: 0; }
   #sidebar > #community-information > button {
     width: 100%; }
   #sidebar > #community-rules > h1 {
     margin-bottom: 0.5em; }
-  #sidebar > #community-rules > p {
-    margin-bottom: 0.8em; }
-    #sidebar > #community-rules > p:last-child {
-      margin-bottom: 0; }
 
 #community-navigation {
   display: flex;
@@ -270,8 +264,7 @@ input, textarea {
         margin-bottom: 0; }
 
 .submit > * {
-  width: 100%;
-  margin-bottom: 0.1em; }
+  width: 100%; }
   .submit > * > * {
     width: 100%;
     margin-bottom: 0.5em; }

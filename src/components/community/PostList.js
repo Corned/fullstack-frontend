@@ -31,7 +31,7 @@ class PostList extends React.Component {
 		}
 		
 		return (
-			<div id="post-list" className="fill">
+			<div id="post-list" className="fill apply-margin--vertical">
 				{this.props.posts.map((post) => <Post key={post.id} post={post}/>)}
 			</div>
 		)

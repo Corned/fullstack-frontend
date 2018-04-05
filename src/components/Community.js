@@ -68,11 +68,11 @@ class Community extends React.Component {
 					}/>
 
 					<Route exact path="/c/:community/submit-link" render={() => 
-						<div className="frame submit">
+						<div className="frame submit apply-margin--vertical">
 							<h1>Linkpost</h1>
 							<p>You're about to share a link.</p>
-							<form>
-							<h2>Title</h2>
+							<form className="apply-margin--vertical">
+								<h2>Title</h2>
 								<input placeholder="title"/>
 								<h2>Link</h2>
 								<input placeholder="url"/>
