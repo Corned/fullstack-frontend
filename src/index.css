@@ -164,42 +164,43 @@ input, textarea {
 #post-list {
   flex-grow: 2;
   height: 0%; }
-  #post-list > .post {
-    display: -webkit-flex;
+
+.post {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row; }
+  .post > .voting {
     display: flex;
-    flex-direction: row; }
-    #post-list > .post > .voting {
-      display: flex;
-      flex-direction: column;
-      max-width: 5em;
-      margin-right: 1em; }
-      #post-list > .post > .voting > * {
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto; }
-      #post-list > .post > .voting > button, #post-list > .post > .voting > button:active {
-        border: none;
-        box-shadow: none;
-        background-color: transparent;
-        font-weight: 900; }
-      #post-list > .post > .voting > .upvote-button:hover {
-        color: orangered; }
-      #post-list > .post > .voting > .downvote-button:hover {
-        color: blue; }
-    #post-list > .post .thumbnail > img {
-      border-radius: 0.5em;
-      border: rgba(0, 0, 0, 0.25) solid 1px;
-      margin-right: 1em;
-      max-height: 6em; }
-    #post-list > .post .post-info .post-title {
-      color: black;
-      font-size: 1.5em; }
-    #post-list > .post .post-info .small-text {
-      color: gray;
-      font-size: 0.6em;
-      margin-left: 0.5em; }
-    #post-list > .post .post-info * {
-      margin-bottom: 0.225em; }
+    flex-direction: column;
+    max-width: 5em;
+    margin-right: 1em; }
+    .post > .voting > * {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto; }
+    .post > .voting > button, .post > .voting > button:active {
+      border: none;
+      box-shadow: none;
+      background-color: transparent;
+      font-weight: 900; }
+    .post > .voting > .upvote-button:hover {
+      color: orangered; }
+    .post > .voting > .downvote-button:hover {
+      color: blue; }
+  .post .thumbnail > img {
+    border-radius: 0.5em;
+    border: rgba(0, 0, 0, 0.25) solid 1px;
+    margin-right: 1em;
+    max-height: 6em; }
+  .post .post-info .post-title {
+    color: black;
+    font-size: 1.5em; }
+  .post .post-info .small-text {
+    color: gray;
+    font-size: 0.6em;
+    margin-left: 0.5em; }
+  .post .post-info * {
+    margin-bottom: 0.225em; }
 
 .dropdownmenu {
   z-index: 100;
@@ -272,3 +273,7 @@ input, textarea {
       margin-bottom: 0; }
   .submit > * > h2 {
     margin-bottom: 0.1em; }
+
+.single-post {
+  display: flex;
+  flex-direction: column; }

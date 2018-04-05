@@ -243,62 +243,62 @@ input, textarea {
 #post-list {
 	flex-grow: 2;
 	height: 0%;
+}
 
-	& > .post {
-		display: -webkit-flex;
+.post {
+	display: -webkit-flex;
+	display: flex;
+	flex-direction: row;
+
+	& > .voting {
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
+		max-width: 5em;
+		margin-right: 1em;
+
+		& > * {
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		& > button, & > button:active {
+			border: none;
+			box-shadow: none;
+			background-color: transparent;
+			font-weight: 900;
+		}
+
+		& > .upvote-button:hover {
+			color: orangered;
+		}
+
+		& > .downvote-button:hover {
+			color: blue;
+		}
+	}
 	
-		& > .voting {
-			display: flex;
-			flex-direction: column;
-			max-width: 5em;
-			margin-right: 1em;
+	.thumbnail > img {
+		border-radius: 0.5em;
+		border: rgba(0, 0, 0, 0.25) solid 1px;
+		margin-right: 1em;
+		max-height: 6em;
+	}
+	
+	.post-info {
+		.post-title {
+			color: black;
+			font-size: 1.5em;
+		}
 
-			& > * {
-				text-align: center;
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			& > button, & > button:active {
-				border: none;
-				box-shadow: none;
-				background-color: transparent;
-				font-weight: 900;
-			}
-
-			& > .upvote-button:hover {
-				color: orangered;
-			}
-
-			& > .downvote-button:hover {
-				color: blue;
-			}
+		.small-text {
+			color: gray;
+			font-size: 0.6em;
+			margin-left: 0.5em;
 		}
 		
-		.thumbnail > img {
-			border-radius: 0.5em;
-			border: rgba(0, 0, 0, 0.25) solid 1px;
-			margin-right: 1em;
-			max-height: 6em;
-		}
-		
-		.post-info {
-			.post-title {
-				color: black;
-				font-size: 1.5em;
-			}
-	
-			.small-text {
-				color: gray;
-				font-size: 0.6em;
-				margin-left: 0.5em;
-			}
-			
-			* {
-				margin-bottom: 0.225em;
-			}
+		* {
+			margin-bottom: 0.225em;
 		}
 	}
 }
@@ -406,4 +406,9 @@ input, textarea {
 	& > h2 {
 		margin-bottom: 0.1em;
 	}
+}
+
+.single-post {
+	display: flex;
+	flex-direction: column;
 }
