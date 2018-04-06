@@ -3,6 +3,12 @@
   margin: 0;
   box-sizing: border-box; }
 
+a {
+  text-decoration: none; }
+  a:visited {
+    text-decoration: none;
+    color: black; }
+
 p {
   font-size: 12px;
   white-space: pre-line;
@@ -50,10 +56,30 @@ input, textarea {
   .clickable:hover {
     color: goldenrod; }
 
+.apply-margin--vertical-xl > * {
+  margin-bottom: 1em; }
+  .apply-margin--vertical-xl > *:last-child {
+    margin-bottom: 0; }
+
 .apply-margin--vertical > * {
   margin-bottom: 0.5em; }
   .apply-margin--vertical > *:last-child {
     margin-bottom: 0; }
+
+.apply-margin--horizontal > * {
+  margin-right: 1em; }
+  .apply-margin--horizontal > *:last-child {
+    margin-right: 0; }
+
+.flex {
+  display: flex; }
+
+.flex--horizontal {
+  flex-direction: row;
+  flex-wrap: nowrap; }
+
+.flex--center {
+  justify-content: center; }
 
 .primary-text {
   color: #12181b;
@@ -137,8 +163,6 @@ input, textarea {
 #sidebar {
   width: 30em;
   min-width: 30em; }
-  #sidebar > * {
-    margin-bottom: 1em; }
   #sidebar > #community-information > h1 {
     margin-bottom: 0; }
   #sidebar > #community-information > button {
@@ -147,24 +171,18 @@ input, textarea {
     margin-bottom: 0.5em; }
 
 #community-navigation {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  margin-bottom: 1em;
-  padding: 0.5em; }
-  #community-navigation > .button {
+  padding: 1em; }
+  #community-navigation .button {
     font-size: 12px;
     margin-left: 3px;
     margin-right: 3px;
-    padding: 5px 10px;
     text-transform: uppercase;
     transition: color 0.2s;
     cursor: pointer; }
-    #community-navigation > .button:hover {
+    #community-navigation .button:hover {
       color: goldenrod; }
-  #community-navigation > .selected-button {
-    font-weight: 600; }
+    #community-navigation .button.selected {
+      font-weight: 600; }
 
 #post-list {
   flex-grow: 2;

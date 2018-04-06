@@ -17,20 +17,13 @@ class Community extends React.Component {
 		super(props)
 
 		this.state = {
-			view: ""
+			view: props.view
 		}
 	}
 
 	componentWillMount() {
 		this.props.getCommunityByName(this.props.communityName)
 		this.props.getAllPostsByCommunity(this.props.communityName)
-
-		const currentView = this.props.history.location.pathname.split("/")[3]
-		if (currentView !== null) {
-			this.setState({
-				view: currentView
-			})
-		}
 	}
 
 	setView = (view) => {
@@ -40,18 +33,18 @@ class Community extends React.Component {
 			}
 
 			this.setState({ view })
-			this.props.history.push(`/c/${this.props.community.current.name}/${view}`)
 		}
 	}
 
 	render() {
-		if (this.props.community === null) {
+		if (this.props.community === null || this.props.community.current === null) {
 			return null
 		}
 
 		return (
-			<div id="community">
-				<Navigation community={this.props.community.current} view={this.state.view} setView={this.setView}/>
+			<div id="community" className="apply-margin--vertical-xl">
+				<Navigation view={this.state.view} setView={this.setView}/>
+
 				<div id="community-content">	
 					<Route exact path="/c/:community/wiki" render={() => 
 						<div className="frame">
@@ -83,7 +76,7 @@ class Community extends React.Component {
 
 					{
 						!(this.state.view === "wiki" || this.state.view === "submit-text" || this.state.view === "submit-link") 
-						?<Route exact path="/c/:community/:sort" render={() => 
+						?<Route exact path="/c/:community/:sort" render={({match}) => 
 							<PostList/>	
 						}/>
 						: null

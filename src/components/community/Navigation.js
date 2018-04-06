@@ -1,38 +1,44 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import DropDownMenu from "../DropDownMenu"
 
-import { setLocation, setSort } from "../../reducers/navigationReducer"
+const CommunityNavigation = ({ view, setView, community }) =>  {	
+	const navigationLabels = [ "hot", "new", "controversial", "top", "wiki" ]
+	const url = `/c/${community.name}/`
 
-class CommunityNavigation extends React.Component {	
-	render() {	
-		const navigationLabels = [ "hot", "new", "controversial", "top", "wiki" ]
+	return (
+		<div id="community-navigation" className="frame flex flex--horizontal flex--center apply-margin--horizontal">
+			{
+				navigationLabels.map((label, index) => {
+					const destination = `${url}${label}`
 
-		return (
-			<div id="community-navigation" className="frame">
-				{
-					navigationLabels.map((label, index) => {
-						if (label === this.props.view) {
-							return <p key={index} onClick={this.props.setView(label)} className="button selected-button">{label}</p>
-						}
-
-						return <p key={index} onClick={this.props.setView(label)} className="button">{label}</p>
+					if (label === view) {
+						return (
+							<Link key={index} to={destination} onClick={setView(label)}>
+								<p className="button selected">{label}</p>
+							</Link>
+						)
 					}
+
+					return (
+						<Link key={index} to={destination} onClick={setView(label)}>
+							<p className="button">{label}</p>
+						</Link>
 					)
-				}
-			</div>	
-		)
-	}
+				})
+			}
+		</div>	
+	)
 }
 
 const mapStateToProps = (state) => {
 	return { 
-		"navigation": state.navigation
+		"community": state.community.current
 	}
 }
 
-const mapDispatchToProps = { setLocation, setSort }
+const mapDispatchToProps = {  }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CommunityNavigation))
+export default connect(mapStateToProps, mapDispatchToProps)(CommunityNavigation)

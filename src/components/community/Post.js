@@ -4,6 +4,8 @@ import { withRouter } from "react-router-dom"
 
 import { getPostById } from "../../reducers/postReducer"
 
+import TimeSince from "../../utils/TimeSince"
+
 const Post = (props) => {
 	const post = props.post
 
@@ -11,24 +13,8 @@ const Post = (props) => {
 		props.history.push(`/c/${post.community.name}/post/${post.id}`)
 		props.getPostById(post.id)
 	}
-
-	if (typeof post.date === "string") {
-		post.date = new Date(post.date)
-	}
-
-	const currentTime = new Date().getTime() / (1000 * 60 * 60)
-	const postTime = post.date.getTime() / (1000 * 60 * 60)
-	const deltaTimeHours = Math.floor(currentTime - postTime)
-	const deltaTimeDays = Math.floor(deltaTimeHours / 24)
 	
-	let postAdded
-	if (deltaTimeHours < 1) {
-		postAdded = "less than an hour ago"
-	} else if (deltaTimeHours < 24) {
-		postAdded = `${deltaTimeHours === 1 ? "an" : deltaTimeHours} hour${deltaTimeHours === 1 ? "" : "s"} ago`
-	} else {
-		postAdded = `${deltaTimeDays === 1 ? "a" : deltaTimeDays} day${(deltaTimeDays === 1 ? "" : "s")} ago`
-	}
+	post.date = TimeSince(post.date)
 
 	return (
 		<div className="post frame">

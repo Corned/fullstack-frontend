@@ -1,11 +1,11 @@
 import React from "react"
-
 import { connect } from "react-redux"
 import { withRouter, Redirect } from "react-router-dom"
 
 import { nullCommunity } from "../reducers/communityReducer"
 import { logout } from "../reducers/loggedUserReducer"
 
+import Link from "./Link"
 import DropDownMenu from "./DropDownMenu"
 
 const Topbar = (props) => {
@@ -25,22 +25,24 @@ const Topbar = (props) => {
 	return (
 		<div id="topbar">
 			<div id="topbar-container" className="align--vertically">
-				<button>Cordial</button>
+				<Link to="/c/cordial">
+					<button>temp c/Cordial</button>
+				</Link>
 
 				<DropDownMenu text={"Communities"}>
 					<p>:(</p>
 				</DropDownMenu>
 
 				<div style={{marginLeft: "auto"}}>
-					
 					{props.userdata.user === null && 
-						<button onClick={toLoginPage}>Login</button>
+						<Link to={`/login?redirect=${props.history.location.pathname}`}>
+							<button>Log in!</button>
+						</Link>
 					}
 
 					{props.userdata.user !== null && 
-						<button onClick={logout}><i>Logged in as</i> {props.userdata.user.username}</button>	
+						<button onClick={logout}><i>Logged in as</i> {props.userdata.user.username}</button>
 					}
-
 				</div>
 			</div>
 		</div>

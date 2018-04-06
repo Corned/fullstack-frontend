@@ -23,6 +23,15 @@ $border-radius: 2px;
 	box-sizing: border-box;
 }
 
+a {
+	text-decoration: none;
+
+	&:visited {
+		text-decoration: none;
+		color: black;
+	}
+}
+
 p {
 	font-size: 12px;
 	white-space: pre-line;
@@ -85,11 +94,38 @@ input, textarea {
 	}
 }
 
+.apply-margin--vertical-xl {
+	& > * {
+		margin-bottom: $frame-margin;
+		&:last-child { margin-bottom: 0 }
+	}
+}
+
 .apply-margin--vertical {
 	& > * {
 		margin-bottom: $frame-vertical-margin;
 		&:last-child { margin-bottom: 0 }
 	}
+}
+
+.apply-margin--horizontal {
+	& > * {
+		margin-right: $frame-horizontal-margin;
+		&:last-child { margin-right: 0 }
+	}
+}
+
+.flex {
+	display: flex;
+}
+
+.flex--horizontal {
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.flex--center {
+	justify-content: center;
 }
 
 .primary-text {
@@ -198,10 +234,6 @@ input, textarea {
 	width: 30em;
 	min-width: 30em;
 
-	& > * {
-		margin-bottom: 1em;
-	}
-
 	& > #community-information {
 		& > h1 {
 			margin-bottom: 0;
@@ -218,18 +250,12 @@ input, textarea {
 }
 
 #community-navigation {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	margin-bottom: 1em;
-	padding: 0.5em;
+	padding: 1em;
 
-	& > .button {
+	.button {
 		font-size: 12px;
 		margin-left: 3px;
 		margin-right: 3px;
-		padding: 5px 10px;
 		text-transform: uppercase;
 		transition: color 0.2s;
 		cursor: pointer;
@@ -237,10 +263,10 @@ input, textarea {
 		&:hover {
 			color: goldenrod;
 		}
-	}
 
-	& > .selected-button {
-		font-weight: 600;
+		&.selected {
+			font-weight: 600;
+		}
 	}
 }
 
