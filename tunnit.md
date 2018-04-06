@@ -18,3 +18,4 @@
 | 3.4.2018      | 4h        | PostList näyttää viestin jos Posteja ei ole. Footer on palautettu ennalleen. Communityn sisäinen navigaatio toimii niinkuin pitäisi, eli siis Hot, New etc ja Submit napit |
 | 4.4.2018      | 5.5h      | Submit formit kummankin tyylisille posteille, /login sivu jossa on kirjautumis- ja rekisteröitymislomake, kirjautuminen onnistuu tätä kautta ja uloskirjautuminen toimii. Bugikorjauksia. Sivun kautta voi nyt lisätä postin |
 | 5.4.2018      | 4h        | Yksittäiseen textpostin toiminnallisuus. CSS siistimistä. Backend: posteillä täytyy olla tietyn pituinen title ja body |
+| 6.4.2018      | 2h        | Siirrytty käyttämään reactin Link-komponettia, siirretty Post-komponentin ajanlaskemistoiminto omaan moduuliin, lisätty auttavaa CS S |
