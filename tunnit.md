@@ -2,7 +2,7 @@
 |:-------------:|:---------:|:---------------------------------------|
 | 10.3.2018     | 0.5h      | Frontend konffausta                    |
 | 12.3.2018     | 4h        | Frontend tyylittelyä, brainstorming    |
-| 16.3.2018     | 4h 		| HTML, CSS siistimistä, alkuperäisempi tyyli 	 |
+| 16.3.2018     | 4h        | HTML, CSS siistimistä, alkuperäisempi tyyli |
 | 18.3.2018     | 3h        | Dataa haetaan nyt palvelimelta (json-server), navigoinnin alkeet, backend konffaus |
 | 20.3.2018     | 1h        | Backendin tekemistä, Post model, posts controller, .rest pyyntö |
 | 21.3.2018     | 5.5h      | Backend hyväksyy POST /api/posts, frontend hakee postit backendistä, postit listataan etusivulla, posteilla on päivämäärä ja se näytetään "hours ago" formaatissa https://i.imgur.com/6Pt26KK.png, post näyttää kaiken datan mitä pystyy, post, community ja user luonti ja näiden populointi, ensimmäinen testi, kirjautumislomake |
@@ -18,5 +18,5 @@
 | 3.4.2018      | 4h        | PostList näyttää viestin jos Posteja ei ole. Footer on palautettu ennalleen. Communityn sisäinen navigaatio toimii niinkuin pitäisi, eli siis Hot, New etc ja Submit napit |
 | 4.4.2018      | 5.5h      | Submit formit kummankin tyylisille posteille, /login sivu jossa on kirjautumis- ja rekisteröitymislomake, kirjautuminen onnistuu tätä kautta ja uloskirjautuminen toimii. Bugikorjauksia. Sivun kautta voi nyt lisätä postin |
 | 5.4.2018      | 4h        | Yksittäiseen textpostin toiminnallisuus. CSS siistimistä. Backend: posteillä täytyy olla tietyn pituinen title ja body |
-| 6.4.2018      | 2h        | Siirrytty käyttämään reactin Link-komponettia, siirretty Post-komponentin ajanlaskemistoiminto omaan moduuliin, lisätty auttavaa CS S |
-| 9.4.2018      | 1.5h        |
+| 6.4.2018      | 2h        | Siirrytty käyttämään reactin Link-komponettia, siirretty Post-komponentin ajanlaskemistoiminto omaan moduuliin, lisätty auttavaa CSS |
+| 9.4.2018      | 2.5h      | Bugi näkymien kanssa korjattu, Loading komponentti. Post komponettia refaktoroitu. Link postit lisättävissä sivun kautta. Paranneltu dropdownmenu | 

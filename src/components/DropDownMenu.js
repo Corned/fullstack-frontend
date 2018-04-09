@@ -17,15 +17,18 @@ class DropDownMenu extends React.Component {
 		if (this.state.expanded === false) {
 			return (
 				<div className="dropdownmenu">
-					<button className="toggle no-select" onMouseOver={this.toggle}>{this.props.text}</button>
+					<button className="toggle no-select closed" onMouseOver={this.toggle}>{this.props.text}</button>
+					<div className="content closed">
+						{this.props.children}
+					</div>
 				</div>
 			)
 		}
 
 		return (
 			<div className="dropdownmenu" onMouseLeave={this.toggle}>
-				<button className="toggle opened">{this.props.text}</button>
-				<div className="content frame">
+				<button className="toggle no-select opened">{this.props.text}</button>
+				<div className="content opened">
 					{this.props.children}
 				</div>
 			</div>
