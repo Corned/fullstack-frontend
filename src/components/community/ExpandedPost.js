@@ -2,12 +2,15 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
-import { getPostById } from "../../reducers/postReducer"
+import Loading from "../Loading"
+
+import { getPostById, nullPost } from "../../reducers/postReducer"
 
 import TimeSince from "../../utils/TimeSince"
 
 class ExpandedPost extends React.Component {
 	componentWillMount() {
+		this.props.nullPost()
 		const postId = this.props.history.location.pathname.split("/")[4]
 
 		if (postId !== null) {
@@ -19,7 +22,13 @@ class ExpandedPost extends React.Component {
 		const post = this.props.post
 
 		if (post === null) {
-			return null
+			return (
+				<Loading 
+					loadingMessage={"Loading post data.."}
+					timeoutMessage={"Post not found :("}
+					timeout={1500}
+				/>
+			)
 		}
 
 		post.date = TimeSince(post.date)
@@ -66,6 +75,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { getPostById }
+const mapDispatchToProps = { getPostById, nullPost }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ExpandedPost))

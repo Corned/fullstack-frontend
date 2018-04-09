@@ -7,6 +7,7 @@ import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
 import ExpandedPost from "./community/ExpandedPost"
+import Loading from "./Loading"
 
 import { getCommunityByName } from "../reducers/communityReducer"
 import { getAllPostsByCommunity } from "../reducers/postReducer"
@@ -38,7 +39,13 @@ class Community extends React.Component {
 
 	render() {
 		if (this.props.community === null || this.props.community.current === null) {
-			return null
+			return (
+				<Loading 
+					loadingMessage={"Loading community data.."}
+					timeoutMessage={"Community not found :("}
+					timeout={1500}
+				/>
+			)
 		}
 
 		return (
@@ -48,7 +55,9 @@ class Community extends React.Component {
 				<div id="community-content">	
 					<Route exact path="/c/:community/wiki" render={() => 
 						<div className="frame">
-							{this.props.community.current.name}'s wiki page
+							<p>{this.props.community.current.name}'s wiki page</p>
+							<p>There's nothing here yet.</p>
+							<p>you cant actually sort posts yet.</p>
 						</div>
 					}/>
 

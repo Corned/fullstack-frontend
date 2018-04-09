@@ -55,6 +55,15 @@ export const getAllPostsByCommunity = (communityName) => {
 	}
 }
 
+export const nullPost = () => {
+	return async (dispatch) => {
+		dispatch({
+			type: "SET_POST",
+			post: null
+		})
+	}
+}
+
 export const createPost = (data, token) => {
 	return async (dispatch) => {
 		const post = await postService.create(data, token)
