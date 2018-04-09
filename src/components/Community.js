@@ -74,14 +74,21 @@ class Community extends React.Component {
 						</div>
 					}/>
 
-					{
-						!(this.state.view === "wiki" || this.state.view === "submit-text" || this.state.view === "submit-link") 
-						?<Route exact path="/c/:community/:sort" render={({match}) => 
-							<PostList/>	
-						}/>
-						: null
-					}
-					
+					<Route exact path="/c/:community/hot" render={({match}) => 
+						<PostList/>	
+					}/>
+
+					<Route exact path="/c/:community/new" render={({match}) => 
+						<PostList/>	
+					}/>
+
+					<Route exact path="/c/:community/controversial" render={({match}) => 
+						<PostList/>	
+					}/>
+
+					<Route exact path="/c/:community/top" render={({match}) => 
+						<PostList/>	
+					}/>
 
 					<Sidebar setView={this.setView}/>
 				</div>
