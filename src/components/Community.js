@@ -6,7 +6,9 @@ import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
+import LinkPostForm from "./forms/LinkPostForm"
 import ExpandedPost from "./community/ExpandedPost"
+import Post from "./community/Post"
 import Loading from "./Loading"
 
 import { getCommunityByName } from "../reducers/communityReducer"
@@ -70,17 +72,7 @@ class Community extends React.Component {
 					}/>
 
 					<Route exact path="/c/:community/submit-link" render={() => 
-						<div className="frame submit apply-margin--vertical">
-							<h1>Linkpost</h1>
-							<p>You're about to share a link.</p>
-							<form className="apply-margin--vertical">
-								<h2>Title</h2>
-								<input placeholder="title"/>
-								<h2>Link</h2>
-								<input placeholder="url"/>
-								<button>Submit</button>
-							</form>
-						</div>
+						<LinkPostForm/>
 					}/>
 
 					<Route exact path="/c/:community/hot" render={({match}) => 
