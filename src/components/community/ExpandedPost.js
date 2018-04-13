@@ -45,7 +45,15 @@ class ExpandedPost extends React.Component {
 						</div>
 					</div>
 
-					<p>{post.body}</p>
+					{post.type == "text" ? 
+						<p>{post.body}</p>
+						:
+						<a 
+							href={post.url} 
+							target="_blank" 
+							rel="noopener noreferrer" 
+						>{post.url}</a>
+					}
 				</div>
 				<br/>
 				<div id="comments" className="frame apply-margin--vertical">

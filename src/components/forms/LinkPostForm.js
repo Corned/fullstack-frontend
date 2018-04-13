@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter } from "react-router-dom"
+import { withRouter, Redirect } from "react-router-dom"
 
 import { createPost } from "../../reducers/postReducer"
 
@@ -36,6 +36,12 @@ class LinkForm extends React.Component {
 	}
 
 	render() {
+		if (this.props.userdata.user === null) {
+			return (
+				<Redirect to={`/login?redirect=${this.props.history.location.pathname}`}/>
+			)
+		}
+
 		return (
 			<div className="frame submit apply-margin--vertical">
 				<h1>Linkpost</h1>
@@ -56,7 +62,7 @@ class LinkForm extends React.Component {
 					<input 
 						rows="10"
 						type="text" 
-						name="link" 
+						name="url" 
 						placeholder="Link"
 						value={this.state.link}
 						autoComplete="off"

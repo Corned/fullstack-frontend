@@ -9,15 +9,6 @@ import Link from "./Link"
 import DropDownMenu from "./DropDownMenu"
 
 const Topbar = (props) => {
-	const toLoginPage = async () => {
-		if (props.history.location.pathname === "/login") {
-			return;
-		}
-		
-		props.history.replace(`/login?redirect=${props.history.location.pathname}`)
-		await props.nullCommunity()
-	}
-
 	const logout = () => {
 		props.logout()
 	}
@@ -26,10 +17,25 @@ const Topbar = (props) => {
 		<div id="topbar">
 			<div id="topbar-container" className="align--vertically">
 				<Link to="/c/cordial">
-					<button>temp c/Cordial</button>
+					<button>goto c/Cordial</button>
 				</Link>
 
 				<DropDownMenu text={"Communities"}>
+					<p>B)</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
+					<p>:(</p>
 					<p>:(</p>
 				</DropDownMenu>
 
