@@ -2,7 +2,6 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter, Redirect } from "react-router-dom"
 
-import { nullCommunity } from "../reducers/communityReducer"
 import { logout } from "../reducers/loggedUserReducer"
 
 import Link from "./Link"
@@ -20,19 +19,16 @@ const Topbar = (props) => {
 					<button>goto c/Cordial</button>
 				</Link>
 
-				<DropDownMenu text={"Communities"}>
+				<DropDownMenu text="Communities">
 					<p>B)</p>
 					<p>:(</p>
 					<p>:(</p>
 					<p>:(</p>
 					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
+				</DropDownMenu>
+
+				<DropDownMenu text="Users">
+					<p>B)</p>
 					<p>:(</p>
 					<p>:(</p>
 					<p>:(</p>
@@ -61,6 +57,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { nullCommunity, logout }
+const mapDispatchToProps = { logout }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Topbar))

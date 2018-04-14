@@ -27,13 +27,4 @@ export const getCommunityByName = (name) => {
 	}
 } 
 
-export const nullCommunity = () => {
-	return async (dispatch) => {
-		dispatch({
-			type: "SET_COMMUNITY",
-			data: null
-		})
-	}
-}
-
 export default reducer
