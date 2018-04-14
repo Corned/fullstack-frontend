@@ -34,19 +34,21 @@ class LoginForm extends React.Component {
 
 			this.props.history.push(parsed.redirect || "/")
 			this.props.login(user)
-		} catch (exception) {
-			this.setState({ error: "invalid" })
+		} catch (error) {
+			this.setState({ error: error.response.data.error })
 		}
 	}
 
 	render() {
 		if (this.props.userdata.user) {
-			return <Redirect to="/c/cordial"/>
+			const parsed = queryString.parse(this.props.history.location.search)
+			return <Redirect to={parsed.redirect || "/"}/>
 		}
 
 		return (
 			<form onSubmit={this.submit} id="login" className="frame">
 				<h1>Login</h1>
+				<p className="error">{this.state.error}</p>
 				<input 
 					className={this.state.error}
 					type="text" 
