@@ -7,12 +7,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
-		case "INIT_POSTS":
+		case "INIT_USERS":
 			return {
 				postList: action.postList,
 				post: state.post
 			}
-		case "SET_POST":
+		case "SET_USER":
 			return {
 				postList: state.postList,
 				post: action.post
@@ -27,7 +27,7 @@ export const getPostById = (id) => {
 		const post = await postService.getById(id)
 
 		dispatch({
-			type: "SET_POST",
+			type: "SET_USER",
 			post
 		})
 	}
@@ -38,7 +38,7 @@ export const getAllPosts = () => {
 		const posts = await postService.getAll()
 		
 		dispatch({
-			type: "INIT_POSTS",
+			type: "INIT_USERS",
 			postList: posts
 		})
 	}
@@ -49,7 +49,7 @@ export const getAllPostsByCommunity = (communityName) => {
 		const posts = await postService.getAllFromCommunity(communityName)
 
 		dispatch({
-			type: "INIT_POSTS",
+			type: "INIT_USERS",
 			postList: posts
 		})
 	}
@@ -58,7 +58,7 @@ export const getAllPostsByCommunity = (communityName) => {
 export const nullPost = () => {
 	return async (dispatch) => {
 		dispatch({
-			type: "SET_POST",
+			type: "SET_USER",
 			post: null
 		})
 	}
@@ -69,29 +69,10 @@ export const createPost = (data, token) => {
 		const post = await postService.create(data, token)
 
 		dispatch({
-			type: "SET_POST",
+			type: "SET_USER",
 			post
 		})
 	}
 }
-
-/*
-
-		if (body.community === undefined ) {
-			return response.status(400).json({ error: "community missing" })
-		} else if (body.title === undefined) {
-			return response.status(400).json({ error: "title missing" })
-		} else if (body.type === undefined) {
-			return response.status(400).json({ error: "type missing" })
-		} else if (body.type !== "link" && body.type !== "text") {
-			return response.status(400).json({ error: "invalid body type" })
-		} else if (body.type === "link" && body.url === undefined) {
-			return response.status(400).json({ error: "url missing" })
-		} else if (body.type === "text" && body.body === undefined) {
-			return response.status(400).json({ error: "body missing" })
-		}
-
-
-*/
 
 export default reducer
