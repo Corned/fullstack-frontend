@@ -221,6 +221,26 @@ input, textarea {
     color: black;
     font-size: 1.5em; }
 
+.search-bar {
+  transition: background-color 0.1s;
+  background-color: #ec452a;
+  color: white;
+  border: none;
+  margin-left: auto;
+  width: 50%; }
+  .search-bar::placeholder {
+    color: #b82811;
+    font-weight: 900;
+    transition: color 0.1s; }
+  .search-bar:focus {
+    background-color: white;
+    color: black;
+    outline: none;
+    box-shadow: 0; }
+    .search-bar:focus::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+      font-weight: 900; }
+
 .dropdownmenu {
   z-index: 100;
   color: inherit;

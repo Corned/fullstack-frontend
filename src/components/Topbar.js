@@ -28,12 +28,6 @@ class Topbar extends React.Component {
 	}
 
 	render() {
-		if (this.props.users === undefined || this.props.users.userList === undefined || this.props.community === undefined) {
-			return (
-				<p>wait pls</p>
-			)
-		}
-
 		return (
 			<div id="topbar">
 				<div id="topbar-container" className="align--vertically">
@@ -52,8 +46,13 @@ class Topbar extends React.Component {
 							<p key={index}>{user.username}</p>
 						)}
 					</DropDownMenu>
+
+					<input 
+						className="search-bar"
+						placeholder="Search for communities or users"
+					/>
 	
-					<div style={{marginLeft: "auto"}}>
+					<div>
 						{this.props.userdata.user === null && 
 							<Link to={`/login?redirect=${this.props.history.location.pathname}`}>
 								<button>Log in!</button>
@@ -61,7 +60,7 @@ class Topbar extends React.Component {
 						}
 	
 						{this.props.userdata.user !== null && 
-							<button onClick={logout}><i>Logged in as</i> {this.props.userdata.user.username}</button>
+							<button onClick={this.logout}><i>Logged in as</i> {this.props.userdata.user.username}</button>
 						}
 					</div>
 				</div>

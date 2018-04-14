@@ -327,6 +327,34 @@ input, textarea {
 	}
 }
 
+.search-bar {
+	transition: background-color 0.1s;
+
+	background-color: darken($primary-color, 5%);
+	color: white;
+	border: none;
+	margin-left: auto;
+	width: 50%;
+
+	&::placeholder {
+		color: darken($primary-color, 20%);
+		font-weight: 900;
+		transition: color 0.1s;
+	}
+
+	&:focus {
+		background-color: white;
+		color: black;
+		outline: none;
+		box-shadow: 0;
+
+		&::placeholder {
+			color: rgba(0, 0, 0, 0.5);
+			font-weight: 900;
+		}
+	}
+}
+
 .dropdownmenu {
 	z-index: 100;
 	color: inherit;
