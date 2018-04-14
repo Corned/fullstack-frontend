@@ -340,10 +340,6 @@ input, textarea {
 			border-bottom-right-radius: 0;
 			background-color: darken($primary-color, 10%);
 		}
-
-		&.closed {
-
-		}
 	}
 
 	& > .content {
@@ -351,7 +347,8 @@ input, textarea {
 		color: black;
 		max-height: 200px;
 		position: absolute;
-		width: 100%;
+		min-width: 100%;
+		width: auto;
 		height: 0;
 		transition: height 0.1s;
 		background-color: white;

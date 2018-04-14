@@ -21,7 +21,7 @@ class PostList extends React.Component {
 	}
 
 	render() {
-		if (this.props.community === null || this.props.community.posts === undefined) {
+		if (this.props.community === null || this.props.community.posts === undefined || this.props.posts === undefined) {
 			this.isEmpty()
 			return (
 				<div id="post-list" className="frame">

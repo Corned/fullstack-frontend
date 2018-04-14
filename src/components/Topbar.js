@@ -3,60 +3,81 @@ import { connect } from "react-redux"
 import { withRouter, Redirect } from "react-router-dom"
 
 import { logout } from "../reducers/loggedUserReducer"
+import { getAllUsers } from "../reducers/userReducer"
+import { getAllCommunities } from "../reducers/communityReducer"
 
 import Link from "./Link"
 import DropDownMenu from "./DropDownMenu"
 
-const Topbar = (props) => {
-	const logout = () => {
-		props.logout()
+class Topbar extends React.Component {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+
+		}
 	}
 
-	return (
-		<div id="topbar">
-			<div id="topbar-container" className="align--vertically">
-				<Link to="/c/cordial">
-					<button>goto c/Cordial</button>
-				</Link>
+	componentWillMount() {
+		this.props.getAllCommunities()
+		this.props.getAllUsers()
+	}
 
-				<DropDownMenu text="Communities">
-					<p>B)</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-				</DropDownMenu>
+	logout = () => {
+		this.props.logout()
+	}
 
-				<DropDownMenu text="Users">
-					<p>B)</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-					<p>:(</p>
-				</DropDownMenu>
+	render() {
+		if (this.props.users === undefined || this.props.users.userList === undefined || this.props.community === undefined) {
+			return (
+				<p>wait pls</p>
+			)
+		}
 
-				<div style={{marginLeft: "auto"}}>
-					{props.userdata.user === null && 
-						<Link to={`/login?redirect=${props.history.location.pathname}`}>
-							<button>Log in!</button>
-						</Link>
-					}
-
-					{props.userdata.user !== null && 
-						<button onClick={logout}><i>Logged in as</i> {props.userdata.user.username}</button>
-					}
+		return (
+			<div id="topbar">
+				<div id="topbar-container" className="align--vertically">
+					<Link to="/c/cordial">
+						<button>goto c/Cordial</button>
+					</Link>
+	
+					<DropDownMenu text="Communities">
+						{this.props.community.communityList.map((community, index) =>
+							<p key={index}>{community.name}</p>
+						)}
+					</DropDownMenu>
+	
+					<DropDownMenu text="Users">
+						{this.props.users.userList.map((user, index) =>
+							<p key={index}>{user.username}</p>
+						)}
+					</DropDownMenu>
+	
+					<div style={{marginLeft: "auto"}}>
+						{this.props.userdata.user === null && 
+							<Link to={`/login?redirect=${this.props.history.location.pathname}`}>
+								<button>Log in!</button>
+							</Link>
+						}
+	
+						{this.props.userdata.user !== null && 
+							<button onClick={logout}><i>Logged in as</i> {this.props.userdata.user.username}</button>
+						}
+					</div>
 				</div>
 			</div>
-		</div>
-	)
+		)
+	}
 }
 
 const mapStateToProps = (state) => {
 	return {
-		"userdata": state.userdata
+		"userdata": state.userdata,
+		"users": state.users,
+		"community": state.community
 	}
 }
 
-const mapDispatchToProps = { logout }
+const mapDispatchToProps = { logout, getAllCommunities, getAllUsers }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Topbar))

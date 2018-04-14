@@ -1,4 +1,4 @@
-import userService from "../services/postService"
+import userService from "../services/userService"
 
 const initialState = {
 	userList: [],
@@ -9,16 +9,28 @@ const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case "INIT_USERS":
 			return {
-				postList: action.postList,
-				post: state.post
+				userList: action.userList,
+				user: state.user
 			}
 		case "SET_USER":
 			return {
-				postList: state.postList,
-				post: action.post
+				userList: state.userList,
+				user: action.user
 			}
 		default:
 			return state
+	}
+}
+
+export const getAllUsers = () => {
+	return async (dispatch) => {
+		const users = await userService.getAll()
+		console.log(users)
+		
+		dispatch({
+			type: "INIT_USERS",
+			userList: users
+		})
 	}
 }
 
@@ -27,19 +39,8 @@ export const getUserByUsername = (username) => {
 		const user = await userService.getByUsername(username)
 
 		dispatch({
-			type: "SET_USER",
+			type: "SET_uSER",
 			user
-		})
-	}
-}
-
-export const getAllUsers = () => {
-	return async (dispatch) => {
-		const users = await userService.getAll()
-		
-		dispatch({
-			type: "INIT_USERS",
-			postList: users
 		})
 	}
 }

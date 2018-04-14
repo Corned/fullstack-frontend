@@ -21,6 +21,7 @@ class App extends React.Component {
 	}
 
 	componentWillMount() {
+
 		const loggedUserJSON = window.localStorage.getItem("cordialUserdata")
 		// häh
 		if (loggedUserJSON !== "null") {

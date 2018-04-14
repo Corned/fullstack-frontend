@@ -44,7 +44,6 @@ class RegistrationForm extends React.Component {
 			if (error.response) {
 				this.setState({ error: error.response.data.error })
 			} else {
-				console.log(error)
 				this.setState({ error: "oh no" })
 			}
 		}
@@ -65,9 +64,8 @@ class RegistrationForm extends React.Component {
 					autoComplete="off"
 					onChange={this.textFieldHandler}
 				/>
-				<p className="error">Passwords need to be at least 6 characters long</p>
 				<input 
-					className=""
+					className={this.state.password === this.state.passwordAgain ? "invalid" : ""}
 					type="password" 
 					name="password" 
 					placeholder="Password"
@@ -75,9 +73,8 @@ class RegistrationForm extends React.Component {
 					autoComplete="off"
 					onChange={this.textFieldHandler}
 				/>
-				<p className="error">These passwords must match</p>
 				<input 
-					className=""
+					className={this.state.password === this.state.passwordAgain ? "invalid" : ""}
 					type="password" 
 					name="passwordAgain" 
 					placeholder="Repeat password"

@@ -7,12 +7,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
-		case "INIT_USERS":
+		case "INIT_POSTS":
 			return {
 				postList: action.postList,
 				post: state.post
 			}
-		case "SET_USER":
+		case "SET_POST":
 			return {
 				postList: state.postList,
 				post: action.post
@@ -27,7 +27,7 @@ export const getPostById = (id) => {
 		const post = await postService.getById(id)
 
 		dispatch({
-			type: "SET_USER",
+			type: "SET_POST",
 			post
 		})
 	}
@@ -38,7 +38,7 @@ export const getAllPosts = () => {
 		const posts = await postService.getAll()
 		
 		dispatch({
-			type: "INIT_USERS",
+			type: "INIT_POSTS",
 			postList: posts
 		})
 	}
@@ -49,7 +49,7 @@ export const getAllPostsByCommunity = (communityName) => {
 		const posts = await postService.getAllFromCommunity(communityName)
 
 		dispatch({
-			type: "INIT_USERS",
+			type: "INIT_POSTS",
 			postList: posts
 		})
 	}
@@ -58,7 +58,7 @@ export const getAllPostsByCommunity = (communityName) => {
 export const nullPost = () => {
 	return async (dispatch) => {
 		dispatch({
-			type: "SET_USER",
+			type: "SET_POST",
 			post: null
 		})
 	}
@@ -69,7 +69,7 @@ export const createPost = (data, token) => {
 		const post = await postService.create(data, token)
 
 		dispatch({
-			type: "SET_USER",
+			type: "SET_POST",
 			post
 		})
 	}
