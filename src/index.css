@@ -95,6 +95,8 @@ input, textarea {
 
 .error {
   color: #ff5b0f; }
+  .error::first-letter {
+    text-transform: capitalize; }
 
 .no-select {
   cursor: default;

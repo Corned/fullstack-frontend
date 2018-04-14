@@ -1,6 +1,13 @@
 import React from "react"
 
-class LoginForm extends React.Component {
+import { connect } from "react-redux"
+import { withRouter, Redirect } from 'react-router-dom'
+import userService from "../../services/userService"
+import loginService from "../../services/loginService"
+import queryString from "query-string"
+import { login } from "../../reducers/loggedUserReducer"
+
+class RegistrationForm extends React.Component {
 	constructor(props) {
 		super(props)
 
@@ -15,10 +22,32 @@ class LoginForm extends React.Component {
 		this.setState({ [event.target.name]: event.target.value })
 	}
 
-	submit = (event) => {
+	submit = async (event) => {
 		event.preventDefault()
 
-		console.log(this.state)
+		try {
+			await userService.create({
+				username: this.state.username,
+				password: this.state.password
+			})
+
+			const user = await loginService.login({
+				username: this.state.username,
+				password: this.state.password
+			})
+
+			const parsed = queryString.parse(this.props.history.location.search)
+
+			this.props.history.push(parsed.redirect || "/")
+			this.props.login(user)
+		} catch (error) {
+			if (error.response) {
+				this.setState({ error: error.response.data.error })
+			} else {
+				console.log(error)
+				this.setState({ error: "oh no" })
+			}
+		}
 	}
 
 
@@ -26,6 +55,7 @@ class LoginForm extends React.Component {
 		return (
 			<form onSubmit={this.submit} id="register" className="frame">
 				<h1>Register</h1>
+				<p className="error">{this.state.error}</p>
 				<input 
 					className=""
 					type="text" 
@@ -35,6 +65,7 @@ class LoginForm extends React.Component {
 					autoComplete="off"
 					onChange={this.textFieldHandler}
 				/>
+				<p className="error">Passwords need to be at least 6 characters long</p>
 				<input 
 					className=""
 					type="password" 
@@ -44,11 +75,12 @@ class LoginForm extends React.Component {
 					autoComplete="off"
 					onChange={this.textFieldHandler}
 				/>
+				<p className="error">These passwords must match</p>
 				<input 
 					className=""
 					type="password" 
 					name="passwordAgain" 
-					placeholder="Password"
+					placeholder="Repeat password"
 					value={this.state.passwordAgain}
 					autoComplete="off"
 					onChange={this.textFieldHandler}
@@ -61,7 +93,14 @@ class LoginForm extends React.Component {
 	}
 }
 
-export default LoginForm
+const mapStateToProps = (state) => {
+	return {
+		"userdata": state.userdata
+	}
+}
 
+const mapDispatchToProps = { login }
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(RegistrationForm))
 
 

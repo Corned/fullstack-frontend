@@ -50,7 +50,7 @@ class LoginForm extends React.Component {
 				<h1>Login</h1>
 				<p className="error">{this.state.error}</p>
 				<input 
-					className={this.state.error}
+					className={this.state.error !== "" ? "invalid" : ""}
 					type="text" 
 					name="username" 
 					placeholder="Username"

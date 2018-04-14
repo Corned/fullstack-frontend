@@ -145,6 +145,10 @@ input, textarea {
 
 .error {
 	color: rgba(255, 91, 15, 1.00);
+
+	&::first-letter {
+		text-transform: capitalize;
+	}
 }
 
 .no-select {
