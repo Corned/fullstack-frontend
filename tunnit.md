@@ -22,3 +22,4 @@
 | 9.4.2018      | 2.5h      | Bugi näkymien kanssa korjattu, Loading komponentti. Post komponettia refaktoroitu. Link postit lisättävissä sivun kautta. Paranneltu dropdownmenu | 
 | 13.4.2018     | 1h        | ExpandedPost näyttää linkpostin urlin, submit sivut vaatii kirjautumisen |
 | 14.4.2018     | 2h        | Kirjautumissivu näyttää backendistä tulevan virheen. Rekisteröityminen sivun kautta. Poistettu turhaa koodia. Käyttäjän ja communityt näkyy yläpalkin dropdownvalikoissa, hakupalkin alkeet |
+| 15.4.2018     | 2h        | Rekisteörinnissä vaaditaan salasana kahdesti, käyttäjänimen saatavuus tarkistetaan reaaliajassa, valmistauduttu etusivuun |
