@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { BrowserRouter as Router, withRouter, Route, Link, Redirect } from 'react-router-dom'
 
+import Frontpage from "./components/Frontpage"
 import Community from "./components/Community"
 import Topbar from "./components/Topbar"
 import Sidebar from "./components/Sidebar"
@@ -41,6 +42,10 @@ class App extends React.Component {
 					<Topbar/>
 
 					<div id="container">
+						<Route exact path="/" render={() => 
+							<Frontpage/>
+						}/>
+
 						<Route exact path="/login" render={() =>
 							<LoginAndRegistration/>
 						}/>

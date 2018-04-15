@@ -77,7 +77,6 @@ class RegistrationForm extends React.Component {
 		}
 	}
 
-
 	render() {
 		return (
 			<form onSubmit={this.submit} id="register" className="frame">
