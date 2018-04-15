@@ -13,15 +13,27 @@ class RegistrationForm extends React.Component {
 
 		this.state = {
 			username: "",
+			usernameTaken: false,
+
 			password: "",
 			passwordAgain: "",
-			passwordAgainMismatch: false
+			passwordAgainMismatch: false,
 		}
 	}
 
-	usernameFieldHandler = (event) => {
-		const username = event.target.value
+	usernameFieldHandler = async (event) => {
+		const username = event.target.value.trim()
 		this.setState({ username })
+
+		if (username.length > 2) {
+			try {
+				const response = await userService.getByUsername(username)
+				this.setState({ "usernameTaken": true })
+			} catch (exception) {
+				// username not taken
+				this.setState({ "usernameTaken": false })
+			}
+		}
 	}
 
 	passwordFieldHandler = (event) => {
@@ -72,7 +84,7 @@ class RegistrationForm extends React.Component {
 				<h1>Register</h1>
 				<p className="error">{this.state.error}</p>
 				<input 
-					className=""
+					className={this.state.usernameTaken ? "invalid" : ""}
 					type="text" 
 					name="username" 
 					placeholder="Username"
@@ -99,7 +111,7 @@ class RegistrationForm extends React.Component {
 					onChange={this.passwordAgainFieldHandler}
 				/>
 				<button 
-					className={this.state.passwordAgainMismatch ? "disabled" : ""}
+					className={(this.state.passwordAgainMismatch || this.state.usernameTaken) ? "disabled" : ""}
 					type="submit"
 				>Register</button>
 			</form>

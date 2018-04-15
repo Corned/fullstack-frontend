@@ -39,7 +39,7 @@ export const getUserByUsername = (username) => {
 		const user = await userService.getByUsername(username)
 
 		dispatch({
-			type: "SET_uSER",
+			type: "SET_USER",
 			user
 		})
 	}
