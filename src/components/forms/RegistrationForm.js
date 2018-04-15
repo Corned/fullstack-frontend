@@ -14,16 +14,32 @@ class RegistrationForm extends React.Component {
 		this.state = {
 			username: "",
 			password: "",
-			passwordAgain: ""
+			passwordAgain: "",
+			passwordAgainMismatch: false
 		}
 	}
 
-	textFieldHandler = (event) => {
-		this.setState({ [event.target.name]: event.target.value })
+	usernameFieldHandler = (event) => {
+		const username = event.target.value
+		this.setState({ username })
+	}
+
+	passwordFieldHandler = (event) => {
+		const password = event.target.value
+		this.setState({ password, passwordAgainMismatch: !(password === this.state.passwordAgain) })
+	}
+
+	passwordAgainFieldHandler = (event) => {
+		const passwordAgain = event.target.value
+		this.setState({ passwordAgain, passwordAgainMismatch: !(passwordAgain === this.state.password) })
 	}
 
 	submit = async (event) => {
 		event.preventDefault()
+
+		if (this.state.passwordAgainMismatch === true) {
+			return
+		}
 
 		try {
 			await userService.create({
@@ -62,27 +78,28 @@ class RegistrationForm extends React.Component {
 					placeholder="Username"
 					value={this.state.username}
 					autoComplete="off"
-					onChange={this.textFieldHandler}
+					onChange={this.usernameFieldHandler}
 				/>
 				<input 
-					className={this.state.password === this.state.passwordAgain ? "invalid" : ""}
+					className={this.state.passwordAgainMismatch ? "invalid" : ""}
 					type="password" 
 					name="password" 
 					placeholder="Password"
 					value={this.state.password}
 					autoComplete="off"
-					onChange={this.textFieldHandler}
+					onChange={this.passwordFieldHandler}
 				/>
 				<input 
-					className={this.state.password === this.state.passwordAgain ? "invalid" : ""}
+					className={this.state.passwordAgainMismatch ? "invalid" : ""}
 					type="password" 
 					name="passwordAgain" 
 					placeholder="Repeat password"
 					value={this.state.passwordAgain}
 					autoComplete="off"
-					onChange={this.textFieldHandler}
+					onChange={this.passwordAgainFieldHandler}
 				/>
 				<button 
+					className={this.state.passwordAgainMismatch ? "disabled" : ""}
 					type="submit"
 				>Register</button>
 			</form>

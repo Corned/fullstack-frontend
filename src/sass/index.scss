@@ -63,6 +63,14 @@ button {
 	font-weight: 900;
 	font-size: 13px;
 	transition: 0.2s;
+
+	&.disabled {
+		background-color: desaturate($primary-color, 30%);
+		&:hover {
+			background-color: desaturate($primary-color, 30%);
+			cursor: default;
+		}
+	}
 	
 	&:hover {
 		background-color: darken($primary-color, 10%);
@@ -334,7 +342,7 @@ input, textarea {
 	color: white;
 	border: none;
 	margin-left: auto;
-	width: 50%;
+	width: 30%;
 
 	&::placeholder {
 		color: darken($primary-color, 20%);

@@ -36,6 +36,11 @@ button {
   font-weight: 900;
   font-size: 13px;
   transition: 0.2s; }
+  button.disabled {
+    background-color: #cf6f60; }
+    button.disabled:hover {
+      background-color: #cf6f60;
+      cursor: default; }
   button:hover {
     background-color: #e73215; }
 
@@ -227,7 +232,7 @@ input, textarea {
   color: white;
   border: none;
   margin-left: auto;
-  width: 50%; }
+  width: 30%; }
   .search-bar::placeholder {
     color: #b82811;
     font-weight: 900;
