@@ -178,18 +178,18 @@ input, textarea {
   #sidebar > #community-rules > h1 {
     margin-bottom: 0.5em; }
 
-#community-navigation {
+#navigation {
   padding: 1em; }
-  #community-navigation .button {
+  #navigation .button {
     font-size: 12px;
     margin-left: 3px;
     margin-right: 3px;
     text-transform: uppercase;
     transition: color 0.2s;
     cursor: pointer; }
-    #community-navigation .button:hover {
+    #navigation .button:hover {
       color: goldenrod; }
-    #community-navigation .button.selected {
+    #navigation .button.selected {
       font-weight: 600; }
 
 #post-list {

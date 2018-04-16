@@ -38,7 +38,7 @@ class Profile extends React.Component {
 
 	render() {
 		return (
-			<p>empty</p>
+			<p>{this.props.username}</p>
 		)
 	}
 }

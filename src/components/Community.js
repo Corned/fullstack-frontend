@@ -51,7 +51,12 @@ class Community extends React.Component {
 
 		return (
 			<div id="community" className="apply-margin--vertical-xl">
-				<Navigation view={this.state.view} setView={this.setView}/>
+				<Navigation 
+					action={this.setView}
+					currentView={this.state.view}
+					baseUrl={`/c/${this.props.community.name}`}
+					labels={[ "hot", "new", "controversial", "top", "wiki" ]}
+				/>
 
 				<div id="community-content">	
 					<Route exact path="/c/:community/wiki" render={() => 

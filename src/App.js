@@ -2,11 +2,12 @@ import React from "react"
 import { connect } from "react-redux"
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
-import Frontpage from "./components/Frontpage"
 import Community from "./components/Community"
-import Topbar from "./components/Topbar"
 import Footer from "./components/temp/Footer"
+import Frontpage from "./components/Frontpage"
 import LoginAndRegistration from "./components/LoginAndRegistration"
+import Profile from "./components/Profile"
+import Topbar from "./components/Topbar"
 
 import { login, logout } from "./reducers/loggedUserReducer"
 
@@ -50,7 +51,7 @@ class App extends React.Component {
 						}/>
 
 						<Route exact path="/u/:username/submissions" render={({match}) =>
-							<p className="frame">{match.params.username}'s profile.</p>
+							<Profile username={match.params.username}/>
 						}/>
 
 						<Route exact path="/c/:community/" render={({match}) => 
