@@ -57,7 +57,8 @@ input, textarea {
     border: 2px rgba(255, 0, 0, 0.5) solid; }
 
 .clickable {
-  cursor: pointer; }
+  cursor: pointer;
+  transition: color 0.2s; }
   .clickable:hover {
     color: goldenrod; }
 
@@ -264,17 +265,25 @@ input, textarea {
     min-width: 100%;
     width: auto;
     height: 0;
-    transition: height 0.1s;
+    transition: height 0.15s;
+    transition: padding-top 0.1s;
     background-color: white;
     overflow: hidden;
     border-radius: 0;
     padding: 0 1em; }
-    .dropdownmenu > .content > *:first-child {
-      margin-top: 0.5em; }
+    .dropdownmenu > .content > * {
+      margin-bottom: 5px; }
+      .dropdownmenu > .content > *:first-child {
+        margin-top: 0.5em; }
+      .dropdownmenu > .content > *:last-child {
+        margin-bottom: 0.5em; }
     .dropdownmenu > .content.closed {
-      height: 0px; }
+      height: 0px;
+      padding-top: 0px; }
     .dropdownmenu > .content.opened {
-      height: 200px; }
+      height: auto;
+      padding-top: 5px;
+      padding-bottom: 5px; }
 
 #footer {
   display: flex;
@@ -323,5 +332,8 @@ input, textarea {
   flex-direction: column; }
 
 .loading > * {
+  margin-top: 50px;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 50px; }

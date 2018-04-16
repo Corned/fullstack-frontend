@@ -31,13 +31,13 @@ class Topbar extends React.Component {
 		return (
 			<div id="topbar">
 				<div id="topbar-container" className="align--vertically">
-					<Link to="/c/cordial">
-						<button>goto c/Cordial</button>
+					<Link to="/">
+						<button>Cordial</button>
 					</Link>
 	
 					<DropDownMenu text="Communities">
 						{this.props.community.communityList.map((community, index) =>
-							<p key={index}>{community.name}</p>
+							<Link to={`/c/${community.name}`}><p className="clickable" key={index}>{community.name}</p></Link>
 						)}
 					</DropDownMenu>
 	

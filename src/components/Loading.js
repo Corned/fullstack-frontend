@@ -17,7 +17,7 @@ class Loading extends React.Component {
 		}, this.props.timeout || 1500)
 
 		return (
-			<div className="frame loading">
+			<div className="loading">
 				<p>{this.state.message}</p>
 			</div>
 		)
