@@ -39,7 +39,7 @@ class App extends React.Component {
 						}/>
 
 						<Route exact path="(/c/|/u/)" render={() => 
-							<Redirect to={"/"}/>
+							<Redirect to="/"/>
 						}/>
 
 						<Route exact path="/u/:username/" render={({match}) =>

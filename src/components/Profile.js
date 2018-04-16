@@ -36,8 +36,8 @@ class Profile extends React.Component {
 		if (this.props.user === null) {
 			return (
 				<Loading 
-					loadingMessage={"Loading user data.."}
-					timeoutMessage={"User not found :("}
+					loadingMessage="Loading user data.."
+					timeoutMessage="User not found :("
 					timeout={1500}
 				/>
 			)

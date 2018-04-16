@@ -38,8 +38,8 @@ class Community extends React.Component {
 		if (this.props.community === null) {
 			return (
 				<Loading 
-					loadingMessage={"Loading community data.."}
-					timeoutMessage={"Community not found :("}
+					loadingMessage="Loading community data.."
+					timeoutMessage="Community not found :("
 					timeout={1500}
 				/>
 			)

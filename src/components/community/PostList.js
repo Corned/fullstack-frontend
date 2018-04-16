@@ -1,41 +1,15 @@
 import React from "react"
 import { connect } from "react-redux"
 
+import Loading from "../Loading"
 import Post from "./Post"
 
-class PostList extends React.Component {
-	constructor() {
-		super()
-
-		this.state = {
-			loadingMessage: "Loading content..."
-		}
-	}
-
-	isEmpty = () => {
-		setTimeout(() => {
-			this.setState({
-				loadingMessage: "There's nothing here... :("
-			})
-		}, 1000)
-	}
-
-	render() {
-		if (this.props.community === null || this.props.community.posts === undefined || this.props.postList === undefined) {
-			this.isEmpty()
-			return (
-				<div id="post-list" className="frame">
-					<h2 style={{width: "100%", textAlign: "center"}}>{this.state.loadingMessage}</h2>
-				</div>
-			)
-		}
-		
-		return (
-			<div id="post-list" className="fill apply-margin--vertical">
-				{this.props.postList.map((post) => <Post key={post.id} post={post}/>)}
-			</div>
-		)
-	}
+const PostList = (props) => {
+	return (
+		<div id="post-list" className="fill apply-margin--vertical">
+			{props.postList.map((post) => <Post key={post.id} post={post}/>)}
+		</div>
+	)
 }
 
 const mapStateToProps = (state) => {
