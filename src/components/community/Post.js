@@ -7,19 +7,13 @@ import TimeSince from "../../utils/TimeSince"
 class Post extends React.Component {
 	constructor(props) {
 		super(props)
-
-		this.state = {
-
-		}
 	}
-
 
 	componentWillMount() {
 		if (!this.props.expanded) {
 			return
 		}
 
-		this.props.nullPost()
 		const postId = this.props.history.location.pathname.split("/")[4]
 
 		if (postId !== null) {
@@ -41,7 +35,7 @@ class Post extends React.Component {
 					<Link to={location}>
 						<p className="post__title clickable">{post.title}</p>
 					</Link>
-					{post.type}
+					type: {post.type}
 				</div>
 			</div>
 		)

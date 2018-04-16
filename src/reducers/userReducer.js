@@ -1,21 +1,21 @@
 import userService from "../services/userService"
 
 const initialState = {
-	userList: [],
-	user: null
+	current: null,
+	list: []
 }
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case "INIT_USERS":
 			return {
-				userList: action.userList,
-				user: state.user
+				list: action.data,
+				current: state.current
 			}
 		case "SET_USER":
 			return {
-				userList: state.userList,
-				user: action.user
+				list: state.list,
+				current: action.data
 			}
 		default:
 			return state
@@ -25,22 +25,21 @@ const reducer = (state = initialState, action) => {
 export const getAllUsers = () => {
 	return async (dispatch) => {
 		const users = await userService.getAll()
-		console.log(users)
 		
 		dispatch({
 			type: "INIT_USERS",
-			userList: users
+			data: users
 		})
 	}
 }
 
 export const getUserByUsername = (username) => {
 	return async (dispatch) => {
-		const user = await userService.getByUsername(username)
+		const current = await userService.getByUsername(username)
 
 		dispatch({
 			type: "SET_USER",
-			user
+			data: current
 		})
 	}
 }

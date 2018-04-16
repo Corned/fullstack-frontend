@@ -53,8 +53,8 @@ class Frontpage extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.community,
-		"posts": state.posts
+		"community": state.communityData.current,
+		"posts": state.postData
 	}
 }
 

@@ -2,17 +2,17 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter, Route } from 'react-router-dom'
 
+import ExpandedPost from "./community/ExpandedPost"
+import LinkPostForm from "./forms/LinkPostForm"
+import Loading from "./Loading"
 import Navigation from "./community/Navigation"
+import Post from "./community/Post"
 import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
-import LinkPostForm from "./forms/LinkPostForm"
-import ExpandedPost from "./community/ExpandedPost"
-import Post from "./community/Post"
-import Loading from "./Loading"
 
-import { getCommunityByName } from "../reducers/communityReducer"
 import { getAllPostsByCommunity } from "../reducers/postReducer"
+import { getCommunityByName } from "../reducers/communityReducer"
 
 
 class Community extends React.Component {
@@ -40,7 +40,7 @@ class Community extends React.Component {
 	}
 
 	render() {
-		if (this.props.community === null || this.props.community.current === null) {
+		if (this.props.community === null) {
 			return (
 				<Loading 
 					loadingMessage={"Loading community data.."}
@@ -57,7 +57,7 @@ class Community extends React.Component {
 				<div id="community-content">	
 					<Route exact path="/c/:community/wiki" render={() => 
 						<div className="frame">
-							<p>{this.props.community.current.name}'s wiki page</p>
+							<p>{this.props.community.name}'s wiki page</p>
 							<p>There's nothing here yet.</p>
 							<p>you cant actually sort posts yet.</p>
 						</div>
@@ -100,8 +100,7 @@ class Community extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.community,
-		"posts": state.posts
+		"community": state.communityData.current
 	}
 }
 

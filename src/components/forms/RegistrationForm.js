@@ -1,11 +1,12 @@
 import React from "react"
-
 import { connect } from "react-redux"
 import { withRouter, Redirect } from 'react-router-dom'
+
+import { login } from "../../reducers/loggedUserReducer"
 import userService from "../../services/userService"
 import loginService from "../../services/loginService"
+
 import queryString from "query-string"
-import { login } from "../../reducers/loggedUserReducer"
 
 class RegistrationForm extends React.Component {
 	constructor(props) {
@@ -78,6 +79,11 @@ class RegistrationForm extends React.Component {
 	}
 
 	render() {
+		if (this.props.loggedUser) {
+			const parsed = queryString.parse(this.props.history.location.search)
+			return <Redirect to={parsed.redirect || "/"}/>
+		}
+		
 		return (
 			<form onSubmit={this.submit} id="register" className="frame">
 				<h1>Register</h1>
@@ -120,7 +126,7 @@ class RegistrationForm extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		"userdata": state.userdata
+		"loggedUser": state.loggedUserData.user
 	}
 }
 

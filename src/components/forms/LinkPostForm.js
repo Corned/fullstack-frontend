@@ -26,17 +26,17 @@ class LinkForm extends React.Component {
 				title: this.state.title,
 				url: this.state.url,
 				type: "link",
-				community: this.props.community.current.name
+				community: this.props.community.name
 			}, this.props.userdata.token)
 
-			this.props.history.push(`/c/${this.props.community.current.name}/post/${this.props.posts.post._id}`)
+			this.props.history.push(`/c/${this.props.community.name}/post/${this.props.post._id}`)
 		} catch (exception) {
 			console.log(exception, "!!!!")
 		}
 	}
 
 	render() {
-		if (this.props.userdata.user === null) {
+		if (this.props.loggedUser === null) {
 			return (
 				<Redirect to={`/login?redirect=${this.props.history.location.pathname}`}/>
 			)
@@ -79,9 +79,9 @@ class LinkForm extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.community,
-		"userdata": state.userdata,
-		"posts": state.posts
+		"community": state.communityData.current,
+		"post": state.postData.current,
+		"loggedUser": state.loggedUser
 	}
 }
 

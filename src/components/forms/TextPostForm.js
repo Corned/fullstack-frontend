@@ -26,17 +26,17 @@ class TextForm extends React.Component {
 				title: this.state.title,
 				body: this.state.body,
 				type: "text",
-				community: this.props.community.current.name
-			}, this.props.userdata.token)
+				community: this.props.community.name
+			}, this.props.loggedUserData.token)
 
-			this.props.history.push(`/c/${this.props.community.current.name}/post/${this.props.posts.post._id}`)
+			this.props.history.push(`/c/${this.props.community.name}/post/${this.props.post._id}`)
 		} catch (exception) {
 			console.log(exception, "!!!!")
 		}
 	}
 
 	render() {
-		if (this.props.userdata.user === null) {
+		if (this.props.loggedUserData.user === null) {
 			return (
 				<Redirect to={`/login?redirect=${this.props.history.location.pathname}`}/>
 			)
@@ -79,9 +79,9 @@ class TextForm extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.community,
-		"userdata": state.userdata,
-		"posts": state.posts
+		"community": state.communityData.current,
+		"loggedUserData": state.loggedUserData,
+		"post": state.postData.current
 	}
 }
 

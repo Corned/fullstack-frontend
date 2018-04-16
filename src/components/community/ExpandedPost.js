@@ -4,13 +4,12 @@ import { withRouter } from "react-router-dom"
 
 import Loading from "../Loading"
 
-import { getPostById, nullPost } from "../../reducers/postReducer"
+import { getPostById } from "../../reducers/postReducer"
 
 import TimeSince from "../../utils/TimeSince"
 
 class ExpandedPost extends React.Component {
 	componentWillMount() {
-		this.props.nullPost()
 		const postId = this.props.history.location.pathname.split("/")[4]
 
 		if (postId !== null) {
@@ -79,10 +78,10 @@ class ExpandedPost extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"post": state.posts.post
+		"post": state.postData.current
 	}
 }
 
-const mapDispatchToProps = { getPostById, nullPost }
+const mapDispatchToProps = { getPostById }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ExpandedPost))

@@ -1,21 +1,26 @@
 import postService from "../services/postService"
 
 const initialState = {
-	postList: [],
-	post: null
+	current: null,
+	list: []
 }
 
 const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case "INIT_POSTS":
 			return {
-				postList: action.postList,
-				post: state.post
+				list: action.data,
+				current: state.current
+			}
+		case "NEW_POST":
+			return {
+				list: [ ...state.list, action.data ],
+				current: action.data
 			}
 		case "SET_POST":
 			return {
-				postList: state.postList,
-				post: action.post
+				list: state.list,
+				current: action.data
 			}
 		default:
 			return state
@@ -28,7 +33,7 @@ export const getPostById = (id) => {
 
 		dispatch({
 			type: "SET_POST",
-			post
+			data: post
 		})
 	}
 }
@@ -39,7 +44,7 @@ export const getAllPosts = () => {
 		
 		dispatch({
 			type: "INIT_POSTS",
-			postList: posts
+			data: posts
 		})
 	}
 }
@@ -50,16 +55,7 @@ export const getAllPostsByCommunity = (communityName) => {
 
 		dispatch({
 			type: "INIT_POSTS",
-			postList: posts
-		})
-	}
-}
-
-export const nullPost = () => {
-	return async (dispatch) => {
-		dispatch({
-			type: "SET_POST",
-			post: null
+			data: posts
 		})
 	}
 }
@@ -69,8 +65,8 @@ export const createPost = (data, token) => {
 		const post = await postService.create(data, token)
 
 		dispatch({
-			type: "SET_POST",
-			post
+			type: "NEW_POST",
+			data: post
 		})
 	}
 }

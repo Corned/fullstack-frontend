@@ -36,13 +36,13 @@ class Topbar extends React.Component {
 					</Link>
 	
 					<DropDownMenu text="Communities">
-						{this.props.community.communityList.map((community, index) =>
+						{this.props.communityData.list.map((community, index) =>
 							<Link to={`/c/${community.name}`}><p className="clickable" key={index}>{community.name}</p></Link>
 						)}
 					</DropDownMenu>
 	
 					<DropDownMenu text="Users">
-						{this.props.users.userList.map((user, index) =>
+						{this.props.userData.list.map((user, index) =>
 							<p key={index}>{user.username}</p>
 						)}
 					</DropDownMenu>
@@ -53,14 +53,14 @@ class Topbar extends React.Component {
 					/>
 	
 					<div>
-						{this.props.userdata.user === null && 
+						{this.props.loggedUserData.user === null && 
 							<Link to={`/login?redirect=${this.props.history.location.pathname}`}>
 								<button>Log in!</button>
 							</Link>
 						}
 	
-						{this.props.userdata.user !== null && 
-							<button onClick={this.logout}><i>Logged in as</i> {this.props.userdata.user.username}</button>
+						{this.props.loggedUserData.user !== null && 
+							<button onClick={this.logout}><i>Logged in as</i> {this.props.loggedUserData.user.username}</button>
 						}
 					</div>
 				</div>
@@ -71,9 +71,9 @@ class Topbar extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		"userdata": state.userdata,
-		"users": state.users,
-		"community": state.community
+		"loggedUserData": state.loggedUserData,
+		"userData": state.userData,
+		"communityData": state.communityData
 	}
 }
 

@@ -35,10 +35,8 @@ const CommunityNavigation = ({ view, setView, community }) =>  {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.community.current
+		"community": state.communityData.current
 	}
 }
 
-const mapDispatchToProps = {  }
-
-export default connect(mapStateToProps, mapDispatchToProps)(CommunityNavigation)
+export default connect(mapStateToProps, null)(CommunityNavigation)

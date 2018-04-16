@@ -2,7 +2,7 @@ import communityService from "../services/communityService"
 
 const initialState = {
 	current: null,
-	communityList: []
+	list: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,12 +10,12 @@ const reducer = (state = initialState, action) => {
 		case "INIT_COMMUNITIES":
 			return {
 				current: state.current,
-				communityList: action.data
+				list: action.data
 			}
 		case "SET_COMMUNITY":
 			return {
 				current: action.data,
-				communityList: state.communityList
+				list: state.list
 			}
 		default:
 			return state

@@ -2,19 +2,18 @@ import React from "react"
 import { connect } from "react-redux"
 
 import CommunityInformation from "./sidebar/CommunityInformation"
+import DropDownMenu from "./DropDownMenu"
+import Link from "./Link"
 import UserInformation from "./sidebar/UserInformation"
 
-import Link from "./Link"
-import DropDownMenu from "./DropDownMenu"
-
 const Sidebar = ({ community, setView }) => {
-	const submitButtonUrl = `/c/${community.current.name}/`
+	const submitButtonUrl = `/c/${community.name}/`
 
 	return (
 		<div id="sidebar" className="apply-margin--vertical-xl">
 			<div id="community-information" className="frame apply-margin--vertical">
-				<h1>{community.current.name}</h1>
-				<p className="secondary-text">{community.current.members.length} members</p>
+				<h1>{community.name}</h1>
+				<p className="secondary-text">{community.members.length} members</p>
 
 				<Link to={`${submitButtonUrl}submit-text`} onClick={setView("submit-text")}>
 					<button style={{width: "100%"}}>Submit Your Thoughts</button>
@@ -38,7 +37,7 @@ const Sidebar = ({ community, setView }) => {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.community
+		"community": state.communityData.current
 	}
 }
 

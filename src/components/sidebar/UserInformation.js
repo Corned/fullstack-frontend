@@ -22,7 +22,7 @@ const UserInformation = (props) => {
 
 const mapStateToProps = (state) => {
 	return {
-		"loggedUser": state.loggedUser
+		"loggedUser": state.loggedUserData.user
 	}
 }
 
