@@ -3,7 +3,7 @@ import { Link as ReactLink } from "react-router-dom"
 
 const Link = (props) => {
 	return (
-		<div className="link">
+		<div className="link clickable">
 			<ReactLink to={props.to}>
 				{props.children}
 			</ReactLink>

@@ -19,7 +19,7 @@ class Post extends React.Component {
 	render() {		
 		const post = this.props.post
 		const location = `/c/${post.community.name}/post/${post.id}`
-		post.date = TimeSince(post.date)
+		post.timeSince = TimeSince(post.date)
 
 		return (
 			<div className="post frame">
