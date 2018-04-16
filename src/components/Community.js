@@ -24,16 +24,12 @@ class Community extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.getCommunityByName(this.props.communityName)
+		this.props.getCommunityByName(this.props.communityName) // Important!!
 		this.props.getAllPostsByCommunity(this.props.communityName)
 	}
 
 	setView = (view) => {
 		return () => {
-			if (this.props.community === undefined) {
-				return
-			}
-
 			this.setState({ view })
 		}
 	}
@@ -63,7 +59,6 @@ class Community extends React.Component {
 						<div className="frame">
 							<p>{this.props.community.name}'s wiki page</p>
 							<p>There's nothing here yet.</p>
-							<p>you cant actually sort posts yet.</p>
 						</div>
 					}/>
 

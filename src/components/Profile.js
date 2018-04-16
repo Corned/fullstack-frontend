@@ -10,8 +10,7 @@ import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
 
-import { getAllPostsByCommunity } from "../reducers/postReducer"
-import { getCommunityByName } from "../reducers/communityReducer"
+import { getUserByUsername } from "../reducers/userReducer"
 
 
 class Profile extends React.Component {
@@ -24,24 +23,31 @@ class Profile extends React.Component {
 	}
 
 	componentWillMount() {
+		this.props.getUserByUsername(this.props.username)
 	}
 
 	setView = (view) => {
 		return () => {
-			if (this.props.Profile === undefined) {
-				return
-			}
-
 			this.setState({ view })
 		}
 	}
 
 	render() {
+		if (this.props.user === null) {
+			return (
+				<Loading 
+					loadingMessage={"Loading user data.."}
+					timeoutMessage={"User not found :("}
+					timeout={1500}
+				/>
+			)
+		}
+
 		return (
 			<Navigation 
 				action={this.setView}
 				currentView={this.state.view}
-				baseUrl={`/u/${this.props.user}`}
+				baseUrl={`/u/${this.props.user.username}`}
 				labels={[ "overview", "posts", "comments", "liked", "disliked" ]}
 			/>
 		)
@@ -54,6 +60,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = {  }
+const mapDispatchToProps = { getUserByUsername }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Profile))

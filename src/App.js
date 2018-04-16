@@ -38,16 +38,16 @@ class App extends React.Component {
 							<LoginAndRegistration/>
 						}/>
 
-						<Route exact path="(/c/|/u/)" render={({match}) => 
-							<Redirect to={`/`}/>
+						<Route exact path="(/c/|/u/)" render={() => 
+							<Redirect to={"/"}/>
 						}/>
 
 						<Route exact path="/u/:username/" render={({match}) =>
-							<Redirect to={`/u/${match.params.username}/submissions`}/>
+							<Redirect to={`/u/${match.params.username}/overview`}/>
 						}/>
 
-						<Route exact path="/u/:username/submissions" render={({match}) =>
-							<Profile username={match.params.username}/>
+						<Route exact path="/u/:username/:view" render={({match}) =>
+							<Profile username={match.params.username} view={match.params.view}/>
 						}/>
 
 						<Route exact path="/c/:community/" render={({match}) => 
