@@ -1,28 +1,19 @@
 import React from "react"
 import { connect } from "react-redux"
-import { BrowserRouter as Router, withRouter, Route, Link, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 
 import Frontpage from "./components/Frontpage"
 import Community from "./components/Community"
 import Topbar from "./components/Topbar"
-import Sidebar from "./components/Sidebar"
 import Footer from "./components/temp/Footer"
 import LoginAndRegistration from "./components/LoginAndRegistration"
 
 import { login, logout } from "./reducers/loggedUserReducer"
 
-import postService from "./services/postService"
-import communityService from "./services/communityService"
-
 import "./index.css"
 
 class App extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
 	componentWillMount() {
-
 		const loggedUserJSON = window.localStorage.getItem("cordialUserdata")
 		// häh
 		if (loggedUserJSON !== "null") {

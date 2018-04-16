@@ -28,7 +28,7 @@ class RegistrationForm extends React.Component {
 
 		if (username.length > 2) {
 			try {
-				const response = await userService.getByUsername(username)
+				await userService.getByUsername(username)
 				this.setState({ "usernameTaken": true })
 			} catch (exception) {
 				// username not taken

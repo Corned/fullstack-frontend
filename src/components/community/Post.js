@@ -1,14 +1,9 @@
 import React from "react"
-import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
 import TimeSince from "../../utils/TimeSince"
 
 class Post extends React.Component {
-	constructor(props) {
-		super(props)
-	}
-
 	componentWillMount() {
 		if (!this.props.expanded) {
 			return

@@ -2,8 +2,6 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link } from 'react-router-dom'
 
-import DropDownMenu from "../DropDownMenu"
-
 const CommunityNavigation = ({ view, setView, community }) =>  {	
 	const navigationLabels = [ "hot", "new", "controversial", "top", "wiki" ]
 	const url = `/c/${community.name}/`

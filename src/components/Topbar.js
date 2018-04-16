@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter, Redirect } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
 import { logout } from "../reducers/loggedUserReducer"
 import { getAllUsers } from "../reducers/userReducer"
@@ -43,7 +43,7 @@ class Topbar extends React.Component {
 	
 					<DropDownMenu text="Users">
 						{this.props.userData.list.map((user, index) =>
-							<p key={index}>{user.username}</p>
+							<Link to={`/u/${user.username}`}><p key={index}>{user.username}</p></Link>
 						)}
 					</DropDownMenu>
 

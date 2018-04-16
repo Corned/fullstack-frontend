@@ -44,7 +44,7 @@ class ExpandedPost extends React.Component {
 						</div>
 					</div>
 
-					{post.type == "text" ? 
+					{post.type === "text" ? 
 						<p>{post.body}</p>
 						:
 						<a 
@@ -65,7 +65,7 @@ class ExpandedPost extends React.Component {
 							rows="4"
 							placeholder="Your blissful thoughts"
 						></textarea>
-						<button>Save? <span role="img">🤔</span></button>
+						<button>Save?</button>
 					</form>
 					<p className="tertiary-text">
 						comments go here thank you very much

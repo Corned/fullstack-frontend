@@ -1,10 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import CommunityInformation from "./sidebar/CommunityInformation"
-import DropDownMenu from "./DropDownMenu"
 import Link from "./Link"
-import UserInformation from "./sidebar/UserInformation"
 
 const Sidebar = ({ community, setView }) => {
 	const submitButtonUrl = `/c/${community.name}/`

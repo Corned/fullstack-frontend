@@ -1,5 +1,3 @@
-import loginService from "../services/loginService"
-
 const initialState = {
 	user: null,
 	token: null
