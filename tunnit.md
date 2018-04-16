@@ -23,4 +23,4 @@
 | 13.4.2018     | 1h        | ExpandedPost näyttää linkpostin urlin, submit sivut vaatii kirjautumisen |
 | 14.4.2018     | 2h        | Kirjautumissivu näyttää backendistä tulevan virheen. Rekisteröityminen sivun kautta. Poistettu turhaa koodia. Käyttäjän ja communityt näkyy yläpalkin dropdownvalikoissa, hakupalkin alkeet |
 | 15.4.2018     | 2h        | Rekisteörinnissä vaaditaan salasana kahdesti, käyttäjänimen saatavuus tarkistetaan reaaliajassa, valmistauduttu etusivuun |'
-| 16.4.2018     | 2.5h        | communityyn navigointi tapahtuu dropdownmenusta, reducerit refaktoroitu: store.js määrittelyt yhtenäisempiä, poistettu käyttämättömiä muuttujia. Navigation.js muutettu uudelleenkäytettäväksi |
+| 16.4.2018     | 3h        | communityyn navigointi tapahtuu dropdownmenusta, reducerit refaktoroitu: store.js määrittelyt yhtenäisempiä, poistettu käyttämättömiä muuttujia. Navigation.js muutettu uudelleenkäytettäväksi, navigaatio lisätty profiilisivulle (/u/:username) |
