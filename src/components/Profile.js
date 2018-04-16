@@ -38,13 +38,19 @@ class Profile extends React.Component {
 
 	render() {
 		return (
-			<p>{this.props.username}</p>
+			<Navigation 
+				action={this.setView}
+				currentView={this.state.view}
+				baseUrl={`/u/${this.props.user}`}
+				labels={[ "overview", "posts", "comments", "liked", "disliked" ]}
+			/>
 		)
 	}
 }
 
 const mapStateToProps = (state) => {
-	return { 
+	return {
+		"user": state.userData.current
 	}
 }
 

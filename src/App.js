@@ -23,10 +23,6 @@ class App extends React.Component {
 		}
 	}
 
-	isLoggedIn = () => {
-		return this.props.loggedUser !== null
-	}
-
 	render() {
 		return (
 			<Router>

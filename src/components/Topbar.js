@@ -10,14 +10,6 @@ import Link from "./Link"
 import DropDownMenu from "./DropDownMenu"
 
 class Topbar extends React.Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-
-		}
-	}
-
 	componentWillMount() {
 		this.props.getAllCommunities()
 		this.props.getAllUsers()
