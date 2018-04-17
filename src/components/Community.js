@@ -9,6 +9,8 @@ import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
+import CommunityRules from "./sidebar_components/CommunityRules"
+import CommunityInformation from "./sidebar_components/CommunityInformation"
 
 import { getAllPostsByCommunity } from "../reducers/postReducer"
 import { getCommunityByName } from "../reducers/communityReducer"
@@ -75,22 +77,36 @@ class Community extends React.Component {
 					}/>
 
 					<Route exact path="/c/:community/hot" render={({match}) => 
-						<PostList/>	
+						<PostList 
+							postList={this.props.postList}
+						/>	
 					}/>
 
 					<Route exact path="/c/:community/new" render={({match}) => 
-						<PostList/>	
+						<PostList 
+							postList={this.props.postList}
+						/>	
 					}/>
 
 					<Route exact path="/c/:community/controversial" render={({match}) => 
-						<PostList/>	
+						<PostList 
+							postList={this.props.postList}
+						/>	
 					}/>
 
 					<Route exact path="/c/:community/top" render={({match}) => 
-						<PostList/>	
+						<PostList 
+							postList={this.props.postList}
+						/>	
 					}/>
 
-					<Sidebar setView={this.setView}/>
+					<Sidebar>
+						<CommunityInformation
+							community={this.props.community}
+							setView={this.setView}
+						/>
+						<CommunityRules/>
+					</Sidebar>
 				</div>
 			</div>
 		)
@@ -99,7 +115,8 @@ class Community extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.communityData.current
+		"community": state.communityData.current,
+		"postList": state.postData.list
 	}
 }
 

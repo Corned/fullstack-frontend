@@ -14,8 +14,7 @@ const PostList = (props) => {
 
 const mapStateToProps = (state) => {
 	return { 
-		"community": state.communityData.current,
-		"postList": state.postData.list
+		"community": state.communityData.current
 	}
 }
 

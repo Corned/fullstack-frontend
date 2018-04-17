@@ -43,13 +43,27 @@ class Profile extends React.Component {
 			)
 		}
 
+		console.table(this.props.user.posts)
+
 		return (
-			<Navigation 
-				action={this.setView}
-				currentView={this.state.view}
-				baseUrl={`/u/${this.props.user.username}`}
-				labels={[ "overview", "posts", "comments", "liked", "disliked" ]}
-			/>
+
+			<div id="community" className="apply-margin--vertical-xl">
+				<Navigation 
+					action={this.setView}
+					currentView={this.state.view}
+					baseUrl={`/u/${this.props.user.username}`}
+					labels={[ "overview", "posts", "comments", "liked", "disliked" ]}
+				/>
+
+				<div id="community-content">	
+					<PostList postList={this.props.user.posts}/>		
+					<div id="sidebar" className="apply-margin--vertical-xl">
+						<div className="frame">
+							{this.props.user.username}
+						</div>
+					</div>
+				</div>
+			</div>
 		)
 	}
 }
