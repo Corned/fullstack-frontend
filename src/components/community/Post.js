@@ -5,24 +5,10 @@ import Link from "../Link"
 import TimeSince from "../../utils/TimeSince"
 
 class Post extends React.Component {
-	componentWillMount() {
-		if (!this.props.expanded) {
-			return
-		}
-
-		const postId = this.props.history.location.pathname.split("/")[4]
-
-		if (postId !== null) {
-			this.props.getPostById(postId)
-		}
-	}
-
 	render() {		
 		const post = this.props.post
-		const location = `/c/${post.community.name}/post/${post.id}`
+		const location = `/c/${post.community.name}/post/${post.id || post._id}`
 		post.timeSince = TimeSince(post.date)
-
-		console.table(post)
 
 		return (
 			<div className="post frame">
