@@ -272,14 +272,13 @@ input, textarea {
 	padding-bottom: 0.5em;
 
 	.button {
-		font-size: 12px;
 		margin-left: 3px;
 		margin-right: 3px;
 		text-transform: lowercase;
 		transition: color 0.2s;
 		cursor: pointer;
 		color: rgba(0, 0, 0, 0.5);
-		font-size: 20px;
+		font-size: 24px;
 
 		&::first-letter {
 			text-transform: uppercase;
@@ -290,8 +289,9 @@ input, textarea {
 		}
 
 		&.selected {
+			transition: color 0s;
 			color: rgba(0, 0, 0, 0.75);
-			font-weight: 600;
+			text-shadow: 1px 0 0 rgba(20, 20, 20, 0.75);
 		}
 	}
 }
