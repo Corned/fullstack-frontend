@@ -29,17 +29,21 @@ class Topbar extends React.Component {
 	
 					<DropDownMenu text="Communities">
 						{this.props.communityData.list.map((community, index) =>
-							<Link to={`/c/${community.name}`}>
-								<p className="clickable" key={index}>{community.name}</p>
-							</Link>
+							<p>
+								<Link to={`/c/${community.name}`}>
+									<p className="clickable" key={index}>{community.name}</p>
+								</Link>
+							</p>
 						)}
 					</DropDownMenu>
 	
 					<DropDownMenu text="Users">
 						{this.props.userData.list.map((user, index) =>
-							<Link to={`/u/${user.username}`}>
-								<p className="clickable" key={index}>{user.username}</p>
-							</Link>
+							<p>
+								<Link to={`/u/${user.username}`}>
+									<p className="clickable" key={index}>{user.username}</p>
+								</Link>
+							</p>
 						)}
 					</DropDownMenu>
 

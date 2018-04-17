@@ -153,6 +153,10 @@ input, textarea {
 	font-size: 10px;
 }
 
+.light-text {
+	color: rgba(160, 160, 160, 1);
+}
+
 .error {
 	color: rgba(255, 91, 15, 1.00);
 
@@ -337,9 +341,11 @@ input, textarea {
 		max-height: 6em;
 	}
 	
-	.post__info {
-		& > .post__title {
-			color: black;
+	& > .post__info {
+		& > * {
+			margin-bottom: 0.5em;
+		}
+		& > * > * >.post__title {
 			font-size: 1.5em;
 		}
 	}
@@ -399,12 +405,13 @@ input, textarea {
 		transition: height 0.15s;
 		transition: padding-top 0.1s;
 		background-color: white;
-		overflow: hidden;
+		overflow: auto;
 		border-radius: 0;
 		padding: 0 1em;
 
 		& > * {
 			margin-bottom: 5px;
+
 			&:first-child {
 				margin-top: 0.5em;
 			}

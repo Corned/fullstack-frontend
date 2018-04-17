@@ -43,7 +43,6 @@ class Profile extends React.Component {
 		}
 
 		return (
-
 			<div id="community" className="apply-margin--vertical-xl">
 				<Navigation 
 					action={this.setView}
