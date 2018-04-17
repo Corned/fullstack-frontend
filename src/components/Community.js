@@ -26,7 +26,7 @@ class Community extends React.Component {
 	}
 
 	componentWillMount() {
-		this.props.getCommunityByName(this.props.communityName) // Important!!
+		this.props.getCommunityByName(this.props.communityName)
 		this.props.getAllPostsByCommunity(this.props.communityName)
 	}
 

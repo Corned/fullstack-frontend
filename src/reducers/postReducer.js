@@ -71,4 +71,13 @@ export const createPost = (data, token) => {
 	}
 }
 
+export const clearPost = () => {
+	return async (dispatch) => {
+		dispatch({
+			type: "SET_POST",
+			data: null
+		})
+	}
+}
+
 export default reducer

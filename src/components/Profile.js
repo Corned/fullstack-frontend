@@ -9,7 +9,7 @@ import Sidebar from "./Sidebar"
 
 import ProfileInformation from "./sidebar_components/ProfileInformation"
 
-import { getUserByUsername } from "../reducers/userReducer"
+import { getUserByUsername, clearUser } from "../reducers/userReducer"
 
 
 class Profile extends React.Component {
@@ -68,6 +68,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { getUserByUsername }
+const mapDispatchToProps = { getUserByUsername, clearUser }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Profile))

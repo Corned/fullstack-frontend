@@ -10,7 +10,7 @@ const PostList = ({ postList }) => {
 			<Loading 
 				loadingMessage="loading data"
 				timeoutMessage=":("
-				timeout={1}
+				timeout={1500}
 			/>
 		)
 	}

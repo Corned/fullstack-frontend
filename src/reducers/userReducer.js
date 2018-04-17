@@ -44,4 +44,13 @@ export const getUserByUsername = (username) => {
 	}
 }
 
+export const clearUser = () => {
+	return async (dispatch) => {
+		dispatch({
+			type: "SET_USER",
+			data: null
+		})
+	}
+}
+
 export default reducer

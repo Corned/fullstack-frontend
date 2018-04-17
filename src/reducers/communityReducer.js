@@ -40,6 +40,15 @@ export const getCommunityByName = (name) => {
 			data: community
 		})
 	}
-} 
+}
+
+export const clearCommunity = () => {
+	return async (dispatch) => {
+		dispatch({
+			type: "SET_COMMUNITY",
+			data: null
+		})
+	}
+}
 
 export default reducer
