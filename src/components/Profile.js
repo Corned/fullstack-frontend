@@ -2,13 +2,12 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter, Route } from 'react-router-dom'
 
-import ExpandedPost from "./community/ExpandedPost"
-import LinkPostForm from "./forms/LinkPostForm"
 import Loading from "./Loading"
 import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
-import TextPostForm from "./forms/TextPostForm"
+
+import ProfileInformation from "./sidebar_components/ProfileInformation"
 
 import { getUserByUsername } from "../reducers/userReducer"
 
@@ -57,11 +56,9 @@ class Profile extends React.Component {
 
 				<div id="community-content">	
 					<PostList postList={this.props.user.posts}/>		
-					<div id="sidebar" className="apply-margin--vertical-xl">
-						<div className="frame">
-							{this.props.user.username}
-						</div>
-					</div>
+					<Sidebar>
+						<ProfileInformation user={this.props.user}/>
+					</Sidebar>
 				</div>
 			</div>
 		)
