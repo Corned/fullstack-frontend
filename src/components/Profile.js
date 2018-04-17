@@ -42,8 +42,6 @@ class Profile extends React.Component {
 			)
 		}
 
-		console.table(this.props.user.posts)
-
 		return (
 
 			<div id="community" className="apply-margin--vertical-xl">
