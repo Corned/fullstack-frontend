@@ -7,7 +7,7 @@ const CommunityNavigation = ({ action, currentView, labels, baseUrl}) =>  {
 		<nav id="navigation" className="flex flex--horizontal apply-margin--horizontal">
 			{
 				labels.map((label, index) => {
-					const destination = `${baseUrl}/${label}`
+					const destination = `${baseUrl}${label}`
 
 					if (label === currentView) {
 						return (

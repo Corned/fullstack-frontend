@@ -56,7 +56,11 @@ class App extends React.Component {
 
 							{/* Frontpage */}
 							<Route exact path="/" render={() => 
-								<Frontpage/>
+								<Redirect to="/hot"/>
+							}/>
+
+							<Route path="/:view" render={({match}) => 
+								<Frontpage view={match.params.view}/>
 							}/>
 
 							<Route render={() => <p>404 lol</p>}/>

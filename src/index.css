@@ -44,6 +44,8 @@ button {
       cursor: default; }
   button:hover {
     background-color: #e73215; }
+  button:focus {
+    outline: 0; }
 
 input, textarea {
   border: rgba(0, 0, 0, 0.25) solid 1px;

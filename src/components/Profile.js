@@ -51,7 +51,7 @@ class Profile extends React.Component {
 				<Navigation 
 					action={this.setView}
 					currentView={this.state.view}
-					baseUrl={`/u/${this.props.user.username}`}
+					baseUrl={`/u/${this.props.user.username}/`}
 					labels={[ "overview", "posts", "comments", "liked", "disliked" ]}
 				/>
 

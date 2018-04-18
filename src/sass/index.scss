@@ -65,6 +65,7 @@ button {
 	font-size: 13px;
 	transition: 0.2s;
 
+
 	&.disabled {
 		background-color: desaturate($primary-color, 30%);
 		&:hover {
@@ -75,6 +76,10 @@ button {
 	
 	&:hover {
 		background-color: darken($primary-color, 10%);
+	}
+
+	&:focus {
+		outline: 0;
 	}
 }	
 

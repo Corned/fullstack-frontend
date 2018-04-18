@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter, Route } from 'react-router-dom'
+import { withRouter, Route, Switch } from "react-router-dom"
 
 import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
@@ -13,7 +13,7 @@ import Loading from "./Loading"
 import Link from "./Link"
 
 import { getCommunityByName } from "../reducers/communityReducer"
-import { getAllPostsByCommunity } from "../reducers/postReducer"
+import { getAllPosts } from "../reducers/postReducer"
 
 
 class Frontpage extends React.Component {
@@ -21,11 +21,20 @@ class Frontpage extends React.Component {
 		super(props)
 
 		this.state = {
+			view: props.view
 		}
 	}
 
 	componentWillMount() {
+		this.props.getAllPosts()
 	}
+
+	setView = (view) => {
+		return () => {
+			this.setState({ view })
+		}
+	}
+
 
 	render() {
 		/*
@@ -40,24 +49,31 @@ class Frontpage extends React.Component {
 		
 		return (
 			<div id="community" className="apply-margin--vertical-xl">
-				{/* <Navigation view={this.state.view} setView={this.setView}/> */}
+				<Navigation 
+					action={this.setView}
+					currentView={this.state.view}
+					baseUrl="/"
+					labels={[ "hot", "new", "controversial", "top" ]}
+				/>
 
 				<div id="community-content">
-					<Route exact path="/front" render={() => 
-						<div className="frame fill">
-							Communities -> Cordial
-						</div>
-					}/>
+					<Switch>
+						<Route exact path="/create" render={() => 
+							<div className="frame fill">
+								create a community yes :D
+							</div>
+						}/>
 
-					<Route exact path="/front/create" render={() => 
-						<div className="frame fill">
-							create a community yes :D
-						</div>
-					}/>
+						<Route exact path="/:view" render={() => 
+							<PostList 
+								postList={this.props.postList}
+							/>	
+						}/>
+					</Switch>
 
 					<Sidebar>
 						<div className="frame">
-							<Link to="/front/create">
+							<Link to="/create">
 								<button>
 									Start a Community
 								</button>
@@ -73,10 +89,10 @@ class Frontpage extends React.Component {
 const mapStateToProps = (state) => {
 	return { 
 		"community": state.communityData.current,
-		"posts": state.postData
+		"postList": state.postData.list
 	}
 }
 
-const mapDispatchToProps = { getCommunityByName, getAllPostsByCommunity }
+const mapDispatchToProps = { getAllPosts }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Frontpage))

@@ -53,7 +53,7 @@ class Community extends React.Component {
 				<Navigation 
 					action={this.setView}
 					currentView={this.state.view}
-					baseUrl={`/c/${this.props.community.name}`}
+					baseUrl={`/c/${this.props.community.name}/`}
 					labels={[ "hot", "new", "controversial", "top", "wiki" ]}
 				/>
 
