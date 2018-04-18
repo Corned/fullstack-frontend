@@ -20,12 +20,18 @@ class Post extends React.Component {
 						<p className="post__title clickable primary-text">{post.title}</p>
 					</Link>
 					<p className="secondary-text">
-						<span className="light-text">submitted </span> 
+						<span className="light-text">submitted</span>&nbsp;
 						{post.timeSince} 
-						<span className="light-text"> ago by </span> 
+						<span className="light-text"> ago by</span>&nbsp;
 						<Link to={`/u/${post.user.username}`}>
 							<span className="clickable">{post.user.username}</span>
 						</Link>
+						<span className="light-text">
+							&nbsp;in&nbsp;
+							<Link to={`/c/${post.community.name}`}>
+								<span className="clickable">c/{post.community.name}</span>
+							</Link>
+						</span>
 					</p>
 				</div>
 			</div>
