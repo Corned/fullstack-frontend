@@ -12,7 +12,7 @@ import TextPostForm from "./forms/TextPostForm"
 import CommunityRules from "./sidebar_components/CommunityRules"
 import CommunityInformation from "./sidebar_components/CommunityInformation"
 
-import { getAllPostsByCommunity } from "../reducers/postReducer"
+import { getAllPostsByCommunity, clearPosts } from "../reducers/postReducer"
 import { getCommunityByName } from "../reducers/communityReducer"
 
 
@@ -26,6 +26,7 @@ class Community extends React.Component {
 	}
 
 	componentWillMount() {
+		this.props.clearPosts()
 		this.props.getCommunityByName(this.props.communityName)
 		this.props.getAllPostsByCommunity(this.props.communityName)
 	}
@@ -120,6 +121,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { getCommunityByName, getAllPostsByCommunity }
+const mapDispatchToProps = { getCommunityByName, getAllPostsByCommunity, clearPosts }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Community))

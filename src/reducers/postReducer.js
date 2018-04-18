@@ -91,4 +91,13 @@ export const clearPost = () => {
 	}
 }
 
+export const clearPosts = () => {
+	return async (dispatch) => {
+		dispatch({
+			type: "INIT_POSTS",
+			data: []
+		})
+	}
+}
+
 export default reducer

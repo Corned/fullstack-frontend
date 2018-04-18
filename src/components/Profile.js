@@ -10,6 +10,7 @@ import Sidebar from "./Sidebar"
 import ProfileInformation from "./sidebar_components/ProfileInformation"
 
 import { getUserByUsername, clearUser } from "../reducers/userReducer"
+import { getAllPostsByUser, clearPosts } from "../reducers/postReducer"
 
 
 class Profile extends React.Component {
@@ -22,7 +23,10 @@ class Profile extends React.Component {
 	}
 
 	componentWillMount() {
+		this.props.clearPosts();
+		this.props.clearUser();
 		this.props.getUserByUsername(this.props.username)
+		this.props.getAllPostsByUser(this.props.username)
 	}
 
 	setView = (view) => {
@@ -52,7 +56,7 @@ class Profile extends React.Component {
 				/>
 
 				<div id="community-content">	
-					<PostList postList={this.props.user.posts}/>		
+					<PostList postList={this.props.postList}/>		
 					<Sidebar>
 						<ProfileInformation user={this.props.user}/>
 					</Sidebar>
@@ -64,10 +68,11 @@ class Profile extends React.Component {
 
 const mapStateToProps = (state) => {
 	return {
-		"user": state.userData.current
+		"user": state.userData.current,
+		"postList": state.postData.list
 	}
 }
 
-const mapDispatchToProps = { getUserByUsername, clearUser }
+const mapDispatchToProps = { getUserByUsername, clearUser, getAllPostsByUser, clearPosts }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Profile))

@@ -32,4 +32,4 @@ const create = async (data, token) => {
 }
 
 
-export default { getAll, getAllFromCommunity, create, getById }
+export default { getAll, getAllFromCommunity, create, getById, getAllFromUser }

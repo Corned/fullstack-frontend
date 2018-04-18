@@ -7,7 +7,7 @@ import TimeSince from "../../utils/TimeSince"
 class Post extends React.Component {
 	render() {		
 		const post = this.props.post
-		const location = `/c/${post.community.name}/post/${post.id || post._id}`
+		const location = `/c/${post.community.name}/post/${post.id}`
 		post.timeSince = TimeSince(post.date)
 
 		return (
