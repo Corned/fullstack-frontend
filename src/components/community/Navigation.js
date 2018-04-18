@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 const CommunityNavigation = ({ action, currentView, labels, baseUrl}) =>  {	
 	return (
-		<div id="navigation" className="flex flex--horizontal apply-margin--horizontal">
+		<nav id="navigation" className="flex flex--horizontal apply-margin--horizontal">
 			{
 				labels.map((label, index) => {
 					const destination = `${baseUrl}/${label}`
@@ -24,7 +24,7 @@ const CommunityNavigation = ({ action, currentView, labels, baseUrl}) =>  {
 					)
 				})
 			}
-		</div>	
+		</nav>	
 	)
 }
 

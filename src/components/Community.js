@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter, Route } from 'react-router-dom'
+import { withRouter, Route, Switch } from 'react-router-dom'
 
 import ExpandedPost from "./community/ExpandedPost"
 import LinkPostForm from "./forms/LinkPostForm"
@@ -57,49 +57,33 @@ class Community extends React.Component {
 					labels={[ "hot", "new", "controversial", "top", "wiki" ]}
 				/>
 
-				<div id="community-content">	
-					<Route exact path="/c/:community/wiki" render={() => 
-						<div className="frame">
-							<p>{this.props.community.name}'s wiki page</p>
-							<p>There's nothing here yet.</p>
-						</div>
-					}/>
+				<div id="community-content">
+					<Switch>
+						<Route exact path="/c/:community/post/:id" render={() =>
+							<ExpandedPost/>
+						}/>
 
-					<Route exact path="/c/:community/post/:id" render={() =>
-						<ExpandedPost/>
-					}/>
+						<Route exact path="/c/:community/submit-text" render={() => 
+							<TextPostForm/>
+						}/>
 
-					<Route exact path="/c/:community/submit-text" render={() => 
-						<TextPostForm/>
-					}/>
+						<Route exact path="/c/:community/submit-link" render={() => 
+							<LinkPostForm/>
+						}/>
 
-					<Route exact path="/c/:community/submit-link" render={() => 
-						<LinkPostForm/>
-					}/>
+						<Route exact path="/c/:community/wiki" render={() => 
+							<div className="frame">
+								<p>{this.props.community.name}'s wiki page</p>
+								<p>There's nothing here yet.</p>
+							</div>
+						}/>
 
-					<Route exact path="/c/:community/hot" render={({match}) => 
-						<PostList 
-							postList={this.props.postList}
-						/>	
-					}/>
-
-					<Route exact path="/c/:community/new" render={({match}) => 
-						<PostList 
-							postList={this.props.postList}
-						/>	
-					}/>
-
-					<Route exact path="/c/:community/controversial" render={({match}) => 
-						<PostList 
-							postList={this.props.postList}
-						/>	
-					}/>
-
-					<Route exact path="/c/:community/top" render={({match}) => 
-						<PostList 
-							postList={this.props.postList}
-						/>	
-					}/>
+						<Route exact path="/c/:community/:view" render={({match}) => 
+							<PostList 
+								postList={this.props.postList}
+							/>	
+						}/>
+					</Switch>
 
 					<Sidebar>
 						<CommunityInformation

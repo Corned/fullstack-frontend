@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 import Community from "./components/Community"
 import Footer from "./components/temp/Footer"
@@ -30,37 +30,37 @@ class App extends React.Component {
 					<Topbar/>
 
 					<div id="container">
-						<Route exact path="/" render={() => 
-							<Redirect to="/front"/>
-						}/>
+						<Switch>
+							{/* Login and Registration */}
+							<Route exact path="/login" render={() =>
+								<LoginAndRegistration/>
+							}/>
 
-						<Route path="/front" render={() => 
-							<Frontpage/>
-						}/>
+							{/* Profiles */}
+							<Route exact path="/u/:username/" render={({match}) =>
+								<Redirect to={`/u/${match.params.username}/overview`}/>
+							}/>
 
-						<Route exact path="/login" render={() =>
-							<LoginAndRegistration/>
-						}/>
+							<Route path="/u/:username/:view" render={({match}) =>
+								<Profile username={match.params.username} view={match.params.view}/>
+							}/>
+							
+							{/* Communities */}
+							<Route exact path="/c/:community/" render={({match}) => 
+								<Redirect to={`/c/${match.params.community}/hot`}/>
+							}/>
 
-						<Route exact path="(/c/|/u/)" render={() => 
-							<Redirect to="/"/>
-						}/>
+							<Route path="/c/:community/:view" render={({match}) => 
+								<Community communityName={match.params.community} view={match.params.view}/>
+							}/>
 
-						<Route exact path="/u/:username/" render={({match}) =>
-							<Redirect to={`/u/${match.params.username}/overview`}/>
-						}/>
+							{/* Frontpage */}
+							<Route exact path="/" render={() => 
+								<Frontpage/>
+							}/>
 
-						<Route exact path="/u/:username/:view" render={({match}) =>
-							<Profile username={match.params.username} view={match.params.view}/>
-						}/>
-
-						<Route exact path="/c/:community/" render={({match}) => 
-							<Redirect to={`/c/${match.params.community}/hot`}/>
-						}/>
-
-						<Route path="/c/:community/:view" render={({match}) => 
-							<Community communityName={match.params.community} view={match.params.view}/>
-						}/>
+							<Route render={() => <p>404 lol</p>}/>
+						</Switch>
 					</div>
 				</div>
 			</Router>
