@@ -43,8 +43,16 @@ class Frontpage extends React.Component {
 
 				<div id="community-content">	
 					<div className="frame fill">
-						under construction, click "goto c/Cordial" to do stuffs
+						Communities -> Cordial
 					</div>
+
+					<Sidebar>
+						<div className="frame">
+							<button>
+								Start a Community
+							</button>
+						</div>
+					</Sidebar>
 				</div>
 			</div>
 		)

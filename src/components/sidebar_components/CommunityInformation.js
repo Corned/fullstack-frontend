@@ -11,17 +11,17 @@ const CommunityInformation = ({ community, setView }) => {
 
 			<div>
 				<Link to={`${submitButtonUrl}submit-text`} onClick={setView("submit-text")}>
-					<button style={{width: "100%"}}>Submit Your Thoughts</button>
+					<button>Submit Your Thoughts</button>
 				</Link>
 			</div>
 
 			<div>
 				<Link to={`${submitButtonUrl}submit-link`} onClick={setView("submit-link")}>
-					<button style={{width: "100%"}}>Share a Link</button>
+					<button>Share a Link</button>
 				</Link>
 			</div>
 
-			<button className="disabled" style={{width: "100%"}}>(Un)Subscribe!</button>
+			<button className="disabled">(Un)Subscribe!</button>
 		</div>
 	)
 }

@@ -25,3 +25,4 @@
 | 15.4.2018     | 2h        | Rekisteörinnissä vaaditaan salasana kahdesti, käyttäjänimen saatavuus tarkistetaan reaaliajassa, valmistauduttu etusivuun |'
 | 16.4.2018     | 3h        | communityyn navigointi tapahtuu dropdownmenusta, reducerit refaktoroitu: store.js määrittelyt yhtenäisempiä, poistettu käyttämättömiä muuttujia. Navigation.js muutettu uudelleenkäytettäväksi, navigaatio lisätty profiilisivulle (/u/:username) |
 | 17.4.2018     | 3h        | Uusi navigaatio, sidebar on moduläärinen, profiili, poistettu virheitä |
+| 18.4.2018     | 1.5h        |

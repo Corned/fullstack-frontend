@@ -175,6 +175,8 @@ input, textarea {
 #sidebar {
   width: 30em;
   min-width: 30em; }
+  #sidebar button {
+    width: 100%; }
   #sidebar > #community-information > h1 {
     margin-bottom: 0; }
   #sidebar > #community-information > button {

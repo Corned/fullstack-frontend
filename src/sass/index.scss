@@ -252,6 +252,10 @@ input, textarea {
 	width: 30em;
 	min-width: 30em;
 
+	& button {
+		width: 100%;
+	}
+
 	& > #community-information {
 		& > h1 {
 			margin-bottom: 0;
