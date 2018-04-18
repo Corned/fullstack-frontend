@@ -10,6 +10,7 @@ import LinkPostForm from "./forms/LinkPostForm"
 import ExpandedPost from "./community/ExpandedPost"
 import Post from "./community/Post"
 import Loading from "./Loading"
+import Link from "./Link"
 
 import { getCommunityByName } from "../reducers/communityReducer"
 import { getAllPostsByCommunity } from "../reducers/postReducer"
@@ -41,16 +42,26 @@ class Frontpage extends React.Component {
 			<div id="community" className="apply-margin--vertical-xl">
 				{/* <Navigation view={this.state.view} setView={this.setView}/> */}
 
-				<div id="community-content">	
-					<div className="frame fill">
-						Communities -> Cordial
-					</div>
+				<div id="community-content">
+					<Route exact path="/front" render={() => 
+						<div className="frame fill">
+							Communities -> Cordial
+						</div>
+					}/>
+
+					<Route exact path="/front/create" render={() => 
+						<div className="frame fill">
+							create a community yes :D
+						</div>
+					}/>
 
 					<Sidebar>
 						<div className="frame">
-							<button>
-								Start a Community
-							</button>
+							<Link to="/front/create">
+								<button>
+									Start a Community
+								</button>
+							</Link>
 						</div>
 					</Sidebar>
 				</div>

@@ -31,6 +31,10 @@ class App extends React.Component {
 
 					<div id="container">
 						<Route exact path="/" render={() => 
+							<Redirect to="/front"/>
+						}/>
+
+						<Route path="/front" render={() => 
 							<Frontpage/>
 						}/>
 
