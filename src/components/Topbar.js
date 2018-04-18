@@ -37,7 +37,7 @@ class Topbar extends React.Component {
 						)}
 					</DropDownMenu>
 	
-					<DropDownMenu text="Users">
+					<DropDownMenu text="Users (temp)">
 						{this.props.userData.list.map((user, index) =>
 							<p key={index}>
 								<Link to={`/u/${user.username}`}>

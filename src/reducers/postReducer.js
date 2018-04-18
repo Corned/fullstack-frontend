@@ -60,6 +60,17 @@ export const getAllPostsByCommunity = (communityName) => {
 	}
 }
 
+export const getAllPostsByUser = (username) => {
+	return async (dispatch) => {
+		const posts = await postService.getAllFromUser(username)
+
+		dispatch({
+			type: "INIT_POSTS",
+			data: posts
+		})
+	}
+}
+
 export const createPost = (data, token) => {
 	return async (dispatch) => {
 		const post = await postService.create(data, token)

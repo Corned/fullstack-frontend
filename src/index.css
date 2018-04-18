@@ -192,7 +192,7 @@ input, textarea {
     transition: color 0.2s;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.5);
-    font-size: 24px; }
+    font-size: 20px; }
     #navigation .button::first-letter {
       text-transform: uppercase; }
     #navigation .button:hover {

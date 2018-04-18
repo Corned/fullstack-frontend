@@ -17,6 +17,11 @@ const getAllFromCommunity = async (community) => {
 	return response.data
 }
 
+const getAllFromUser = async (username) => {
+	const response = await axios.get(`${baseUrl}/u/${username}`)
+	return response.data
+}
+
 const create = async (data, token) => {
 	const config = {
 		headers: { "authorization": `bearer ${token}`  }
