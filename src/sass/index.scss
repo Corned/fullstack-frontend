@@ -355,10 +355,10 @@ input, textarea {
 	transition: background-color 0.1s;
 
 	background-color: darken($primary-color, 5%);
-	color: white;
 	border: none;
 	margin-left: auto;
 	width: 30%;
+	color: darken($primary-color, 20%);
 
 	&::placeholder {
 		color: darken($primary-color, 20%);
@@ -368,7 +368,7 @@ input, textarea {
 
 	&:focus {
 		background-color: white;
-		color: black;
+		color: rgba(0, 0, 0, 0.9);
 		outline: none;
 		box-shadow: 0;
 

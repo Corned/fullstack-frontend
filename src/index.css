@@ -241,17 +241,17 @@ input, textarea {
 .search-bar {
   transition: background-color 0.1s;
   background-color: #ec452a;
-  color: white;
   border: none;
   margin-left: auto;
-  width: 30%; }
+  width: 30%;
+  color: #b82811; }
   .search-bar::placeholder {
     color: #b82811;
     font-weight: 900;
     transition: color 0.1s; }
   .search-bar:focus {
     background-color: white;
-    color: black;
+    color: rgba(0, 0, 0, 0.9);
     outline: none;
     box-shadow: 0; }
     .search-bar:focus::placeholder {
