@@ -24,7 +24,7 @@ const getAllFromUser = async (username) => {
 
 const create = async (data, token) => {
 	const config = {
-		headers: { "authorization": `bearer ${token}`  }
+		headers: { "authorization": `bearer ${token}` }
 	}
 
 	const response = await axios.post(baseUrl, data, config)

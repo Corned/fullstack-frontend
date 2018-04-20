@@ -31,7 +31,7 @@ class TextForm extends React.Component {
 
 			this.props.history.push(`/c/${this.props.community.name}/post/${this.props.post._id}`)
 		} catch (exception) {
-			console.log(exception, "!!!!")
+			console.log(exception.response)
 		}
 	}
 

@@ -33,6 +33,9 @@ class Post extends React.Component {
 							</Link>
 						</span>
 					</p>
+					<p className="secondary-text">
+						<span>{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</span>
+					</p>
 				</div>
 			</div>
 		)

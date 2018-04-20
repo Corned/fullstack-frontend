@@ -2,15 +2,14 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter, Redirect } from "react-router-dom"
 
-import { createPost } from "../../reducers/postReducer"
+import { createCommunity } from "../../reducers/communityReducer"
 
-class LinkForm extends React.Component {
+class CommunityForm extends React.Component {
 	constructor(props) {
 		super(props)
 
 		this.state = {
-			title: "",
-			url: ""
+			name: ""
 		}
 	}
 
@@ -22,16 +21,17 @@ class LinkForm extends React.Component {
 		event.preventDefault()
 
 		try {
-			await this.props.createPost({
-				title: this.state.title,
-				url: this.state.url,
-				type: "link",
-				community: this.props.community.name
+			await this.props.createCommunity({
+				name: this.state.name,
 			}, this.props.loggedUserData.token)
 
-			this.props.history.push(`/c/${this.props.community.name}/post/${this.props.post._id}`)
+			this.props.history.push(`/c/${this.props.community.name}/`)
 		} catch (exception) {
-			console.log(exception)
+			if (exception.response && exception.response.data && exception.response.data.error) {
+				this.setState({ error: exception.response.data.error })
+			} else {
+				console.log(exception)
+			}
 		}
 	}
 
@@ -44,27 +44,18 @@ class LinkForm extends React.Component {
 
 		return (
 			<div className="frame submit apply-margin--vertical">
-				<h1>Linkpost</h1>
-				<p className="primary-text">You're about to share a link.</p>
+				<h1>Start a Community</h1>
+				<p className="primary-text">You're about to start a community.</p>
 				<br/>
+				<p className="error">{this.state.error}</p>
 				<form onSubmit={this.submit} className="apply-margin--vertical">
-					<h2>Title</h2>
+					<h2>Community Name</h2>
 					<input 
 						className=""
 						type="text" 
-						name="title" 
-						placeholder="Title"
-						value={this.state.title}
-						autoComplete="off"
-						onChange={this.textFieldHandler}
-					/>
-					<h2>Link</h2>
-					<input 
-						rows="10"
-						type="text" 
-						name="url" 
-						placeholder="Link"
-						value={this.state.link}
+						name="name" 
+						placeholder="Name"
+						value={this.state.name}
 						autoComplete="off"
 						onChange={this.textFieldHandler}
 					/>
@@ -80,11 +71,10 @@ class LinkForm extends React.Component {
 const mapStateToProps = (state) => {
 	return { 
 		"community": state.communityData.current,
-		"post": state.postData.current,
-		"loggedUserData": state.loggedUserData
+		"loggedUserData": state.loggedUserData,
 	}
 }
 
-const mapDispatchToProps = { createPost }
+const mapDispatchToProps = { createCommunity }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LinkForm))
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CommunityForm))

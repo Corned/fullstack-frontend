@@ -17,6 +17,11 @@ const reducer = (state = initialState, action) => {
 				current: action.data,
 				list: state.list
 			}
+		case "CREATE_COMMUNITY":
+			return {
+				current: action.data,
+				list: [ ...state.list, action.data ]
+			}
 		default:
 			return state
 	}
@@ -37,6 +42,17 @@ export const getCommunityByName = (name) => {
 		const community = await communityService.getByName(name)
 		dispatch({
 			type: "SET_COMMUNITY",
+			data: community
+		})
+	}
+}
+
+export const createCommunity = (data, token) => {
+	return async (dispatch) => {
+		const community = await communityService.create(data, token)
+
+		dispatch({
+			type: "CREATE_COMMUNITY",
 			data: community
 		})
 	}

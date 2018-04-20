@@ -2,13 +2,10 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter, Route, Switch } from "react-router-dom"
 
+import CommunityForm from "./forms/CommunityForm"
 import Navigation from "./community/Navigation"
 import PostList from "./community/PostList"
 import Sidebar from "./Sidebar"
-import TextPostForm from "./forms/TextPostForm"
-import LinkPostForm from "./forms/LinkPostForm"
-import ExpandedPost from "./community/ExpandedPost"
-import Post from "./community/Post"
 import Loading from "./Loading"
 import Link from "./Link"
 
@@ -59,9 +56,7 @@ class Frontpage extends React.Component {
 				<div id="community-content">
 					<Switch>
 						<Route exact path="/create" render={() => 
-							<div className="frame fill">
-								create a community yes :D
-							</div>
+							<CommunityForm/>
 						}/>
 
 						<Route exact path="/:view" render={() => 
@@ -73,6 +68,7 @@ class Frontpage extends React.Component {
 
 					<Sidebar>
 						<div className="frame">
+							<h1>Frontpage of Cordial</h1>
 							<Link to="/create">
 								<button>
 									Start a Community
