@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
+import Comment from "./Comment"
 import Loading from "../Loading"
 
 import { getPostById, clearPost } from "../../reducers/postReducer"
@@ -71,6 +72,8 @@ class ExpandedPost extends React.Component {
 					<p className="tertiary-text">
 						comments go here thank you very much
 					</p>
+
+					<Comment/>
 				</div>
 			</div>
 		)
