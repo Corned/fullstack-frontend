@@ -27,4 +27,4 @@
 | 17.4.2018     | 3h        | Uusi navigaatio, sidebar on moduläärinen, profiili, poistettu virheitä |
 | 18.4.2018     | 4h        | Luettu reactin dokumentaatiota, getAllPostsFromUser, korjattu useita ongelmia, kommenttituki posteihin
 | 20.4.2018     | 1h        | Communityn luonti, kommenttien tyyli |
-| 21.4.2018     | 3h        | Tallennetaan kaikki teksti myös in lowercase jotta voidaan helposti hakea tietoa. Kommenttitoimintoja |
+| 21.4.2018     | 4.5h      | Tallennetaan kaikki teksti myös in lowercase jotta voidaan helposti hakea tietoa. Kommenttien luonti, näkyy sivulla, kommenttien "collapsointi?", deep population backendissä, service funktioiden nimet selvennetty |
