@@ -59,7 +59,7 @@ class ExpandedPost extends React.Component {
 				</div>
 				<br/>
 				<div id="comments" className="frame apply-margin--vertical">
-					<h2>1,000,000 comments</h2>
+					<h2>{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</h2>
 
 					<CommentForm post={post}/>
 
