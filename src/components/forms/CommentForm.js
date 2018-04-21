@@ -24,9 +24,13 @@ class CommunityForm extends React.Component {
 		event.preventDefault()
 
 		try {
-			/* await this.props.createComment({
+			await this.props.createComment({
 				body: this.state.body,
-			}, this.props.loggedUserData.token) */
+				post: this.props.post,
+				parent: this.props.comment
+			}, this.props.loggedUserData.token)
+
+			console.log("it worked i guess")
 		} catch (exception) {
 			if (exception.response && exception.response.data && exception.response.data.error) {
 				this.setState({ error: exception.response.data.error })
@@ -78,6 +82,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = {  }
+const mapDispatchToProps = { createComment }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CommunityForm))

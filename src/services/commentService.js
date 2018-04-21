@@ -17,7 +17,7 @@ const getAllCommentsByUser = async (username) => {
 	return response.data
 }
 
-const createNewComment = async (data, token) => {
+const createComment = async (data, token) => {
 	const config = {
 		headers: { "authorization": `bearer ${token}` }
 	}
@@ -28,7 +28,7 @@ const createNewComment = async (data, token) => {
 
 
 export default { 
-	createNewComment,
+	createComment,
 	getAllComments, 
 	getAllCommentsById, 
 	getAllCommentsByUser, 

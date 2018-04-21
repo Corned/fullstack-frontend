@@ -40,7 +40,7 @@ export const getPostById = (id) => {
 
 export const getAllPosts = () => {
 	return async (dispatch) => {
-		const posts = await postService.getAll()
+		const posts = await postService.getAllPosts()
 		
 		dispatch({
 			type: "INIT_POSTS",

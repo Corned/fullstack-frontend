@@ -21,7 +21,7 @@ export const getCommentById = (id) => {
 		const comment = await commentService.getCommentById(id)
 
 		dispatch({
-			type: "SET_POST",
+			type: "SET_COMMENT",
 			data: comment
 		})
 	}
@@ -32,7 +32,7 @@ export const createComment = (data, token) => {
 		const comment = await commentService.createComment(data, token)
 
 		dispatch({
-			type: "NEW_POST",
+			type: "NEW_COMMENT",
 			data: comment
 		})
 	}
@@ -41,7 +41,7 @@ export const createComment = (data, token) => {
 export const clearPost = () => {
 	return async (dispatch) => {
 		dispatch({
-			type: "SET_POST",
+			type: "SET_COMMENT",
 			data: null
 		})
 	}

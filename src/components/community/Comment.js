@@ -2,7 +2,7 @@ import React from "react"
 
 import Link from "../Link"
 
-const name = "Corned 0 points 2 hours ago"
+const name = "Trioxide 0 points 2 hours ago"
 const body = "Sellane äppi mihin vois tallentaa erilaisia vinkkejä niinku kirjavinkkei ja elokuvavinkkei"
 const buttons = "reply"
 

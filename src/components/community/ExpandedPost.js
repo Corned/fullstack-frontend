@@ -21,7 +21,7 @@ class ExpandedPost extends React.Component {
 	}
 
 	render() {
-		const post = this.props.post
+		const { post } = this.props
 
 		if (post === null) {
 			return (
@@ -61,7 +61,7 @@ class ExpandedPost extends React.Component {
 				<div id="comments" className="frame apply-margin--vertical">
 					<h2>1,000,000 comments</h2>
 
-					<CommentForm/>
+					<CommentForm post={post}/>
 
 					<p className="tertiary-text">
 						comments go here thank you very much
