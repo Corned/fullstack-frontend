@@ -25,14 +25,14 @@ class Comment extends React.Component {
 		if (this.state.collapsed) {
 			return (
 				<div className="comment">
-					<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>+</span>] {author} 0 points 2 hours ago</p>
+					<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>+</span>] {author.username} 0 points 2 hours ago</p>
 				</div>
 			)
 		}
 
 		return (
 			<div className="comment">
-				<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>-</span>] {author} 0 points 2 hours ago</p>
+				<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>-</span>] {author.username} 0 points 2 hours ago</p>
 				<p className="primary-text">
 					{body}
 				</p>
