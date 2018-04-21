@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
 
 export const getAllUsers = () => {
 	return async (dispatch) => {
-		const users = await userService.getAll()
+		const users = await userService.getAllUsers()
 		
 		dispatch({
 			type: "INIT_USERS",
@@ -35,7 +35,7 @@ export const getAllUsers = () => {
 
 export const getUserByUsername = (username) => {
 	return async (dispatch) => {
-		const current = await userService.getByUsername(username)
+		const current = await userService.getUserByUsername(username)
 
 		dispatch({
 			type: "SET_USER",

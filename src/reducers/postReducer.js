@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
 
 export const getPostById = (id) => {
 	return async (dispatch) => {
-		const post = await postService.getById(id)
+		const post = await postService.getPostById(id)
 
 		dispatch({
 			type: "SET_POST",
@@ -51,7 +51,7 @@ export const getAllPosts = () => {
 
 export const getAllPostsByCommunity = (communityName) => {
 	return async (dispatch) => {
-		const posts = await postService.getAllFromCommunity(communityName)
+		const posts = await postService.getAllPostsByCommunity(communityName)
 
 		dispatch({
 			type: "INIT_POSTS",
@@ -62,7 +62,7 @@ export const getAllPostsByCommunity = (communityName) => {
 
 export const getAllPostsByUser = (username) => {
 	return async (dispatch) => {
-		const posts = await postService.getAllFromUser(username)
+		const posts = await postService.getAllPostsByUser(username)
 
 		dispatch({
 			type: "INIT_POSTS",
@@ -73,7 +73,7 @@ export const getAllPostsByUser = (username) => {
 
 export const createPost = (data, token) => {
 	return async (dispatch) => {
-		const post = await postService.create(data, token)
+		const post = await postService.createPost(data, token)
 
 		dispatch({
 			type: "NEW_POST",

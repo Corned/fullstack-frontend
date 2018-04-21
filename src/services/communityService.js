@@ -5,17 +5,17 @@ const baseUrl = "/api/community"
 
 //const setToken = (newToken) => token = `bearer ${newToken}`
 
-const getAll = async () => {
+const getAllCommunities = async () => {
 	const response = await axios.get(baseUrl)
 	return response.data
 }
 
-const getByName = async (name) => {
+const getCommunityByName = async (name) => {
 	const response = await axios.get(`${baseUrl}/${name}`)
 	return response.data
 }
 
-const create = async (data, token) => {
+const createCommunity = async (data, token) => {
 	const config = {
 		headers: { "authorization": `bearer ${token}` }
 	}
@@ -24,4 +24,8 @@ const create = async (data, token) => {
 	return response.data
 }
 
-export default { getAll, getByName, create }
+export default { 
+	createCommunity,
+	getAllCommunities, 
+	getCommunityByName
+}

@@ -29,7 +29,7 @@ const reducer = (state = initialState, action) => {
 
 export const getAllCommunities = () => {
 	return async (dispatch) => {
-		const communities = await communityService.getAll()
+		const communities = await communityService.getAllCommunities()
 		dispatch({
 			type: "INIT_COMMUNITIES",
 			data: communities
@@ -39,7 +39,7 @@ export const getAllCommunities = () => {
 
 export const getCommunityByName = (name) => {
 	return async (dispatch) => {
-		const community = await communityService.getByName(name)
+		const community = await communityService.getCommunityByName(name)
 		dispatch({
 			type: "SET_COMMUNITY",
 			data: community
@@ -49,7 +49,7 @@ export const getCommunityByName = (name) => {
 
 export const createCommunity = (data, token) => {
 	return async (dispatch) => {
-		const community = await communityService.create(data, token)
+		const community = await communityService.createCommunity(data, token)
 
 		dispatch({
 			type: "CREATE_COMMUNITY",
