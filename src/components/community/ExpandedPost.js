@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
 import Comment from "./Comment"
+import CommentForm from "../forms/CommentForm"
 import Loading from "../Loading"
 
 import { getPostById, clearPost } from "../../reducers/postReducer"
@@ -58,17 +59,10 @@ class ExpandedPost extends React.Component {
 				</div>
 				<br/>
 				<div id="comments" className="frame apply-margin--vertical">
-					<h2>634 Comments</h2>
-					<form className="apply-margin--vertical">
-						<textarea 
-							style={{
-								width: "100%"
-							}}
-							rows="4"
-							placeholder="Your blissful thoughts"
-						></textarea>
-						<button>Save?</button>
-					</form>
+					<h2>1,000,000 comments</h2>
+
+					<CommentForm/>
+
 					<p className="tertiary-text">
 						comments go here thank you very much
 					</p>

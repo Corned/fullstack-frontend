@@ -11,10 +11,6 @@ const reducer = (state = initialState, action) => {
 			return {
 				list: action.data
 			}
-		case "NEW_COMMENT":
-			return {
-				list: state.data
-			}
 		default:
 			return state
 	}

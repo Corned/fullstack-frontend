@@ -2,7 +2,7 @@ import React from "react"
 
 import Link from "../Link"
 
-const name = "Corned 643 points 7 hours ago"
+const name = "Corned 0 points 2 hours ago"
 const body = "Sellane äppi mihin vois tallentaa erilaisia vinkkejä niinku kirjavinkkei ja elokuvavinkkei"
 const buttons = "reply"
 
@@ -20,6 +20,8 @@ class Comment extends React.Component {
 	}
 
 	render() {
+		//const {author, body, replies} = this.props.comment
+
 		if (this.state.collapsed) {
 			return (
 				<div className="comment">
@@ -35,46 +37,7 @@ class Comment extends React.Component {
 					{body}
 				</p>
 				<p className="tertiary-text"><b>{buttons}</b></p>
-	
-				<div className="comment">
-					<p className="secondary-text">[-] {name}</p>
-					<p className="primary-text">
-						{body}
-					</p>
-					<p className="tertiary-text"><b>{buttons}</b></p>
-	
-					<div className="comment">
-						<p className="secondary-text">[-] {name}</p>
-						<p className="primary-text">
-							{body}
-						</p>
-						<p className="tertiary-text"><b>{buttons}</b></p>
-					</div>
-	
-					<div className="comment">
-						<p className="secondary-text">[-] {name}</p>
-						<p className="primary-text">
-							{body}
-						</p>
-						<p className="tertiary-text"><b>{buttons}</b></p>
-	
-						<div className="comment">
-							<p className="secondary-text">[-] {name}</p>
-							<p className="primary-text">
-								{body}
-							</p>
-							<p className="tertiary-text"><b>{buttons}</b></p>
-						</div>
-					</div>
-				</div>
-	
-				<div className="comment">
-					<p className="secondary-text">[-] {name}</p>
-					<p className="primary-text">
-						{body}
-					</p>
-					<p className="tertiary-text"><b>{buttons}</b></p>
-				</div>
+
 			</div>
 		)
 	}

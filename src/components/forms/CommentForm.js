@@ -1,8 +1,10 @@
 import React from "react"
 import { connect } from "react-redux"
-import { withRouter, Redirect } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 
-import { createCommunity } from "../../reducers/communityReducer"
+import Link from "../Link"
+
+import { createComment } from "../../reducers/commentReducer"
 
 class CommunityForm extends React.Component {
 	constructor(props) {
@@ -10,7 +12,7 @@ class CommunityForm extends React.Component {
 
 		this.state = {
 			error: "",
-			name: ""
+			body: ""
 		}
 	}
 
@@ -22,11 +24,9 @@ class CommunityForm extends React.Component {
 		event.preventDefault()
 
 		try {
-			await this.props.createCommunity({
-				name: this.state.name,
-			}, this.props.loggedUserData.token)
-
-			this.props.history.push(`/c/${this.props.community.name}/`)
+			/* await this.props.createComment({
+				body: this.state.body,
+			}, this.props.loggedUserData.token) */
 		} catch (exception) {
 			if (exception.response && exception.response.data && exception.response.data.error) {
 				this.setState({ error: exception.response.data.error })
@@ -39,30 +39,32 @@ class CommunityForm extends React.Component {
 	render() {
 		if (this.props.loggedUserData.user === null) {
 			return (
-				<Redirect to={`/login?redirect=${this.props.history.location.pathname}`}/>
+				<p className="error">
+					Must be logged in to comment.&nbsp;
+					<Link to={`/login?redirect=${this.props.history.location.pathname}`}>>
+						<span className="clickable">Click here to log in.</span>
+					</Link>
+				</p>
 			)
 		}
 
 		return (
-			<div className="frame submit apply-margin--vertical">
-				<h1>Start a Community</h1>
-				<p className="primary-text">You're about to start a community.</p>
-				<br/>
+			<div className="apply-margin--vertical">
 				<p className="error">{this.state.error}</p>
+
 				<form onSubmit={this.submit} className="apply-margin--vertical">
-					<h2>Community Name</h2>
-					<input 
-						className=""
-						type="text" 
-						name="name" 
-						placeholder="Name"
-						value={this.state.name}
+					<textarea
 						autoComplete="off"
+						className=""
+						name="body" 
 						onChange={this.textFieldHandler}
-					/>
-					<button 
-						type="submit"
-					>Submit</button>
+						placeholder="Your blissful thoughts"
+						rows="4"
+						style={{ width: "100%" }}
+						type="text" 
+						value={this.state.body}
+					></textarea>
+					<button>Save?</button>
 				</form>
 			</div>
 		)
@@ -76,6 +78,6 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = { createCommunity }
+const mapDispatchToProps = {  }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(CommunityForm))
