@@ -533,18 +533,26 @@ input, textarea {
 	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0);
 
 	&:first-child {
-		margin-top: 0;
+		margin: 0;
 	}
 
-	&:last-child {
-		margin-bottom: 0;
+	&:first-child {
+		margin-top: 0;
 	}
 	
 	& > .secondary-text {
 		margin-bottom: 0.6em;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 
 	& > .primary-text {
 		margin-bottom: 0.25em;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
 	}
 }

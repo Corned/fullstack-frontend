@@ -364,10 +364,14 @@ input, textarea {
   border-radius: 2px;
   box-shadow: 0 1px 2px 0 transparent; }
   .comment:first-child {
+    margin: 0; }
+  .comment:first-child {
     margin-top: 0; }
-  .comment:last-child {
-    margin-bottom: 0; }
   .comment > .secondary-text {
     margin-bottom: 0.6em; }
+    .comment > .secondary-text:last-child {
+      margin-bottom: 0; }
   .comment > .primary-text {
     margin-bottom: 0.25em; }
+  .comment:last-child {
+    margin-bottom: 0; }

@@ -2,56 +2,82 @@ import React from "react"
 
 import Link from "../Link"
 
-const Comment = () => {
-	return (
-		<div className="comment">
-			<p className="secondary-text">[-] Corned 643 points 7 hours ago</p>
-			<p className="primary-text">
-				Who needs OpenGL when you have HTML tables?
-			</p>
-			<p className="tertiary-text"><b>permalink report reply</b></p>
+const name = "Corned 643 points 7 hours ago"
+const body = "Sellane äppi mihin vois tallentaa erilaisia vinkkejä niinku kirjavinkkei ja elokuvavinkkei"
+const buttons = "reply"
 
-			<div className="comment">
-				<p className="secondary-text">[-] Corned 643 points 7 hours ago</p>
-				<p className="primary-text">
-					Who needs OpenGL when you have HTML tables?
-				</p>
-				<p className="tertiary-text"><b>permalink report reply</b></p>
+class Comment extends React.Component {
+	constructor(props) {
+		super(props)
 
+		this.state = {
+			collapsed: false
+		}
+	}
+
+	toggle = () => {
+		this.setState({ collapsed: !this.state.collapsed })
+	}
+
+	render() {
+		if (this.state.collapsed) {
+			return (
 				<div className="comment">
-					<p className="secondary-text">[-] Corned 643 points 7 hours ago</p>
-					<p className="primary-text">
-						Who needs OpenGL when you have HTML tables?
-					</p>
-					<p className="tertiary-text"><b>permalink report reply</b></p>
+					<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>+</span>] {name}</p>
 				</div>
+			)
+		}
 
+		return (
+			<div className="comment">
+				<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>-</span>] {name}</p>
+				<p className="primary-text">
+					{body}
+				</p>
+				<p className="tertiary-text"><b>{buttons}</b></p>
+	
 				<div className="comment">
-					<p className="secondary-text">[-] Corned 643 points 7 hours ago</p>
+					<p className="secondary-text">[-] {name}</p>
 					<p className="primary-text">
-						Who needs OpenGL when you have HTML tables?
+						{body}
 					</p>
-					<p className="tertiary-text"><b>permalink report reply</b></p>
-
+					<p className="tertiary-text"><b>{buttons}</b></p>
+	
 					<div className="comment">
-						<p className="secondary-text">[-] Corned 643 points 7 hours ago</p>
+						<p className="secondary-text">[-] {name}</p>
 						<p className="primary-text">
-							Who needs OpenGL when you have HTML tables?
+							{body}
 						</p>
-						<p className="tertiary-text"><b>permalink report reply</b></p>
+						<p className="tertiary-text"><b>{buttons}</b></p>
+					</div>
+	
+					<div className="comment">
+						<p className="secondary-text">[-] {name}</p>
+						<p className="primary-text">
+							{body}
+						</p>
+						<p className="tertiary-text"><b>{buttons}</b></p>
+	
+						<div className="comment">
+							<p className="secondary-text">[-] {name}</p>
+							<p className="primary-text">
+								{body}
+							</p>
+							<p className="tertiary-text"><b>{buttons}</b></p>
+						</div>
 					</div>
 				</div>
+	
+				<div className="comment">
+					<p className="secondary-text">[-] {name}</p>
+					<p className="primary-text">
+						{body}
+					</p>
+					<p className="tertiary-text"><b>{buttons}</b></p>
+				</div>
 			</div>
-
-			<div className="comment">
-				<p className="secondary-text">[-] Corned 643 points 7 hours ago</p>
-				<p className="primary-text">
-					Who needs OpenGL when you have HTML tables?
-				</p>
-				<p className="tertiary-text"><b>permalink report reply</b></p>
-			</div>
-		</div>
-	)
+		)
+	}
 }
 
 
