@@ -2,7 +2,8 @@ import React from "react"
 
 import CommentForm from "../forms/CommentForm"
 import Link from "../Link"
-const buttons = "reply"
+
+import TimeSince from "../../utils/TimeSince"
 
 class Comment extends React.Component {
 	constructor(props) {
@@ -26,20 +27,20 @@ class Comment extends React.Component {
 	}
 
 	render() {
-		const {author, body, replies, post, parent} = this.props.comment
+		const {author, body, replies, post, parent, date} = this.props.comment
 		const comments = this.props.comments
 		
 		if (this.state.collapsed) {
 			return (
 				<div className="comment">
-					<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>+</span>] {author.username} 0 points 2 hours ago</p>
+					<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>+</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
 				</div>
 			)
 		}
 
 		return (
 			<div className="comment">
-				<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>-</span>] {author.username} 0 points 2 hours ago</p>
+				<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>-</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
 				<p className="primary-text">
 					{body}
 				</p>
