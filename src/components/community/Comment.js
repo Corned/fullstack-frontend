@@ -26,8 +26,9 @@ class Comment extends React.Component {
 	}
 
 	render() {
-		const {author, body, replies, post} = this.props.comment
-
+		const {author, body, replies, post, parent} = this.props.comment
+		const comments = this.props.comments
+		
 		if (this.state.collapsed) {
 			return (
 				<div className="comment">
@@ -49,9 +50,23 @@ class Comment extends React.Component {
 				</p>
 
 				{this.state.showReplyForm ? 
-					<CommentForm post={post}/>
+					<CommentForm 
+						post={post} 
+						comment={this.props.comment}
+					/>
 					: null	
 				}
+
+				{comments.map((c) => {
+					if (replies.includes(c._id)) {
+						return (
+							<Comment 
+								comment={c} 
+								comments={comments}
+							/>
+						)
+					}
+				})}
 
 			</div>
 		)

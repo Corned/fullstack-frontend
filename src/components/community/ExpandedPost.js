@@ -67,7 +67,16 @@ class ExpandedPost extends React.Component {
 						comments go here thank you very much
 					</p>
 
-					{post.comments.map((comment, index) => <Comment comment={comment}/>)}
+					{post.comments.map((comment) => {
+						if (comment.parent === null) {
+							return (
+								<Comment 
+									comment={comment} 
+									comments={post.comments}
+								/>
+							)
+						}
+					})}
 				</div>
 			</div>
 		)

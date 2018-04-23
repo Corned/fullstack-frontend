@@ -24,13 +24,14 @@ class CommunityForm extends React.Component {
 		event.preventDefault()
 
 		try {
+
+			console.log(this.props.post)
+
 			await this.props.createComment({
 				body: this.state.body,
 				post: this.props.post,
 				parent: this.props.comment
 			}, this.props.loggedUserData.token)
-
-			console.log("it worked i guess")
 		} catch (exception) {
 			if (exception.response && exception.response.data && exception.response.data.error) {
 				this.setState({ error: exception.response.data.error })
