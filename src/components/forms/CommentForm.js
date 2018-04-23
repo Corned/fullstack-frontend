@@ -29,7 +29,7 @@ class CommunityForm extends React.Component {
 
 			await this.props.createComment({
 				body: this.state.body,
-				post: this.props.post,
+				post: this.props.post.id,
 				parent: this.props.comment
 			}, this.props.loggedUserData.token)
 		} catch (exception) {
@@ -78,6 +78,7 @@ class CommunityForm extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
+		"post": state.postData.current,
 		"community": state.communityData.current,
 		"loggedUserData": state.loggedUserData,
 	}

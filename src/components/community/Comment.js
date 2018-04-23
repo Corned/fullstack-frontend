@@ -57,11 +57,11 @@ class Comment extends React.Component {
 					: null	
 				}
 
-				{comments.map((c) => {
-					if (replies.includes(c._id)) {
+				{comments.map((comment) => {
+					if (replies.includes(comment._id)) {
 						return (
 							<Comment 
-								comment={c} 
+								comment={comment} 
 								comments={comments}
 							/>
 						)
