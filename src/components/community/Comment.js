@@ -2,6 +2,7 @@ import React from "react"
 
 import CommentForm from "../forms/CommentForm"
 import Link from "../Link"
+import Voting from "../Voting"
 
 import TimeSince from "../../utils/TimeSince"
 
@@ -33,6 +34,7 @@ class Comment extends React.Component {
 		if (this.state.collapsed) {
 			return (
 				<div className="comment card">
+					<Voting/>
 					<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>+</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
 				</div>
 			)

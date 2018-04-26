@@ -329,6 +329,10 @@ input, textarea {
 	border-radius: 0;
 	box-shadow: none;
 
+	& > * {
+		margin-right: 1em;
+	}
+
 	&:first-child {
 		border-top-left-radius: $border-radius;
 		border-top-right-radius: $border-radius;
@@ -341,7 +345,6 @@ input, textarea {
 	}
 
 	.post__thumbnail > img {
-		margin-right: 1em;
 		max-height: 6em;
 	}
 	
@@ -354,6 +357,12 @@ input, textarea {
 			margin-top: auto;
 		}
 	}
+}
+
+.voting {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .search-bar {

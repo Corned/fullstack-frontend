@@ -223,6 +223,8 @@ input, textarea {
   flex-direction: row;
   border-radius: 0;
   box-shadow: none; }
+  .post > * {
+    margin-right: 1em; }
   .post:first-child {
     border-top-left-radius: 2px;
     border-top-right-radius: 2px; }
@@ -231,7 +233,6 @@ input, textarea {
     border-bottom-right-radius: 2px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.25); }
   .post .post__thumbnail > img {
-    margin-right: 1em;
     max-height: 6em; }
   .post > .post__info {
     display: flex;
@@ -239,6 +240,11 @@ input, textarea {
     width: 100%; }
     .post > .post__info .actions {
       margin-top: auto; }
+
+.voting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
 
 .search-bar {
   transition: background-color 0.1s;

@@ -1,6 +1,8 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
+import Voting from "../Voting"
+
 import TimeSince from "../../utils/TimeSince"
 
 class Post extends React.Component {
@@ -11,6 +13,9 @@ class Post extends React.Component {
 
 		return (
 			<div className="post background-white card">
+
+				<Voting/>
+
 				<div className="post__thumbnail">
 					<img alt="postthumbnail" src="https://i.imgur.com/lFII83x.png"/>
 				</div>
