@@ -363,6 +363,7 @@ input, textarea {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-right: 1em;
 }
 
 .search-bar {
@@ -547,7 +548,7 @@ input, textarea {
 		margin-top: 0;
 	}
 	
-	& > .secondary-text {
+	& .secondary-text {
 		margin-bottom: 0.6em;
 
 		&:last-child {
@@ -555,7 +556,7 @@ input, textarea {
 		}
 	}
 
-	& > .primary-text {
+	& .primary-text {
 		margin-bottom: 0.25em;
 	}
 
