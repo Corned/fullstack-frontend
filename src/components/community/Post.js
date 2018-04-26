@@ -1,6 +1,5 @@
 import React from "react"
-
-import Link from "../Link"
+import { Link } from "react-router-dom"
 
 import TimeSince from "../../utils/TimeSince"
 
@@ -11,30 +10,41 @@ class Post extends React.Component {
 		post.timeSince = TimeSince(post.date)
 
 		return (
-			<div className="post card">
+			<div className="post background-white card">
 				<div className="post__thumbnail">
 					<img alt="postthumbnail" src="https://i.imgur.com/lFII83x.png"/>
 				</div>
 				<div className="post__info">
+					{/* TITLE */}
 					<Link to={location}>
 						<p className="post__title clickable primary-text">{post.title}</p>
 					</Link>
-					<p className="secondary-text">
-						<span className="light-text">submitted</span>&nbsp;
+
+					{/* BASIC INFORMATION, DATE, USERNAME, COMMUNITY */}
+					<p className="secondary-text basic-info">
+						<span className="light-text">submitted</span>
+						&nbsp;
 						{post.timeSince} 
-						<span className="light-text"> ago by</span>&nbsp;
+						<span className="light-text"> ago by</span>
+						&nbsp;
 						<Link to={`/u/${post.user.username}`}>
 							<span className="clickable">{post.user.username}</span>
 						</Link>
 						<span className="light-text">
-							&nbsp;in&nbsp;
+							&nbsp;
+							in
+							&nbsp;
 							<Link to={`/c/${post.community.name}`}>
 								<span className="clickable">c/{post.community.name}</span>
 							</Link>
 						</span>
 					</p>
-					<p className="secondary-text">
-						<span>{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</span>
+
+					{/* ACTIONS, COMMENTS, SHARE */}
+					<p className="secondary-text actions">
+						<Link to={location}>
+							<span className="clickable">{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</span>
+						</Link>&nbsp;
 					</p>
 				</div>
 			</div>

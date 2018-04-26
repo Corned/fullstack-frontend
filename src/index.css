@@ -233,10 +233,12 @@ input, textarea {
   .post .post__thumbnail > img {
     margin-right: 1em;
     max-height: 6em; }
-  .post > .post__info > * {
-    margin-bottom: 0.5em; }
-  .post > .post__info > * > * > .post__title {
-    font-size: 1.5em; }
+  .post > .post__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    .post > .post__info .actions {
+      margin-top: auto; }
 
 .search-bar {
   transition: background-color 0.1s;
@@ -356,12 +358,10 @@ input, textarea {
   font-weight: 900; }
 
 .comment {
-  border: 1px solid rgba(0, 0, 0, 0.25);
   padding: 1em;
   margin-bottom: 1em;
   margin-top: 0.75em;
-  border-radius: 2px;
-  box-shadow: 0 1px 2px 0 transparent; }
+  border-radius: 2px; }
   .comment:first-child {
     margin: 0; }
   .comment:first-child {

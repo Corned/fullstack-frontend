@@ -43,6 +43,10 @@ class Frontpage extends React.Component {
 			/>
 		)
 		*/
+
+		if (true) {
+			return <p>Frontpage is temporarily disabled</p>
+		}
 		
 		return (
 			<div id="community" className="apply-margin--vertical-xl">

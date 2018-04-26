@@ -15,7 +15,7 @@ const PostList = ({ postList }) => {
 	}
 
 	return (
-		<div id="post-list" className="background-white fill">
+		<div id="post-list" className="fill">
 			{postList.map((post) => <Post key={post.id} post={post}/>)}
 		</div>
 	)
