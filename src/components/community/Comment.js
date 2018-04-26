@@ -57,13 +57,12 @@ class Comment extends React.Component {
 					</div>
 				</div>
 
-				{this.state.showReplyForm ? 
+				{this.state.showReplyForm && (
 					<CommentForm 
 						post={post} 
 						comment={this.props.comment}
 					/>
-					: null	
-				}
+				)}
 
 				{comments.map((comment) => {
 					if (replies.includes(comment._id)) {

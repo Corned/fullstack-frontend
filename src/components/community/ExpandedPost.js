@@ -47,19 +47,21 @@ class ExpandedPost extends React.Component {
 				</div>
 
 				<div className="card background-white">
-					{post.type === "text" ? 
+					{post.type === "text" && (
 						<p>{post.body}</p>
-						:
+					)}
+
+					{post.type !== "text" && (
 						<a 
 							href={post.url} 
 							target="_blank" 
 							rel="noopener noreferrer" 
 						>{post.url}</a>
-					}
+					)}
 				</div>
 
 				<div id="comments" className="card background-white apply-margin--vertical">
-					<h2>{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</h2>
+					<h2>{post.comments.length} comment{post.comments.length !== 1 && "s"}</h2>
 
 					<CommentForm post={post}/>
 

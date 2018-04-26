@@ -7,7 +7,7 @@ const CommunityInformation = ({ community, setView }) => {
 	return (
 		<div id="community-information" className="card background-white apply-margin--vertical">
 			<h1>{community.name}</h1>
-			<p className="secondary-text">{community.members.length} member{community.members.length === 1 ? "" : "s"}</p>
+			<p className="secondary-text">{community.members.length} member{community.members.length !== 1 && "s"}</p>
 
 			<div>
 				<Link to={`${submitButtonUrl}submit-text`} onClick={setView("submit-text")}>
