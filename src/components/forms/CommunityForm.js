@@ -44,7 +44,7 @@ class CommunityForm extends React.Component {
 		}
 
 		return (
-			<div className="frame submit apply-margin--vertical">
+			<div className="card submit apply-margin--vertical">
 				<h1>Start a Community</h1>
 				<p className="primary-text">You're about to start a community.</p>
 				<br/>

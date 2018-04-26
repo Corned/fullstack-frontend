@@ -24,9 +24,6 @@ class CommunityForm extends React.Component {
 		event.preventDefault()
 
 		try {
-
-			console.log(this.props.post)
-
 			await this.props.createComment({
 				body: this.state.body,
 				post: this.props.post.id,

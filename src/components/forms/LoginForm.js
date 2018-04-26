@@ -47,7 +47,7 @@ class LoginForm extends React.Component {
 		}
 
 		return (
-			<form onSubmit={this.submit} id="login" className="frame">
+			<form onSubmit={this.submit} id="login" className="card background-white">
 				<h1>Login</h1>
 				<p className="error">{this.state.error}</p>
 				<input 

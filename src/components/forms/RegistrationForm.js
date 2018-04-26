@@ -85,7 +85,7 @@ class RegistrationForm extends React.Component {
 		}
 		
 		return (
-			<form onSubmit={this.submit} id="register" className="frame">
+			<form onSubmit={this.submit} id="register" className="card background-white">
 				<h1>Register</h1>
 				<p className="error">{this.state.error}</p>
 				<input 

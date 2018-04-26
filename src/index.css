@@ -124,28 +124,27 @@ input, textarea {
   top: 50%;
   transform: translateY(-50%); }
 
-.frame {
-  background-color: white;
+.background-white {
+  background: white; }
+
+.card {
   padding: 1em;
   border-radius: 2px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4); }
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.25); }
 
 #topbar {
   color: white;
   display: block;
-  height: 10em;
+  height: 8em;
   width: 100%;
   background-color: #ee5941; }
   #topbar > #topbar-container {
     display: flex;
     flex-direction: row;
-    max-width: 120em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     padding-left: 1em;
-    padding-right: 1em;
-    margin-top: auto;
-    margin-bottom: auto; }
+    padding-right: 1em; }
     #topbar > #topbar-container > input {
       max-width: 500px; }
     #topbar > #topbar-container > * {
@@ -162,8 +161,7 @@ input, textarea {
   align-content: center;
   max-width: 120em;
   margin-left: auto;
-  margin-right: auto;
-  padding-bottom: 5em; }
+  margin-right: auto; }
   #container > * {
     margin-bottom: 1em;
     width: 100%; }
@@ -211,33 +209,26 @@ input, textarea {
 
 #post-list {
   flex-grow: 2;
-  height: 0%; }
+  height: 0%;
+  border-radius: 2px; }
 
 .post {
   display: -webkit-flex;
   display: flex;
-  flex-direction: row; }
-  .post > .voting {
-    display: flex;
-    flex-direction: column;
-    max-width: 5em;
-    margin-right: 1em; }
-    .post > .voting > * {
-      text-align: center;
-      margin-left: auto;
-      margin-right: auto; }
-    .post > .voting > button, .post > .voting > button:active {
-      border: none;
-      box-shadow: none;
-      background-color: transparent;
-      font-weight: 900; }
-    .post > .voting > .upvote-button:hover {
-      color: orangered; }
-    .post > .voting > .downvote-button:hover {
-      color: blue; }
+  flex-direction: row;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: none; }
+  .post:last-of-type {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25); }
+  .post:first-child {
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px; }
+  .post:last-child {
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.25); }
   .post .post__thumbnail > img {
-    border-radius: 0.5em;
-    border: rgba(0, 0, 0, 0.25) solid 1px;
     margin-right: 1em;
     max-height: 6em; }
   .post > .post__info > * {

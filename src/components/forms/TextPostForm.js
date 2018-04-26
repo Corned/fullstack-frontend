@@ -43,7 +43,7 @@ class TextForm extends React.Component {
 		}
 
 		return (
-			<div className="frame submit apply-margin--vertical">
+			<div className="card background-white submit apply-margin--vertical">
 				<h1>Textpost</h1>
 				<p className="primary-text">You're about to share a text- to share a text-based post. </p>
 				<br/>

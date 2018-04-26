@@ -2,7 +2,7 @@ import React from "react"
 
 const CommunityRules = () => {
 	return (
-		<div id="community-rules" className="frame apply-margin--vertical">
+		<div id="community-rules" className="card background-white apply-margin--vertical">
 			<h1>Rules</h1>
 			<p className="primary-text">All posts must make an attempt at humor.</p>
 			<p className="primary-text">No reaction, MRW, HIFW, or "Me IRL" posts.</p>

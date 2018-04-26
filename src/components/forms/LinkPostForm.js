@@ -43,7 +43,7 @@ class LinkForm extends React.Component {
 		}
 
 		return (
-			<div className="frame submit apply-margin--vertical">
+			<div className="card background-white submit apply-margin--vertical">
 				<h1>Linkpost</h1>
 				<p className="primary-text">You're about to share a link.</p>
 				<br/>

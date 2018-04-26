@@ -5,7 +5,7 @@ const CommunityInformation = ({ community, setView }) => {
 	const submitButtonUrl = `/c/${community.name}/`
 
 	return (
-		<div id="community-information" className="frame apply-margin--vertical">
+		<div id="community-information" className="card background-white apply-margin--vertical">
 			<h1>{community.name}</h1>
 			<p className="secondary-text">{community.members.length} member{community.members.length === 1 ? "" : "s"}</p>
 

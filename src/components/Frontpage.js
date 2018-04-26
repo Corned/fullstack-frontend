@@ -67,7 +67,7 @@ class Frontpage extends React.Component {
 					</Switch>
 
 					<Sidebar>
-						<div className="frame">
+						<div className="card">
 							<h1>Frontpage of Cordial</h1>
 							<Link to="/create">
 								<button>

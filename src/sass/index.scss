@@ -12,7 +12,7 @@ $frame-horizontal-margin: 1em;
 $frame-padding: 1em;
 
 // Others
-$topbar-height: 10em;
+$topbar-height: 8em;
 $content-width: 120em;
 $border-radius: 2px;
 
@@ -186,11 +186,15 @@ input, textarea {
 	transform: translateY(-50%);
 }
 
-.frame {
-	background-color: white;
+.background-white {
+	background: white;
+}
+
+.card {
 	padding: $frame-padding;
 	border-radius: $border-radius;
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+	border: 1px solid $accent-color;
+	border-bottom: 2px solid $accent-color;
 }
 
 #topbar {
@@ -203,13 +207,9 @@ input, textarea {
 	& > #topbar-container {
 		display: flex;
 		flex-direction: row;
-		max-width: $content-width;
-		margin-left: auto;
-		margin-right: auto;
+		margin: auto;
 		padding-left: 1em;
 		padding-right: 1em;
-		margin-top: auto;
-		margin-bottom: auto;
 
 		& > input {
 			max-width: 500px;
@@ -316,38 +316,26 @@ input, textarea {
 	display: -webkit-flex;
 	display: flex;
 	flex-direction: row;
+	border-radius: 0;
+	box-shadow: none;
+	border-bottom: none;
 
-	& > .voting {
-		display: flex;
-		flex-direction: column;
-		max-width: 5em;
-		margin-right: 1em;
-
-		& > * {
-			text-align: center;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		& > button, & > button:active {
-			border: none;
-			box-shadow: none;
-			background-color: transparent;
-			font-weight: 900;
-		}
-
-		& > .upvote-button:hover {
-			color: orangered;
-		}
-
-		& > .downvote-button:hover {
-			color: blue;
-		}
+	&:last-of-type {
+		border-bottom: 2px solid $accent-color;
 	}
-	
+
+	&:first-child {
+		border-top-left-radius: $border-radius;
+		border-top-right-radius: $border-radius;
+	}
+
+	&:last-child {
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+		border-bottom: 2px solid $accent-color;
+	}
+
 	.post__thumbnail > img {
-		border-radius: 0.5em;
-		border: rgba(0, 0, 0, 0.25) solid 1px;
 		margin-right: 1em;
 		max-height: 6em;
 	}

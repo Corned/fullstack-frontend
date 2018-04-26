@@ -36,17 +36,17 @@ class ExpandedPost extends React.Component {
 		post.date = TimeSince(post.date)
 
 		return (
-			<div>
-				<div className="single-post frame">
-					<div className="post" style={{ marginBottom: "1em" }}>
-						<div className="post__thumbnail">
-							<img alt="post-thumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
-						</div>
-						<div className="post__info">
-							<p className="post__title">{post.title}</p>
-						</div>
+			<div className="apply-margin--vertical-xl">
+				<div className="post card background-white" style={{ marginBottom: "1em" }}>
+					<div className="post__thumbnail">
+						<img alt="post-thumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
 					</div>
+					<div className="post__info">
+						<p className="post__title">{post.title}</p>
+					</div>
+				</div>
 
+				<div className="card background-white">
 					{post.type === "text" ? 
 						<p>{post.body}</p>
 						:
@@ -57,8 +57,8 @@ class ExpandedPost extends React.Component {
 						>{post.url}</a>
 					}
 				</div>
-				<br/>
-				<div id="comments" className="frame apply-margin--vertical">
+
+				<div id="comments" className="card background-white apply-margin--vertical">
 					<h2>{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</h2>
 
 					<CommentForm post={post}/>

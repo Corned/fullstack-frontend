@@ -11,7 +11,7 @@ class Post extends React.Component {
 		post.timeSince = TimeSince(post.date)
 
 		return (
-			<div className="post frame">
+			<div className="post card">
 				<div className="post__thumbnail">
 					<img alt="postthumbnail" src="https://i.imgur.com/lFII83x.png"/>
 				</div>
