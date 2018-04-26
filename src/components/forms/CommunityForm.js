@@ -44,7 +44,7 @@ class CommunityForm extends React.Component {
 		}
 
 		return (
-			<div className="card submit apply-margin--vertical">
+			<div className="card background-white submit apply-margin--vertical">
 				<h1>Start a Community</h1>
 				<p className="primary-text">You're about to start a community.</p>
 				<br/>
@@ -60,9 +60,7 @@ class CommunityForm extends React.Component {
 						autoComplete="off"
 						onChange={this.textFieldHandler}
 					/>
-					<button 
-						type="submit"
-					>Submit</button>
+					<button type="submit">Submit</button>
 				</form>
 			</div>
 		)
