@@ -1,7 +1,7 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 import CommentForm from "../forms/CommentForm"
-import Link from "../Link"
 import Voting from "../Voting"
 
 import TimeSince from "../../utils/TimeSince"
@@ -34,7 +34,13 @@ class Comment extends React.Component {
 		if (this.state.collapsed) {
 			return (
 				<div className="comment card">
-					<p className="secondary-text">[<span className="clickable clickable--goldenrod" onClick={this.toggle}>+</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
+					<p className="secondary-text">
+						<span>
+							[<span className="clickable clickable--goldenrod" onClick={this.toggle}>+</span>]&nbsp;
+							<Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>&nbsp;
+							- 0 points - Submitted {TimeSince(date)}
+						</span>
+					</p>
 				</div>
 			)
 		}
@@ -44,13 +50,20 @@ class Comment extends React.Component {
 				<div className="flex flex--horizontal">
 					<Voting/>
 					<div>
-						<p className="secondary-text">[<span className="clickable clickable--goldenrod" onClick={this.toggle}>-</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
+						<p className="secondary-text">
+							<span>
+								[<span className="clickable clickable--goldenrod" onClick={this.toggle}>-</span>]&nbsp;
+								<Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>&nbsp;
+								- 0 points - Submitted {TimeSince(date)}
+							</span>
+						</p>					
 						<p className="primary-text">
 							{body}
 						</p>
 						<p className="tertiary-text">
 							<b>					
-								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>
+								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
+								<span className="clickable clickable--warn" onClick={this.toggleReply}>delete</span>&nbsp;
 							</b>
 						</p>
 					
