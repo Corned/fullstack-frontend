@@ -70,7 +70,7 @@ class Comment extends React.Component {
 						<p className="tertiary-text">
 							<b>					
 								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
-								<span className="clickable clickable--warn">delete</span>&nbsp;
+								<span className="clickable clickable--warn">delet this</span>&nbsp;
 							</b>
 						</p>
 					
@@ -86,7 +86,7 @@ class Comment extends React.Component {
 
 				
 				<Conditional
-					render={this.props.loggedUser === undefined}
+					render={false}
 				>blamo!!</Conditional>
 
 				{comments.map((comment) => {

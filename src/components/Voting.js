@@ -4,10 +4,10 @@ const Voting = () => {
 	return (				
 		<div className="voting">
 			<div className="up">
-				^
+				U
 			</div>
 			<div className="down">
-				v
+				D
 			</div>
 		</div>
 	)

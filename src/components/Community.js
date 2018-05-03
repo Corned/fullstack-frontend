@@ -11,6 +11,7 @@ import Sidebar from "./Sidebar"
 import TextPostForm from "./forms/TextPostForm"
 import CommunityRules from "./sidebar_components/CommunityRules"
 import CommunityInformation from "./sidebar_components/CommunityInformation"
+import CommunityModerators from "./sidebar_components/CommunityModerators"
 
 import { getAllPostsByCommunity, clearPosts } from "../reducers/postReducer"
 import { getCommunityByName } from "../reducers/communityReducer"
@@ -86,11 +87,9 @@ class Community extends React.Component {
 					</Switch>
 
 					<Sidebar>
-						<CommunityInformation
-							community={this.props.community}
-							setView={this.setView}
-						/>
+						<CommunityInformation setView={this.setView}/>
 						<CommunityRules/>
+						<CommunityModerators/>
 					</Sidebar>
 				</div>
 			</div>

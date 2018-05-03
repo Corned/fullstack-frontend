@@ -57,10 +57,6 @@ class ExpandedPost extends React.Component {
 
 					<CommentForm post={post}/>
 
-					<p className="tertiary-text">
-						comments go here thank you very much
-					</p>
-
 					{post.comments.map((comment) => {
 						if (comment.parent === null) {
 							return (

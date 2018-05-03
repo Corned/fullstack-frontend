@@ -1,5 +1,6 @@
 import React from "react"
-import Link from "../Link"
+import { Link } from "react-router-dom"
+import { connect } from "react-redux"
 
 const CommunityInformation = ({ community, setView }) => {
 	const submitButtonUrl = `/c/${community.name}/`
@@ -26,4 +27,10 @@ const CommunityInformation = ({ community, setView }) => {
 	)
 }
 
-export default CommunityInformation
+const mapStateToProps = (state) => {
+	return { 
+		"community": state.communityData.current
+	}
+}
+
+export default connect(mapStateToProps, null)(CommunityInformation)
