@@ -30,7 +30,7 @@
 | 21.4.2018     | 4.5h      | Tallennetaan kaikki teksti myös in lowercase jotta voidaan helposti hakea tietoa. Kommenttien luonti, näkyy sivulla, kommenttien "collapsointi?", deep population backendissä, service funktioiden nimet selvennetty |
 | 23.4.2018     | 1.5h      | Kommenteihin vastaaminen mahdollista, kommenteille "hours ago" viesti, kommentit renderöidään oikein |
 | 26.4.2018     | 4h        | Tyylimuutoksia, refaktorointia, luettu paljon miten pitäisi asioita reactillä tehdä. |
-| 3.5.2018      | 0.0h      | lorem |
+| 3.5.2018      | 3.5h      | Lisää tietoa Postista yksittäisen postin näkymään. Moderatorlista sivupalkkiin. Kommentinpoistonappi kommentteihin. Conditional-komponentti. Kommentinpoistonappi näkyy vain kommentin omistajalle ja communityn moderaattoreille. react-reduxin connectin kanssa oli ongelmia rekursiivisen kommentti-komponentin kanssa |
 | 4.5.2018      | 0.0h      | lorem |
 | 5.5.2018      | 0.0h      | lorem |
 | 6.5.2018      | 0.0h      | lorem |
