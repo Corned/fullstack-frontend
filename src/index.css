@@ -72,7 +72,7 @@ input, textarea {
 .clickable--warn {
   transition: color 0.2s; }
   .clickable--warn:hover {
-    color: red; }
+    color: #ff3232; }
 
 .apply-margin--vertical-xl > * {
   margin-bottom: 1em; }

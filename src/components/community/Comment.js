@@ -6,6 +6,8 @@ import Voting from "../Voting"
 
 import TimeSince from "../../utils/TimeSince"
 
+const deletedMessage = "[REMOVED]"
+
 class Comment extends React.Component {
 	constructor(props) {
 		super(props)
@@ -28,7 +30,7 @@ class Comment extends React.Component {
 	}
 
 	render() {
-		const {author, body, replies, post, parent, date} = this.props.comment
+		const {author, body, replies, post, parent, date, deleted} = this.props.comment
 		const comments = this.props.comments
 		
 		if (this.state.collapsed) {
@@ -37,8 +39,9 @@ class Comment extends React.Component {
 					<p className="secondary-text">
 						<span>
 							[<span className="clickable clickable--goldenrod" onClick={this.toggle}>+</span>]&nbsp;
-							<Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>&nbsp;
-							- 0 points - Submitted {TimeSince(date)}
+							{deleted && deletedMessage}
+							{!deleted && <Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>}
+							&nbsp;- 0 points - Submitted {TimeSince(date)}
 						</span>
 					</p>
 				</div>
@@ -53,17 +56,19 @@ class Comment extends React.Component {
 						<p className="secondary-text">
 							<span>
 								[<span className="clickable clickable--goldenrod" onClick={this.toggle}>-</span>]&nbsp;
-								<Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>&nbsp;
-								- 0 points - Submitted {TimeSince(date)}
+								{deleted && deletedMessage}
+								{!deleted && <Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>}
+								&nbsp;- 0 points - Submitted {TimeSince(date)}
 							</span>
 						</p>					
 						<p className="primary-text">
-							{body}
+							{deleted && deletedMessage}
+							{!deleted && body}
 						</p>
 						<p className="tertiary-text">
 							<b>					
 								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
-								<span className="clickable clickable--warn" onClick={this.toggleReply}>delete</span>&nbsp;
+								<span className="clickable clickable--warn">delete</span>&nbsp;
 							</b>
 						</p>
 					
