@@ -34,7 +34,7 @@ class Comment extends React.Component {
 		if (this.state.collapsed) {
 			return (
 				<div className="comment card">
-					<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>+</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
+					<p className="secondary-text">[<span className="clickable clickable--goldenrod" onClick={this.toggle}>+</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
 				</div>
 			)
 		}
@@ -44,13 +44,13 @@ class Comment extends React.Component {
 				<div className="flex flex--horizontal">
 					<Voting/>
 					<div>
-						<p className="secondary-text">[<span className="clickable" onClick={this.toggle}>-</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
+						<p className="secondary-text">[<span className="clickable clickable--goldenrod" onClick={this.toggle}>-</span>] {author.username} - 0 points - Submitted {TimeSince(date)}</p>
 						<p className="primary-text">
 							{body}
 						</p>
 						<p className="tertiary-text">
 							<b>					
-								<span className="clickable" onClick={this.toggleReply}>reply</span>
+								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>
 							</b>
 						</p>
 					

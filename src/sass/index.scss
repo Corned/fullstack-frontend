@@ -104,10 +104,21 @@ input, textarea {
 
 .clickable {
 	cursor: pointer;
+}
+
+.clickable--goldenrod {
 	transition: color 0.2s;
 
 	&:hover {
 		color: goldenrod;
+	}
+}
+
+.clickable--warn {
+	transition: color 0.2s;
+
+	&:hover {
+		color: red;
 	}
 }
 

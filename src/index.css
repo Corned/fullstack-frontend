@@ -62,10 +62,17 @@ input, textarea {
     border: 2px rgba(255, 0, 0, 0.5) solid; }
 
 .clickable {
-  cursor: pointer;
+  cursor: pointer; }
+
+.clickable--goldenrod {
   transition: color 0.2s; }
-  .clickable:hover {
+  .clickable--goldenrod:hover {
     color: goldenrod; }
+
+.clickable--warn {
+  transition: color 0.2s; }
+  .clickable--warn:hover {
+    color: red; }
 
 .apply-margin--vertical-xl > * {
   margin-bottom: 1em; }

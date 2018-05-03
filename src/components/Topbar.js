@@ -31,7 +31,7 @@ class Topbar extends React.Component {
 						{this.props.communityData.list.map((community, index) =>
 							<p key={index}>
 								<Link to={`/c/${community.name}`}>
-									<span className="clickable">{community.name}</span>
+									<span className="clickable clickable--goldenrod">{community.name}</span>
 								</Link>
 							</p>
 						)}
@@ -41,7 +41,7 @@ class Topbar extends React.Component {
 						{this.props.userData.list.map((user, index) =>
 							<p key={index}>
 								<Link to={`/u/${user.username}`}>
-									<span className="clickable">{user.username}</span>
+									<span className="clickable clickable--goldenrod">{user.username}</span>
 								</Link>
 							</p>
 						)}

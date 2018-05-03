@@ -22,7 +22,7 @@ class Post extends React.Component {
 				<div className="post__info">
 					{/* TITLE */}
 					<Link to={location}>
-						<p className="post__title clickable primary-text">{post.title}</p>
+						<p className="post__title clickable clickable--goldenrod primary-text">{post.title}</p>
 					</Link>
 
 					{/* BASIC INFORMATION, DATE, USERNAME, COMMUNITY */}
@@ -33,14 +33,14 @@ class Post extends React.Component {
 						<span className="light-text"> ago by</span>
 						&nbsp;
 						<Link to={`/u/${post.user.username}`}>
-							<span className="clickable">{post.user.username}</span>
+							<span className="clickable clickable--goldenrod">{post.user.username}</span>
 						</Link>
 						<span className="light-text">
 							&nbsp;
 							in
 							&nbsp;
 							<Link to={`/c/${post.community.name}`}>
-								<span className="clickable">c/{post.community.name}</span>
+								<span className="clickable clickable--goldenrod">c/{post.community.name}</span>
 							</Link>
 						</span>
 					</p>
@@ -48,7 +48,7 @@ class Post extends React.Component {
 					{/* ACTIONS, COMMENTS, SHARE */}
 					<p className="secondary-text actions">
 						<Link to={location}>
-							<span className="clickable">{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</span>
+							<span className="clickable clickable--goldenrod">{post.comments.length} comment{post.comments.length === 1 ? "" : "s"}</span>
 						</Link>&nbsp;
 					</p>
 				</div>
