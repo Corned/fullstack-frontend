@@ -1,7 +1,9 @@
 import React from "react"
+import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
 import CommentForm from "../forms/CommentForm"
+import Conditional from "../Conditional"
 import Voting from "../Voting"
 
 import TimeSince from "../../utils/TimeSince"
@@ -82,6 +84,11 @@ class Comment extends React.Component {
 					/>
 				)}
 
+				
+				<Conditional
+					render={this.props.loggedUser === undefined}
+				>blamo!!</Conditional>
+
 				{comments.map((comment) => {
 					if (replies.includes(comment._id)) {
 						return (
@@ -98,5 +105,11 @@ class Comment extends React.Component {
 	}
 }
 
+const mapStateToProps = (state) => {
+	return { 
+		"community": state.communityData.current,
+		"loggedUser": state.loggedUserData.user
+	}
+}
 
-export default Comment
+export default connect(mapStateToProps, null)(Comment)

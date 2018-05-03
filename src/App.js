@@ -74,8 +74,7 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
-		"posts": state.posts,
-		"loggedUser": state.loggedUser
+		"posts": state.posts
 	}
 }
 
