@@ -70,7 +70,9 @@ class Comment extends React.Component {
 						<p className="tertiary-text">
 							<b>					
 								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
-								<span className="clickable clickable--warn">delet this</span>&nbsp;
+								<Conditional
+									render={this.props.loggedUser === null ? false : author._id === this.props.loggedUser._id}
+								><span className="clickable clickable--warn">delet this</span>&nbsp;</Conditional>
 							</b>
 						</p>
 					
@@ -84,17 +86,17 @@ class Comment extends React.Component {
 					/>
 				)}
 
-				
-				<Conditional
-					render={false}
-				>blamo!!</Conditional>
-
 				{comments.map((comment) => {
 					if (replies.includes(comment._id)) {
+						{/* 
+							Hacks; react-redux doesn't seem to like recursive components. 
+							Must pass on loggedUser like this feelsbadman
+						*/}
 						return (
 							<Comment 
 								comment={comment} 
 								comments={comments}
+								loggedUser={this.props.loggedUser}
 							/>
 						)
 					}

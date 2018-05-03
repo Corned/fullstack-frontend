@@ -43,7 +43,7 @@ class CommunityForm extends React.Component {
 			return (
 				<p className="error">
 					Must be logged in to comment.&nbsp;
-					<Link to={`/login?redirect=${this.props.history.location.pathname}`}>>
+					<Link to={`/login?redirect=${this.props.history.location.pathname}`}>
 						<span className="clickable clickable--goldenrod">Click here to log in.</span>
 					</Link>
 				</p>
