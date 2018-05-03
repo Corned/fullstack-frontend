@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom"
 import Comment from "./Comment"
 import CommentForm from "../forms/CommentForm"
 import Loading from "../Loading"
+import Post from "./Post"
 
 import { getPostById, clearPost } from "../../reducers/postReducer"
 
@@ -33,18 +34,9 @@ class ExpandedPost extends React.Component {
 			)
 		}
 
-		post.date = TimeSince(post.date)
-
 		return (
 			<div className="apply-margin--vertical-xl">
-				<div className="post card background-white" style={{ marginBottom: "1em" }}>
-					<div className="post__thumbnail">
-						<img alt="post-thumbnail" src="https://i.imgur.com/a7TZ0Yo.png"/>
-					</div>
-					<div className="post__info">
-						<p className="post__title">{post.title}</p>
-					</div>
-				</div>
+				<Post post={post}/>
 
 				<div className="card background-white">
 					{post.type === "text" && (
