@@ -31,6 +31,27 @@ class Comment extends React.Component {
 		this.setState({ showReplyForm: !this.state.showReplyForm })
 	}
 
+	showDeleteButton = () => {
+		const { comment, community, loggedUser } = this.props
+
+		if (loggedUser === null) {
+			return false
+		}
+
+		if (loggedUser._id === comment.author._id) {
+			return true;
+		}
+
+		for (let index in community.moderators) {
+			const moderator = community.moderators[index]
+			if (loggedUser._id === moderator._id) {
+				return true;
+			}
+		}
+
+		return false
+	}
+
 	render() {
 		const {author, body, replies, post, parent, date, deleted} = this.props.comment
 		const comments = this.props.comments
@@ -71,7 +92,7 @@ class Comment extends React.Component {
 							<b>					
 								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
 								<Conditional
-									render={this.props.loggedUser === null ? false : author._id === this.props.loggedUser._id}
+									render={this.showDeleteButton()}
 								><span className="clickable clickable--warn">delet this</span>&nbsp;</Conditional>
 							</b>
 						</p>
@@ -90,13 +111,14 @@ class Comment extends React.Component {
 					if (replies.includes(comment._id)) {
 						{/* 
 							Hacks; react-redux doesn't seem to like recursive components. 
-							Must pass on loggedUser like this feelsbadman
+							Must pass on loggedUser & community like this feelsbadman
 						*/}
 						return (
 							<Comment 
 								comment={comment} 
 								comments={comments}
 								loggedUser={this.props.loggedUser}
+								community={this.props.community}
 							/>
 						)
 					}
