@@ -29,3 +29,4 @@
 | 20.4.2018     | 1h        | Communityn luonti, kommenttien tyyli |
 | 21.4.2018     | 4.5h      | Tallennetaan kaikki teksti myös in lowercase jotta voidaan helposti hakea tietoa. Kommenttien luonti, näkyy sivulla, kommenttien "collapsointi?", deep population backendissä, service funktioiden nimet selvennetty |
 | 23.4.2018     | 1.5h      | Kommenteihin vastaaminen mahdollista, kommenteille "hours ago" viesti, kommentit renderöidään oikein |
+| 26.4.2018     | 4h        | Tyylimuutoksia, refaktorointia, luettu paljon miten pitäisi asioita reactillä tehdä. |
