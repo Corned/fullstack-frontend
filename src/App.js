@@ -16,7 +16,6 @@ import "./index.css"
 class App extends React.Component {
 	componentWillMount() {
 		const loggedUserJSON = window.localStorage.getItem("cordialUserdata")
-		// häh
 		if (loggedUserJSON !== null) {
 			const user = JSON.parse(loggedUserJSON)
 			this.props.login(user)
