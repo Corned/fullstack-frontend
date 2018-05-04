@@ -30,7 +30,7 @@ export const login = (user) => {
 
 export const logout = () => {
 	return async (dispatch) => {
-		window.localStorage.setItem("cordialUserdata", null)
+		window.localStorage.removeItem("cordialUserdata")
 		dispatch({
 			type: "LOGOUT"
 		})
