@@ -108,7 +108,7 @@ class Comment extends React.Component {
 				)}
 
 				{comments.map((comment) => {
-					if (replies.includes(comment._id)) {
+					if (replies.includes(comment.id)) {
 						{/* 
 							Hacks; react-redux doesn't seem to like recursive components. 
 							Must pass on loggedUser & community like this feelsbadman

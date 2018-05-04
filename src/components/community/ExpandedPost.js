@@ -62,7 +62,7 @@ class ExpandedPost extends React.Component {
 							return (
 								<Comment 
 									comment={comment} 
-									comments={post.comments}
+									comments={comments}
 								/>
 							)
 						}
