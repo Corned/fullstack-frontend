@@ -12,13 +12,18 @@ const getAllComments = async () => {
 	return response.data
 }
 
-const getAllCommentsById = async (id) => {
+const getAllCommentsByUser = async (username) => {
+	const response = await axios.get(`${baseUrl}/u/${username}`)
+	return response.data
+}
+
+const getCommentById = async (id) => {
 	const response = await axios.get(`${baseUrl}/${id}`)
 	return response.data
 }
 
-const getAllCommentsByUser = async (username) => {
-	const response = await axios.get(`${baseUrl}/u/${username}`)
+const getCommentsByPostId = async (id) => {
+	const response = await axios.get(`${baseUrl}/post/${id}`)
 	return response.data
 }
 
@@ -35,7 +40,8 @@ const createComment = async (data, token_) => {
 export default { 
 	createComment,
 	getAllComments, 
-	getAllCommentsById, 
 	getAllCommentsByUser,
+	getCommentById, 
+	getCommentsByPostId,
 	setToken,
 }

@@ -2,11 +2,13 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
 
 import communityReducer from "./reducers/communityReducer"
+import commentReducer from "./reducers/commentReducer"
 import loggedUserReducer from "./reducers/loggedUserReducer"
 import postReducer from "./reducers/postReducer"
 import userReducer from "./reducers/userReducer"
 
 const reducer = combineReducers({
+	commentData: commentReducer,
 	communityData: communityReducer,
 	loggedUserData: loggedUserReducer,
 	postData: postReducer,

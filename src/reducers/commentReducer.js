@@ -9,7 +9,13 @@ const reducer = (state = initialState, action) => {
 	switch(action.type) {
 		case "INIT_COMMENTS":
 			return {
+				current: state.current,
 				list: action.data
+			}
+		case "NEW_COMMENT":
+			return {
+				current: state.current,
+				list: [ ...state.list, action.data ]
 			}
 		default:
 			return state
@@ -23,6 +29,18 @@ export const getCommentById = (id) => {
 		dispatch({
 			type: "SET_COMMENT",
 			data: comment
+		})
+	}
+}
+
+export const getCommentsByPostId = (id) => {
+	return async (dispatch) => {
+		console.log("hello world?????")
+		const comments = await commentService.getCommentsByPostId(id)
+
+		dispatch({
+			type: "INIT_COMMENTS",
+			data: comments
 		})
 	}
 }

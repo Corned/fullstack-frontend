@@ -7,9 +7,8 @@ import CommentForm from "../forms/CommentForm"
 import Loading from "../Loading"
 import Post from "./Post"
 
+import { getCommentsByPostId } from "../../reducers/commentReducer"
 import { getPostById, clearPost } from "../../reducers/postReducer"
-
-import TimeSince from "../../utils/TimeSince"
 
 class ExpandedPost extends React.Component {
 	componentWillMount() {
@@ -18,11 +17,12 @@ class ExpandedPost extends React.Component {
 
 		if (postId !== null) {
 			this.props.getPostById(postId)
+			this.props.getCommentsByPostId(postId)
 		}
 	}
 
 	render() {
-		const { post } = this.props
+		const { post, comments } = this.props
 
 		if (post === null) {
 			return (
@@ -53,11 +53,11 @@ class ExpandedPost extends React.Component {
 				</div>
 
 				<div id="comments" className="card background-white apply-margin--vertical">
-					<h2>{post.comments.length} comment{post.comments.length !== 1 && "s"}</h2>
+					<h2>{comments.length} comment{comments.length !== 1 && "s"}</h2>
 
 					<CommentForm post={post}/>
 
-					{post.comments.map((comment) => {
+					{comments.map((comment) => {
 						if (comment.parent === null) {
 							return (
 								<Comment 
@@ -75,10 +75,11 @@ class ExpandedPost extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
+		"comments": state.commentData.list,
 		"post": state.postData.current
 	}
 }
 
-const mapDispatchToProps = { getPostById, clearPost }
+const mapDispatchToProps = { getPostById, clearPost, getCommentsByPostId }
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(ExpandedPost))
