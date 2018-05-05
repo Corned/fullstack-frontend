@@ -58,7 +58,7 @@ export const createComment = (data, token) => {
 	}
 }
 
-export const clearPost = () => {
+export const clearComment = () => {
 	return async (dispatch) => {
 		dispatch({
 			type: "SET_COMMENT",
@@ -67,7 +67,7 @@ export const clearPost = () => {
 	}
 }
 
-export const clearPosts = () => {
+export const clearPost = () => {
 	return async (dispatch) => {
 		dispatch({
 			type: "INIT_COMMENTS",
