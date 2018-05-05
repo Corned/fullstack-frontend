@@ -67,7 +67,7 @@ export const clearComment = () => {
 	}
 }
 
-export const clearPost = () => {
+export const clearComments = () => {
 	return async (dispatch) => {
 		dispatch({
 			type: "INIT_COMMENTS",
