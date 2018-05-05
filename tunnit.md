@@ -31,7 +31,7 @@
 | 23.4.2018     | 1.5h      | Kommenteihin vastaaminen mahdollista, kommenteille "hours ago" viesti, kommentit renderöidään oikein |
 | 26.4.2018     | 4h        | Tyylimuutoksia, refaktorointia, luettu paljon miten pitäisi asioita reactillä tehdä. |
 | 3.5.2018      | 3.5h      | Lisää tietoa Postista yksittäisen postin näkymään. Moderatorlista sivupalkkiin. Kommentinpoistonappi kommentteihin. Conditional-komponentti. Kommentinpoistonappi näkyy vain kommentin omistajalle ja communityn moderaattoreille. react-reduxin connectin kanssa oli ongelmia rekursiivisen kommentti-komponentin kanssa |
-| 4.5.2018      | 0.0h      | lorem |
+| 4.5.2018      | 2.0h      | getCommentsByCommentId frontend & backend. Kommenttien kanssa iso bugi jonka korjaamisessa oli vaikeuksia. |
 | 5.5.2018      | 0.0h      | lorem |
 | 6.5.2018      | 0.0h      | lorem |
 | 7.5.2018      | 0.0h      | lorem |
