@@ -11,6 +11,10 @@ const reducer = (state = initialState, action) => {
 			return {
 				list: action.data
 			}
+		case "NEW_COMMENT":
+			return {
+				list: [ ...state.list, action.data ]
+			}
 		default:
 			return state
 	}
@@ -41,19 +45,28 @@ export const getCommentsByPostId = (id) => {
 
 export const createComment = (data, token) => {
 	return async (dispatch) => {
-		console.table(data)
 		if (data.parent) {
 			data.parent = data.parent.id
 		} else {
 			data.parent = null
 		}
 
-		console.table(data)
 		const comment = await commentService.createComment(data, token)
 
 		dispatch({
 			type: "NEW_COMMENT",
 			data: comment
+		})
+	}
+}
+
+export const deleteComment = (id, token) => {
+	return async (dispatch) => {
+		await commentService.deleteComment(id, token)
+
+		dispatch({
+			type: "DELETE_COMMENT",
+			data: id
 		})
 	}
 }

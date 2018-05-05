@@ -32,13 +32,25 @@ const createComment = async (data, token_) => {
 		headers: { "authorization": `bearer ${token_}` }
 	}
 
+	console.table(data)
+
 	const response = await axios.post(baseUrl, data, config)
+	return response.data
+}
+
+const deleteComment = async (id, token_) => {
+	const config = {
+		headers: { "authorization": `bearer ${token_}` }
+	}
+
+	const response = await axios.delete(`${baseUrl}/${id}`, config)
 	return response.data
 }
 
 
 export default { 
 	createComment,
+	deleteComment,
 	getAllComments, 
 	getAllCommentsByUser,
 	getCommentById, 
