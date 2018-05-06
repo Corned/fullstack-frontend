@@ -33,7 +33,7 @@
 | 3.5.2018      | 3.5h      | Lisää tietoa Postista yksittäisen postin näkymään. Moderatorlista sivupalkkiin. Kommentinpoistonappi kommentteihin. Conditional-komponentti. Kommentinpoistonappi näkyy vain kommentin omistajalle ja communityn moderaattoreille. react-reduxin connectin kanssa oli ongelmia rekursiivisen kommentti-komponentin kanssa |
 | 4.5.2018      | 2.0h      | getCommentsByCommentId frontend & backend. Kommenttien kanssa iso bugi jonka korjaamisessa oli vaikeuksia. |
 | 5.5.2018      | 1.0h      | Kommenttien poisto backendissä, kommentien kanssa korjattu toinen iso bugi. |
-| 6.5.2018      | 1.0h      | lorem |
+| 6.5.2018      | 1.25h      | lorem |
 | 7.5.2018      | 0.0h      | lorem |
 | 8.5.2018      | 0.0h      | lorem |
 | 9.5.2018      | 0.0h      | lorem |

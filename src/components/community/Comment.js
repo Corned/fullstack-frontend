@@ -22,16 +22,20 @@ class Comment extends React.Component {
 	}
 
 	toggleCollapse = (newState) => {
-		this.setState({ 
-			collapsed: newState || !this.state.collapsed,
-			showReplyForm: false
-		})
+		return () => {
+			this.setState({ 
+				collapsed: newState || !this.state.collapsed,
+				showReplyForm: false
+			})
+		}
 	}
 
 	toggleReply = (newState) => {
-		this.setState({ 
-			showReplyForm: newState || !this.state.showReplyForm 
-		})
+		return () => {
+			this.setState({ 
+				showReplyForm: newState || !this.state.showReplyForm 
+			})
+		}
 	}
 
 	showDeleteButton = () => {
@@ -64,9 +68,16 @@ class Comment extends React.Component {
 				<div className="comment card">
 					<p className="secondary-text">
 						<span>
-							[<span className="clickable clickable--goldenrod" onClick={this.toggleCollpase}>+</span>]&nbsp;
+							[
+								<span 
+									className="clickable clickable--goldenrod" 
+									onClick={this.toggleCollapse()}
+								>+</span>
+							]&nbsp;
+
 							{deleted && deletedMessage}
 							{!deleted && <Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>}
+
 							&nbsp;- 0 points - Submitted {TimeSince(date)}
 						</span>
 					</p>
@@ -81,22 +92,31 @@ class Comment extends React.Component {
 					<div>
 						<p className="secondary-text">
 							<span>
-								[<span className="clickable clickable--goldenrod" onClick={this.toggle}>-</span>]&nbsp;
+								[
+									<span 
+										className="clickable clickable--goldenrod" 
+										onClick={this.toggleCollapse()}
+									>-</span>
+								]&nbsp;
+
 								{deleted && deletedMessage}
 								{!deleted && <Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>}
+								
 								&nbsp;- 0 points - Submitted {TimeSince(date)}
 							</span>
-						</p>					
+						</p>
+
 						<p className="primary-text">
 							{deleted && deletedMessage}
 							{!deleted && body}
 						</p>
+						
 						<p className="tertiary-text">
 							<b>					
 								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
-								<Conditional
-									render={this.showDeleteButton()}
-								><span className="clickable clickable--warn">delet this</span>&nbsp;</Conditional>
+								<Conditional render={this.showDeleteButton()}>
+									<span className="clickable clickable--warn">delet this</span>&nbsp;
+								</Conditional>
 							</b>
 						</p>
 					
