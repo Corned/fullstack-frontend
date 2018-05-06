@@ -32,8 +32,6 @@ const createComment = async (data, token_) => {
 		headers: { "authorization": `bearer ${token_}` }
 	}
 
-	console.table(data)
-
 	const response = await axios.post(baseUrl, data, config)
 	return response.data
 }
