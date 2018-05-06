@@ -16,11 +16,11 @@ import { deleteComment } from "../../reducers/commentReducer"
 class CommentContainer extends Component {
 
 	deleteComment = (id) => {
-		return () => {
+		return async () => {
 			try {
-				this.props.deleteComment(id, this.props.loggedUser.token)
-			} catch (e) {
-				console.log(e.response)
+				await this.props.deleteComment(id, this.props.loggedUserData.token)
+			} catch (exception) {
+				console.log(exception.response.data)
 			}
 		}
 	}
@@ -50,7 +50,7 @@ class CommentContainer extends Component {
 const mapStateToProps = (state) => {
 	return { 
 		"comments": state.commentData.list,
-		"loggedUser": state.loggedUserData.user
+		"loggedUserData": state.loggedUserData
 	}
 }
 

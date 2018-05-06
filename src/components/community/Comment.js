@@ -113,7 +113,7 @@ class Comment extends React.Component {
 
 						<p className="tertiary-text">
 							<b>					
-								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
+								<span className="clickable clickable--goldenrod" onClick={this.toggleReply()}>reply</span>&nbsp;
 								<Conditional render={this.showDeleteButton()}>
 									<span 
 										className="clickable clickable--warn"
