@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 
 import Comment from "./Comment"
 
+import { deleteComment } from "../../reducers/commentReducer"
+
 /*
 
 	CommentContainer
@@ -12,6 +14,18 @@ import Comment from "./Comment"
 */
 
 class CommentContainer extends Component {
+
+	deleteComment = (id) => {
+		return () => {
+			try {
+				this.props.deleteComment(id, this.props.loggedUser.token)
+			} catch (e) {
+				console.log(e.response)
+			}
+		}
+	}
+
+
 	render() {
 		let { comments, parent } = this.props
 		parent = parent === undefined ? null : parent
@@ -21,18 +35,25 @@ class CommentContainer extends Component {
 				if (comment.parent === parent) {
 					return (
 						<Comment 
+							key={comment.id}
 							comment={comment}
+							deleteComment={this.deleteComment}
 						/>
 					)
 				}
+
+				return null
 			})
 		)
 	}
 }
 const mapStateToProps = (state) => {
 	return { 
-		"comments": state.commentData.list
+		"comments": state.commentData.list,
+		"loggedUser": state.loggedUserData.user
 	}
 }
 
-export default connect(mapStateToProps)(CommentContainer)
+const mapDispatchToProps = { deleteComment }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CommentContainer)

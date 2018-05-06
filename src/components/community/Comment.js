@@ -60,8 +60,8 @@ class Comment extends React.Component {
 	}
 
 	render() {
-		const {author, body, replies, post, parent, date, deleted} = this.props.comment
-		const comments = this.props.comments
+		const { comment, comments, deleteComment } = this.props
+		const { author, body, date, deleted, id, parent, post, replies } = this.props.comment
 		
 		if (this.state.collapsed) {
 			return (
@@ -110,12 +110,15 @@ class Comment extends React.Component {
 							{deleted && deletedMessage}
 							{!deleted && body}
 						</p>
-						
+
 						<p className="tertiary-text">
 							<b>					
 								<span className="clickable clickable--goldenrod" onClick={this.toggleReply}>reply</span>&nbsp;
 								<Conditional render={this.showDeleteButton()}>
-									<span className="clickable clickable--warn">delet this</span>&nbsp;
+									<span 
+										className="clickable clickable--warn"
+										onClick={deleteComment(id)}
+									>delete</span>&nbsp;
 								</Conditional>
 							</b>
 						</p>
@@ -126,11 +129,11 @@ class Comment extends React.Component {
 				{this.state.showReplyForm && (
 					<CommentForm 
 						post={post} 
-						comment={this.props.comment}
+						comment={comment}
 					/>
 				)}
 
-				<CommentContainer parent={this.props.comment.id}/>
+				<CommentContainer parent={id}/>
 			</div>
 		)
 	}
