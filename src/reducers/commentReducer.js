@@ -12,8 +12,18 @@ const reducer = (state = initialState, action) => {
 				list: action.data
 			}
 		case "NEW_COMMENT":
+			const newList = state.list.map((comment) => {
+				if (action.data.parent === comment.id) {
+					comment.replies = [ ...comment.replies, action.data.id ]
+					return comment
+				}
+
+				return comment
+			})
+
+
 			return {
-				list: [ ...state.list, action.data ]
+				list: [ ...newList, action.data ]
 			}
 		default:
 			return state
