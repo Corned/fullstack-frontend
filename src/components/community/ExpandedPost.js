@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 
-import Comment from "./Comment"
+import CommentContainer from "./CommentContainer"
 import CommentForm from "../forms/CommentForm"
 import Loading from "../Loading"
 import Post from "./Post"
@@ -56,17 +56,7 @@ class ExpandedPost extends React.Component {
 					<h2>{comments.length} comment{comments.length !== 1 && "s"}</h2>
 
 					<CommentForm post={post}/>
-
-					{comments.map((comment) => {
-						if (comment.parent === null) {
-							return (
-								<Comment 
-									comment={comment} 
-									comments={comments}
-								/>
-							)
-						}
-					})}
+					<CommentContainer/>
 				</div>
 			</div>
 		)

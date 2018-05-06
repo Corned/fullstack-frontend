@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 
+import CommentContainer from "./CommentContainer"
 import CommentForm from "../forms/CommentForm"
 import Conditional from "../Conditional"
 import Voting from "../Voting"
@@ -20,15 +21,17 @@ class Comment extends React.Component {
 		}
 	}
 
-	toggle = () => {
+	toggleCollapse = (newState) => {
 		this.setState({ 
-			collapsed: !this.state.collapsed,
+			collapsed: newState || !this.state.collapsed,
 			showReplyForm: false
 		})
 	}
 
-	toggleReply = () => {
-		this.setState({ showReplyForm: !this.state.showReplyForm })
+	toggleReply = (newState) => {
+		this.setState({ 
+			showReplyForm: newState || !this.state.showReplyForm 
+		})
 	}
 
 	showDeleteButton = () => {
@@ -61,7 +64,7 @@ class Comment extends React.Component {
 				<div className="comment card">
 					<p className="secondary-text">
 						<span>
-							[<span className="clickable clickable--goldenrod" onClick={this.toggle}>+</span>]&nbsp;
+							[<span className="clickable clickable--goldenrod" onClick={this.toggleCollpase}>+</span>]&nbsp;
 							{deleted && deletedMessage}
 							{!deleted && <Link className="clickable clickable--goldenrod" to={`/u/${author.username}`}>{author.username}</Link>}
 							&nbsp;- 0 points - Submitted {TimeSince(date)}
@@ -107,23 +110,7 @@ class Comment extends React.Component {
 					/>
 				)}
 
-				{comments.map((comment) => {
-					if (replies.includes(comment.id)) {
-						{/* 
-							Hacks; react-redux doesn't seem to like recursive components. 
-							Must pass on loggedUser & community like this feelsbadman
-						*/}
-						return (
-							<Comment 
-								comment={comment} 
-								comments={comments}
-								loggedUser={this.props.loggedUser}
-								community={this.props.community}
-							/>
-						)
-					}
-				})}
-
+				<CommentContainer parent={this.props.comment.id}/>
 			</div>
 		)
 	}
@@ -131,6 +118,7 @@ class Comment extends React.Component {
 
 const mapStateToProps = (state) => {
 	return { 
+		"comments": state.commentData.list,
 		"community": state.communityData.current,
 		"loggedUser": state.loggedUserData.user
 	}
