@@ -20,7 +20,7 @@ class CommentContainer extends Component {
 			try {
 				await this.props.deleteComment(id, this.props.loggedUserData.token)
 			} catch (exception) {
-				console.log(exception.response.data)
+				// No need to handle.
 			}
 		}
 	}

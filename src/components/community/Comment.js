@@ -41,6 +41,10 @@ class Comment extends React.Component {
 	showDeleteButton = () => {
 		const { comment, community, loggedUser } = this.props
 
+		if (comment.deleted === true) {
+			return false
+		}
+
 		if (loggedUser === null) {
 			return false
 		}
@@ -115,10 +119,12 @@ class Comment extends React.Component {
 							<b>					
 								<span className="clickable clickable--goldenrod" onClick={this.toggleReply()}>reply</span>&nbsp;
 								<Conditional render={this.showDeleteButton()}>
-									<span 
-										className="clickable clickable--warn"
-										onClick={deleteComment(id)}
-									>delete</span>&nbsp;
+									{!deleted && 
+										<span 
+											className="clickable clickable--warn"
+											onClick={deleteComment(id)}
+										>delete</span>
+									}
 								</Conditional>
 							</b>
 						</p>
