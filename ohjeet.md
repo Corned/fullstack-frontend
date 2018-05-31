@@ -68,4 +68,4 @@ Kommenttin voi poistaa kommentin kirjoittaja tai yhteisön moderaattori. Päivit
 
 ## Huom
 
-_Osa sivulla olevista elementeistä ei omaa toiminnallisuutta. Näihin kuuluu äänestysnapit, yhteisöönliittymisnappi ja hakupalkki._
+_Osa sivulla olevista elementeistä ei omaa toiminnallisuutta. Näihin kuuluu äänestysnapit, yhteisöönliittymisnappi, sisällön sorttaus ja hakupalkki._
