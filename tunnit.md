@@ -34,4 +34,7 @@
 | 4.5.2018      | 2.0h      | getCommentsByCommentId frontend & backend. Kommenttien kanssa iso bugi jonka korjaamisessa oli vaikeuksia. |
 | 5.5.2018      | 1.0h      | Kommenttien poisto backendissä, kommentien kanssa korjattu toinen iso bugi. |
 | 6.5.2018      | 3.0h      | Kommentti lisätään vihdoin sivulle välittömäsi kun vastataan kommenttiin, kommentin refaktorointi + bugikorjaus, kommentin voi poistaa kommentin kirjoittaja tai communityn moderaattori |
-| 31.5.2018     | 1.0h      | Frontend buildattu ja heitetty herokuun. Pieni fix, GET /* heitti 404 |
+| 31.5.2018     | 1.0h      | Frontend buildattu ja heitetty herokuun. Backend: Pieni fix, GET /* heitti 404 |
+
+Yhteensä 109.5h
+
