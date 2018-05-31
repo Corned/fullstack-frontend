@@ -44,7 +44,7 @@ class Frontpage extends React.Component {
 		)
 		*/
 
-		if (true) {
+		if (false) {
 			return <p>Frontpage is temporarily disabled</p>
 		}
 		

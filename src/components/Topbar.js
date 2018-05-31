@@ -49,7 +49,7 @@ class Topbar extends React.Component {
 
 					<input 
 						className="search-bar"
-						placeholder="search for stuff 'n' shit"
+						placeholder="placeholder search :)"
 					/>
 	
 					<div>
