@@ -1,6 +1,6 @@
 # Cordial
 
-[cordial](http://cordial-.herokuapp.com/)
+[cordial](https://cordial-5662.herokuapp.com)
 
 ## Lyhyt kuvaus
 
